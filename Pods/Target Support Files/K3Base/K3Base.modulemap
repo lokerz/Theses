@@ -1,0 +1,6 @@
+framework module K3Base {
+  umbrella header "K3Base-umbrella.h"
+
+  export *
+  module * { export * }
+}

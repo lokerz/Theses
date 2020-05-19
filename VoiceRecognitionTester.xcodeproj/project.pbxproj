@@ -3,29 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BAE55E1C69F289E424EB781 /* Pods_VoiceRecognitionTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */; };
+		479443D6241E0BD500C52E2E /* HSK1.json in Resources */ = {isa = PBXBuildFile; fileRef = 479443D5241E0BD500C52E2E /* HSK1.json */; };
+		479443D8241E0BF300C52E2E /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D7241E0BF300C52E2E /* WordModel.swift */; };
+		479443DA241E0C5500C52E2E /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D9241E0C5500C52E2E /* WordManager.swift */; };
+		479443DD241E13F200C52E2E /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443DC241E13F200C52E2E /* UIString.swift */; };
 		47A8CA8A240E2129006BD206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CA89240E2129006BD206 /* AppDelegate.swift */; };
 		47A8CA8C240E2129006BD206 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CA8B240E2129006BD206 /* SceneDelegate.swift */; };
 		47A8CA8E240E2129006BD206 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CA8D240E2129006BD206 /* ViewController.swift */; };
-		47A8CA91240E2129006BD206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A8CA8F240E2129006BD206 /* Main.storyboard */; };
 		47A8CA94240E2129006BD206 /* VoiceRecognitionTester.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CA92240E2129006BD206 /* VoiceRecognitionTester.xcdatamodeld */; };
 		47A8CA96240E212C006BD206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47A8CA95240E212C006BD206 /* Assets.xcassets */; };
 		47A8CA99240E212C006BD206 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A8CA97240E212C006BD206 /* LaunchScreen.storyboard */; };
+		47A8CAA5240E21AC006BD206 /* VoiceRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CAA4240E21AC006BD206 /* VoiceRecognitionManager.swift */; };
+		47E6E7DF2442E5E5009D6633 /* GameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E6E7DD2442E5E5009D6633 /* GameplayViewController.swift */; };
+		47E6E7E02442E5E5009D6633 /* GameplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E6E7DE2442E5E5009D6633 /* GameplayViewController.xib */; };
+		47FAADE6247121C000472275 /* 3DAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 47FAADE5247121C000472275 /* 3DAssets.scnassets */; };
+		47FAADE82471249700472275 /* GameplayUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FAADE72471249700472275 /* GameplayUIView.swift */; };
+		47FAADEA247124A600472275 /* GameplayUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FAADE9247124A600472275 /* GameplayUIView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoiceRecognitionTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		479443D5241E0BD500C52E2E /* HSK1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HSK1.json; sourceTree = "<group>"; };
+		479443D7241E0BF300C52E2E /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+		479443D9241E0C5500C52E2E /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
+		479443DC241E13F200C52E2E /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
 		47A8CA86240E2129006BD206 /* VoiceRecognitionTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecognitionTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A8CA89240E2129006BD206 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47A8CA8B240E2129006BD206 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		47A8CA8D240E2129006BD206 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		47A8CA90240E2129006BD206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47A8CA93240E2129006BD206 /* VoiceRecognitionTester.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VoiceRecognitionTester.xcdatamodel; sourceTree = "<group>"; };
 		47A8CA95240E212C006BD206 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47A8CA98240E212C006BD206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47A8CA9A240E212C006BD206 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47A8CAA4240E21AC006BD206 /* VoiceRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecognitionManager.swift; sourceTree = "<group>"; };
+		47E6E7DD2442E5E5009D6633 /* GameplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayViewController.swift; sourceTree = "<group>"; };
+		47E6E7DE2442E5E5009D6633 /* GameplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameplayViewController.xib; sourceTree = "<group>"; };
+		47FAADE5247121C000472275 /* 3DAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = 3DAssets.scnassets; sourceTree = "<group>"; };
+		47FAADE72471249700472275 /* GameplayUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayUIView.swift; sourceTree = "<group>"; };
+		47FAADE9247124A600472275 /* GameplayUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameplayUIView.xib; sourceTree = "<group>"; };
+		9838D739FB1B27C676A86DBF /* Pods-VoiceRecognitionTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceRecognitionTester.release.xcconfig"; path = "Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester.release.xcconfig"; sourceTree = "<group>"; };
+		F0AED14FA18823D7B980A35E /* Pods-VoiceRecognitionTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceRecognitionTester.debug.xcconfig"; path = "Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +55,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAE55E1C69F289E424EB781 /* Pods_VoiceRecognitionTester.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		479443DB241E13E600C52E2E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				479443DC241E13F200C52E2E /* UIString.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		47A8CA7D240E2129006BD206 = {
 			isa = PBXGroup;
 			children = (
 				47A8CA88240E2129006BD206 /* VoiceRecognitionTester */,
 				47A8CA87240E2129006BD206 /* Products */,
+				C4210CE1DA9BEFD28F5DAF81 /* Pods */,
+				CB23CD75AE5C5C4A9609CCE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +91,114 @@
 		47A8CA88240E2129006BD206 /* VoiceRecognitionTester */ = {
 			isa = PBXGroup;
 			children = (
-				47A8CA89240E2129006BD206 /* AppDelegate.swift */,
 				47A8CA8B240E2129006BD206 /* SceneDelegate.swift */,
-				47A8CA8D240E2129006BD206 /* ViewController.swift */,
-				47A8CA8F240E2129006BD206 /* Main.storyboard */,
-				47A8CA95240E212C006BD206 /* Assets.xcassets */,
-				47A8CA97240E212C006BD206 /* LaunchScreen.storyboard */,
+				47A8CA89240E2129006BD206 /* AppDelegate.swift */,
+				47E6E7DA2442E51B009D6633 /* Module */,
+				479443DB241E13E600C52E2E /* Helper */,
+				47A8CAA3240E2186006BD206 /* Model */,
+				47A8CAA0240E2172006BD206 /* Service */,
 				47A8CA9A240E212C006BD206 /* Info.plist */,
 				47A8CA92240E2129006BD206 /* VoiceRecognitionTester.xcdatamodeld */,
 			);
 			path = VoiceRecognitionTester;
+			sourceTree = "<group>";
+		};
+		47A8CAA0240E2172006BD206 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		47A8CAA1240E217C006BD206 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47A8CA97240E212C006BD206 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		47A8CAA2240E2181006BD206 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				47A8CA8D240E2129006BD206 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		47A8CAA3240E2186006BD206 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				479443D5241E0BD500C52E2E /* HSK1.json */,
+				47A8CAA4240E21AC006BD206 /* VoiceRecognitionManager.swift */,
+				479443D7241E0BF300C52E2E /* WordModel.swift */,
+				479443D9241E0C5500C52E2E /* WordManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		47E6E7D92442E505009D6633 /* VoiceTester */ = {
+			isa = PBXGroup;
+			children = (
+				47A8CAA2240E2181006BD206 /* Controller */,
+				47A8CAA1240E217C006BD206 /* View */,
+			);
+			path = VoiceTester;
+			sourceTree = "<group>";
+		};
+		47E6E7DA2442E51B009D6633 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				47E6E7DB2442E522009D6633 /* Game */,
+				47E6E7D92442E505009D6633 /* VoiceTester */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		47E6E7DB2442E522009D6633 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				47FAADE42471218600472275 /* Scene */,
+				47A8CA95240E212C006BD206 /* Assets.xcassets */,
+				47FAADE5247121C000472275 /* 3DAssets.scnassets */,
+				47E6E7DC2442E52B009D6633 /* View */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		47E6E7DC2442E52B009D6633 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47E6E7DD2442E5E5009D6633 /* GameplayViewController.swift */,
+				47E6E7DE2442E5E5009D6633 /* GameplayViewController.xib */,
+				47FAADE72471249700472275 /* GameplayUIView.swift */,
+				47FAADE9247124A600472275 /* GameplayUIView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		47FAADE42471218600472275 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		C4210CE1DA9BEFD28F5DAF81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0AED14FA18823D7B980A35E /* Pods-VoiceRecognitionTester.debug.xcconfig */,
+				9838D739FB1B27C676A86DBF /* Pods-VoiceRecognitionTester.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CB23CD75AE5C5C4A9609CCE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +208,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47A8CA9D240E212C006BD206 /* Build configuration list for PBXNativeTarget "VoiceRecognitionTester" */;
 			buildPhases = (
+				C02FE7D03F0D0D6FAC72F48B /* [CP] Check Pods Manifest.lock */,
 				47A8CA82240E2129006BD206 /* Sources */,
 				47A8CA83240E2129006BD206 /* Frameworks */,
 				47A8CA84240E2129006BD206 /* Resources */,
+				2480279808F72FFB29DD40DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,12 +262,57 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A8CA99240E212C006BD206 /* LaunchScreen.storyboard in Resources */,
+				47FAADEA247124A600472275 /* GameplayUIView.xib in Resources */,
+				47FAADE6247121C000472275 /* 3DAssets.scnassets in Resources */,
 				47A8CA96240E212C006BD206 /* Assets.xcassets in Resources */,
-				47A8CA91240E2129006BD206 /* Main.storyboard in Resources */,
+				479443D6241E0BD500C52E2E /* HSK1.json in Resources */,
+				47E6E7E02442E5E5009D6633 /* GameplayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2480279808F72FFB29DD40DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C02FE7D03F0D0D6FAC72F48B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VoiceRecognitionTester-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		47A8CA82240E2129006BD206 /* Sources */ = {
@@ -142,8 +320,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A8CA8E240E2129006BD206 /* ViewController.swift in Sources */,
+				47A8CAA5240E21AC006BD206 /* VoiceRecognitionManager.swift in Sources */,
+				47E6E7DF2442E5E5009D6633 /* GameplayViewController.swift in Sources */,
+				479443D8241E0BF300C52E2E /* WordModel.swift in Sources */,
 				47A8CA94240E2129006BD206 /* VoiceRecognitionTester.xcdatamodeld in Sources */,
 				47A8CA8A240E2129006BD206 /* AppDelegate.swift in Sources */,
+				47FAADE82471249700472275 /* GameplayUIView.swift in Sources */,
+				479443DA241E0C5500C52E2E /* WordManager.swift in Sources */,
+				479443DD241E13F200C52E2E /* UIString.swift in Sources */,
 				47A8CA8C240E2129006BD206 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +335,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		47A8CA8F240E2129006BD206 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				47A8CA90240E2129006BD206 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		47A8CA97240E212C006BD206 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -286,6 +462,7 @@
 		};
 		47A8CA9E240E212C006BD206 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0AED14FA18823D7B980A35E /* Pods-VoiceRecognitionTester.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +481,7 @@
 		};
 		47A8CA9F240E212C006BD206 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9838D739FB1B27C676A86DBF /* Pods-VoiceRecognitionTester.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

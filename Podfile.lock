@@ -1,0 +1,20 @@
+PODS:
+  - K3Base (0.0.4)
+  - K3Pinyin (0.0.4):
+    - K3Base
+
+DEPENDENCIES:
+  - K3Pinyin (~> 0.0.2)
+
+SPEC REPOS:
+  trunk:
+    - K3Base
+    - K3Pinyin
+
+SPEC CHECKSUMS:
+  K3Base: 1e689b3e1ec725368ba2c25881de13d576702242
+  K3Pinyin: 3f46639b1bf099dfa33b97af9268e71891f8bc53
+
+PODFILE CHECKSUM: a2194cb8e7ef218294da6950d6efecb9d8aacb43
+
+COCOAPODS: 1.9.1

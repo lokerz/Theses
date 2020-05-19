@@ -1,0 +1,6 @@
+framework module Pods_VoiceRecognitionTester {
+  umbrella header "Pods-VoiceRecognitionTester-umbrella.h"
+
+  export *
+  module * { export * }
+}

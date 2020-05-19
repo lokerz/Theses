@@ -1,0 +1,813 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A8739CC4BD924045005E107FC319379 /* Pods-VoiceRecognitionTester-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 683C0EA997C68542A70138E558F566D3 /* Pods-VoiceRecognitionTester-dummy.m */; };
+		472AA9C3A336CAE1CFACCB12F7089D0E /* Pods-VoiceRecognitionTester-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D199FDC8CAD7E845757923945CE148F5 /* Pods-VoiceRecognitionTester-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F1374EBE9EDEAA33E9C93E9A211D4C5 /* K3Pinyin.h in Headers */ = {isa = PBXBuildFile; fileRef = 866A05F192F85797BABBEFD3A167594A /* K3Pinyin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6990528CF0AFC1812FF0C0F140219010 /* K3Base-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B28D7A85661621E29CC770F473F6F2 /* K3Base-dummy.m */; };
+		6EB5B6EBF4C6BFA4C7E0093C6AEE0A4F /* K3Pinyin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AC7847079D877F651ABAA7891FD136 /* K3Pinyin-dummy.m */; };
+		7DED4370C0A69B00E39E69C37A5F3675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6096696B8FF42AD4A21F2DD77A1DFC5B /* Foundation.framework */; };
+		A6B0BE1B9351D1FC2072B851556A7186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6096696B8FF42AD4A21F2DD77A1DFC5B /* Foundation.framework */; };
+		A9F4A15D5ADFF806F845E8E0959E6832 /* K3Compatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0318323CEDE62FCD727D783D4413E8AA /* K3Compatible.swift */; };
+		AB800DFDFB47357E0988896C97658895 /* K3Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60ADC8156AD7445EB3C59665423A2FBA /* K3Base.framework */; };
+		BEDC146685CE6E64D3203918EC98C3D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6096696B8FF42AD4A21F2DD77A1DFC5B /* Foundation.framework */; };
+		BFA4C28BDDB679279C251D1BBFD18A4B /* K3Pinyin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2087098056DA3978547FC2CAA35FCCB4 /* K3Pinyin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3CE11132904DAE93D79FE7099059BA6 /* K3Base-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA7338479CB24868C1ABB70473B54F54 /* K3Base-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF9A3C1B8D7BA51594F7049C3205B4D2 /* K3Pinyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66B71966F37E410CF1846069744C57B /* K3Pinyin.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12614077B60F5F4BF39DA437EF09E4C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 427DE649144B2C1A468F9A0041DC814A;
+			remoteInfo = K3Pinyin;
+		};
+		4FBB4E86ACCDBFC65CCD8269AA66FAE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 297FB50CD457EAF73C9F6E36302DDC91;
+			remoteInfo = K3Base;
+		};
+		F0DB986887F15C561AB37A8F818450DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 297FB50CD457EAF73C9F6E36302DDC91;
+			remoteInfo = K3Base;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0318323CEDE62FCD727D783D4413E8AA /* K3Compatible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = K3Compatible.swift; path = Sources/K3Compatible.swift; sourceTree = "<group>"; };
+		05DC78E5E678ACABFA4D8775272A6914 /* K3Base.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = K3Base.release.xcconfig; sourceTree = "<group>"; };
+		16DCBC8F28DF0E0EDF7ED151B6AFC551 /* K3Pinyin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = K3Pinyin.release.xcconfig; sourceTree = "<group>"; };
+		2087098056DA3978547FC2CAA35FCCB4 /* K3Pinyin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "K3Pinyin-umbrella.h"; sourceTree = "<group>"; };
+		3CEF2369EAE454705B5AE39F2F4266C1 /* K3Base-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "K3Base-Info.plist"; sourceTree = "<group>"; };
+		4AA9759D2A006AC33D8CE4BE74E323EF /* K3Base-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "K3Base-prefix.pch"; sourceTree = "<group>"; };
+		598EC3D9525760FFFEDA6BF56EF6943D /* Pods-VoiceRecognitionTester-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VoiceRecognitionTester-acknowledgements.plist"; sourceTree = "<group>"; };
+		5B337B8A6899D40E5AB51F25B6DB2F2F /* Pods-VoiceRecognitionTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VoiceRecognitionTester.release.xcconfig"; sourceTree = "<group>"; };
+		6096696B8FF42AD4A21F2DD77A1DFC5B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		60ADC8156AD7445EB3C59665423A2FBA /* K3Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = K3Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		629AA9F42F69D95BC7651537877530A0 /* K3Base.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = K3Base.debug.xcconfig; sourceTree = "<group>"; };
+		683C0EA997C68542A70138E558F566D3 /* Pods-VoiceRecognitionTester-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VoiceRecognitionTester-dummy.m"; sourceTree = "<group>"; };
+		755A1678B3D7F593F13B6BA87326A422 /* Pods-VoiceRecognitionTester-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VoiceRecognitionTester-frameworks.sh"; sourceTree = "<group>"; };
+		7A1245073CEBB609A8E3F969AB982A20 /* Pods-VoiceRecognitionTester-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VoiceRecognitionTester-Info.plist"; sourceTree = "<group>"; };
+		82BEECB01A1354C989EE0DEB7E23E74E /* Pods_VoiceRecognitionTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VoiceRecognitionTester.framework; path = "Pods-VoiceRecognitionTester.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		866A05F192F85797BABBEFD3A167594A /* K3Pinyin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = K3Pinyin.h; path = K3Pinyin/K3Pinyin.h; sourceTree = "<group>"; };
+		885F4AE80112C6599C4C917FCD4CEC4F /* K3Pinyin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = K3Pinyin.debug.xcconfig; sourceTree = "<group>"; };
+		9029C059087159D3EBF47F73C6F7B02A /* K3Pinyin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "K3Pinyin-prefix.pch"; sourceTree = "<group>"; };
+		91AC7847079D877F651ABAA7891FD136 /* K3Pinyin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "K3Pinyin-dummy.m"; sourceTree = "<group>"; };
+		95226961A894AECB0B9C5E30E9369EB4 /* Pods-VoiceRecognitionTester.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VoiceRecognitionTester.modulemap"; sourceTree = "<group>"; };
+		96B28D7A85661621E29CC770F473F6F2 /* K3Base-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "K3Base-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E7E243AC1BCED9ABB5EDFB053295BFD /* K3Base.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = K3Base.modulemap; sourceTree = "<group>"; };
+		A03DD3FFA3A8814061EB0D0E042076C7 /* Pods-VoiceRecognitionTester-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VoiceRecognitionTester-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AAE50D1A1BEF738E164567A2DDA074C0 /* Pods-VoiceRecognitionTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VoiceRecognitionTester.debug.xcconfig"; sourceTree = "<group>"; };
+		AD1C31CFDF21E239C55301859507B731 /* K3Pinyin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "K3Pinyin-Info.plist"; sourceTree = "<group>"; };
+		B8ECBC6E48EB32165A144EEB3D1FC215 /* K3Pinyin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = K3Pinyin.modulemap; sourceTree = "<group>"; };
+		D199FDC8CAD7E845757923945CE148F5 /* Pods-VoiceRecognitionTester-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VoiceRecognitionTester-umbrella.h"; sourceTree = "<group>"; };
+		D66B71966F37E410CF1846069744C57B /* K3Pinyin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = K3Pinyin.swift; path = K3Pinyin/K3Pinyin.swift; sourceTree = "<group>"; };
+		EC59AFBFE6D55D4F5A52EBF48BD9E9FC /* K3Pinyin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = K3Pinyin.framework; path = K3Pinyin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2B8A9536636077CD72B420D87138835 /* K3Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = K3Base.framework; path = K3Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7338479CB24868C1ABB70473B54F54 /* K3Base-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "K3Base-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43F1E3804C54B2128F872838B2939995 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEDC146685CE6E64D3203918EC98C3D8 /* Foundation.framework in Frameworks */,
+				AB800DFDFB47357E0988896C97658895 /* K3Base.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85F06B39D612F35D4A1C108FEA7C252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DED4370C0A69B00E39E69C37A5F3675 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D43EEC03110886A0C805AC53B711E4B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6B0BE1B9351D1FC2072B851556A7186 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034358805CC0139FC2F24898F0202A50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60ADC8156AD7445EB3C59665423A2FBA /* K3Base.framework */,
+				0A06777C375F12DF90C427BB50B98F44 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A06777C375F12DF90C427BB50B98F44 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6096696B8FF42AD4A21F2DD77A1DFC5B /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		19EDB853877CC0F499E1549C6D208A70 /* K3Pinyin */ = {
+			isa = PBXGroup;
+			children = (
+				866A05F192F85797BABBEFD3A167594A /* K3Pinyin.h */,
+				D66B71966F37E410CF1846069744C57B /* K3Pinyin.swift */,
+				1C31B1B7988FDAD6BBD8372AF2CFECD2 /* Support Files */,
+			);
+			name = K3Pinyin;
+			path = K3Pinyin;
+			sourceTree = "<group>";
+		};
+		1C31B1B7988FDAD6BBD8372AF2CFECD2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8ECBC6E48EB32165A144EEB3D1FC215 /* K3Pinyin.modulemap */,
+				91AC7847079D877F651ABAA7891FD136 /* K3Pinyin-dummy.m */,
+				AD1C31CFDF21E239C55301859507B731 /* K3Pinyin-Info.plist */,
+				9029C059087159D3EBF47F73C6F7B02A /* K3Pinyin-prefix.pch */,
+				2087098056DA3978547FC2CAA35FCCB4 /* K3Pinyin-umbrella.h */,
+				885F4AE80112C6599C4C917FCD4CEC4F /* K3Pinyin.debug.xcconfig */,
+				16DCBC8F28DF0E0EDF7ED151B6AFC551 /* K3Pinyin.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/K3Pinyin";
+			sourceTree = "<group>";
+		};
+		3BDFE4913CD7D933A3432D5DD7E40317 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				61A4B4FEE4A8D1BC2F35ADB56B18DEA1 /* Pods-VoiceRecognitionTester */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4036BC80E7B76ED137F3267057C83F60 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E7E243AC1BCED9ABB5EDFB053295BFD /* K3Base.modulemap */,
+				96B28D7A85661621E29CC770F473F6F2 /* K3Base-dummy.m */,
+				3CEF2369EAE454705B5AE39F2F4266C1 /* K3Base-Info.plist */,
+				4AA9759D2A006AC33D8CE4BE74E323EF /* K3Base-prefix.pch */,
+				FA7338479CB24868C1ABB70473B54F54 /* K3Base-umbrella.h */,
+				629AA9F42F69D95BC7651537877530A0 /* K3Base.debug.xcconfig */,
+				05DC78E5E678ACABFA4D8775272A6914 /* K3Base.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/K3Base";
+			sourceTree = "<group>";
+		};
+		4F52A19A6F85DFD89992A5E1E04948CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4363EF929D457B3B9D48BA9AA4A7F8F /* K3Base */,
+				19EDB853877CC0F499E1549C6D208A70 /* K3Pinyin */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		61A4B4FEE4A8D1BC2F35ADB56B18DEA1 /* Pods-VoiceRecognitionTester */ = {
+			isa = PBXGroup;
+			children = (
+				95226961A894AECB0B9C5E30E9369EB4 /* Pods-VoiceRecognitionTester.modulemap */,
+				A03DD3FFA3A8814061EB0D0E042076C7 /* Pods-VoiceRecognitionTester-acknowledgements.markdown */,
+				598EC3D9525760FFFEDA6BF56EF6943D /* Pods-VoiceRecognitionTester-acknowledgements.plist */,
+				683C0EA997C68542A70138E558F566D3 /* Pods-VoiceRecognitionTester-dummy.m */,
+				755A1678B3D7F593F13B6BA87326A422 /* Pods-VoiceRecognitionTester-frameworks.sh */,
+				7A1245073CEBB609A8E3F969AB982A20 /* Pods-VoiceRecognitionTester-Info.plist */,
+				D199FDC8CAD7E845757923945CE148F5 /* Pods-VoiceRecognitionTester-umbrella.h */,
+				AAE50D1A1BEF738E164567A2DDA074C0 /* Pods-VoiceRecognitionTester.debug.xcconfig */,
+				5B337B8A6899D40E5AB51F25B6DB2F2F /* Pods-VoiceRecognitionTester.release.xcconfig */,
+			);
+			name = "Pods-VoiceRecognitionTester";
+			path = "Target Support Files/Pods-VoiceRecognitionTester";
+			sourceTree = "<group>";
+		};
+		B1DEFFF879EA457AD407989311057C0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8A9536636077CD72B420D87138835 /* K3Base.framework */,
+				EC59AFBFE6D55D4F5A52EBF48BD9E9FC /* K3Pinyin.framework */,
+				82BEECB01A1354C989EE0DEB7E23E74E /* Pods_VoiceRecognitionTester.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4363EF929D457B3B9D48BA9AA4A7F8F /* K3Base */ = {
+			isa = PBXGroup;
+			children = (
+				0318323CEDE62FCD727D783D4413E8AA /* K3Compatible.swift */,
+				4036BC80E7B76ED137F3267057C83F60 /* Support Files */,
+			);
+			name = K3Base;
+			path = K3Base;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				034358805CC0139FC2F24898F0202A50 /* Frameworks */,
+				4F52A19A6F85DFD89992A5E1E04948CF /* Pods */,
+				B1DEFFF879EA457AD407989311057C0E /* Products */,
+				3BDFE4913CD7D933A3432D5DD7E40317 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0E242DC827DD9B552AF088507F819C25 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFA4C28BDDB679279C251D1BBFD18A4B /* K3Pinyin-umbrella.h in Headers */,
+				4F1374EBE9EDEAA33E9C93E9A211D4C5 /* K3Pinyin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29952B8C6714D8B96E05560FA958ACF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				472AA9C3A336CAE1CFACCB12F7089D0E /* Pods-VoiceRecognitionTester-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C84F5FE9DCCA13E9F6303E637343D330 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3CE11132904DAE93D79FE7099059BA6 /* K3Base-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		297FB50CD457EAF73C9F6E36302DDC91 /* K3Base */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48F6B592EFDF15590F70F40705BE657B /* Build configuration list for PBXNativeTarget "K3Base" */;
+			buildPhases = (
+				C84F5FE9DCCA13E9F6303E637343D330 /* Headers */,
+				C0F798B89D4F3D860DD5CE7025D930AE /* Sources */,
+				D43EEC03110886A0C805AC53B711E4B1 /* Frameworks */,
+				0007BE770AE54268D912EEC66B50885C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = K3Base;
+			productName = K3Base;
+			productReference = F2B8A9536636077CD72B420D87138835 /* K3Base.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		427DE649144B2C1A468F9A0041DC814A /* K3Pinyin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A65F63C9692399774E950D516203D2B /* Build configuration list for PBXNativeTarget "K3Pinyin" */;
+			buildPhases = (
+				0E242DC827DD9B552AF088507F819C25 /* Headers */,
+				292361CC30F923BF70D766C75DB113E4 /* Sources */,
+				43F1E3804C54B2128F872838B2939995 /* Frameworks */,
+				DB657B5324FA31C09758A0AE08C2DF5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A60796F143A500F3C87F964A42155A76 /* PBXTargetDependency */,
+			);
+			name = K3Pinyin;
+			productName = K3Pinyin;
+			productReference = EC59AFBFE6D55D4F5A52EBF48BD9E9FC /* K3Pinyin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		73B1FD615B36E12084AFD7451B2472F1 /* Pods-VoiceRecognitionTester */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 707C4B049405F9402BCC8F8CAE489869 /* Build configuration list for PBXNativeTarget "Pods-VoiceRecognitionTester" */;
+			buildPhases = (
+				C29952B8C6714D8B96E05560FA958ACF /* Headers */,
+				DCA5F6CEA15ED42C9A2F4EDA5398893B /* Sources */,
+				B85F06B39D612F35D4A1C108FEA7C252 /* Frameworks */,
+				A506DEF562E3067D13307DCF79EA30C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00C163E67D234CB65BA1495EDFBC2134 /* PBXTargetDependency */,
+				BA10788A62952058F9CEA9DF037B0A86 /* PBXTargetDependency */,
+			);
+			name = "Pods-VoiceRecognitionTester";
+			productName = "Pods-VoiceRecognitionTester";
+			productReference = 82BEECB01A1354C989EE0DEB7E23E74E /* Pods_VoiceRecognitionTester.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = B1DEFFF879EA457AD407989311057C0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				297FB50CD457EAF73C9F6E36302DDC91 /* K3Base */,
+				427DE649144B2C1A468F9A0041DC814A /* K3Pinyin */,
+				73B1FD615B36E12084AFD7451B2472F1 /* Pods-VoiceRecognitionTester */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0007BE770AE54268D912EEC66B50885C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A506DEF562E3067D13307DCF79EA30C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB657B5324FA31C09758A0AE08C2DF5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		292361CC30F923BF70D766C75DB113E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB5B6EBF4C6BFA4C7E0093C6AEE0A4F /* K3Pinyin-dummy.m in Sources */,
+				FF9A3C1B8D7BA51594F7049C3205B4D2 /* K3Pinyin.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0F798B89D4F3D860DD5CE7025D930AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6990528CF0AFC1812FF0C0F140219010 /* K3Base-dummy.m in Sources */,
+				A9F4A15D5ADFF806F845E8E0959E6832 /* K3Compatible.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA5F6CEA15ED42C9A2F4EDA5398893B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A8739CC4BD924045005E107FC319379 /* Pods-VoiceRecognitionTester-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00C163E67D234CB65BA1495EDFBC2134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = K3Base;
+			target = 297FB50CD457EAF73C9F6E36302DDC91 /* K3Base */;
+			targetProxy = F0DB986887F15C561AB37A8F818450DD /* PBXContainerItemProxy */;
+		};
+		A60796F143A500F3C87F964A42155A76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = K3Base;
+			target = 297FB50CD457EAF73C9F6E36302DDC91 /* K3Base */;
+			targetProxy = 4FBB4E86ACCDBFC65CCD8269AA66FAE2 /* PBXContainerItemProxy */;
+		};
+		BA10788A62952058F9CEA9DF037B0A86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = K3Pinyin;
+			target = 427DE649144B2C1A468F9A0041DC814A /* K3Pinyin */;
+			targetProxy = 12614077B60F5F4BF39DA437EF09E4C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A25F729BD9AA3123CAC778F1792275A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 885F4AE80112C6599C4C917FCD4CEC4F /* K3Pinyin.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/K3Pinyin/K3Pinyin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/K3Pinyin/K3Pinyin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/K3Pinyin/K3Pinyin.modulemap";
+				PRODUCT_MODULE_NAME = K3Pinyin;
+				PRODUCT_NAME = K3Pinyin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0BE2714FDD817D4607B59F294FFB70CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAE50D1A1BEF738E164567A2DDA074C0 /* Pods-VoiceRecognitionTester.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3931E72BBEF47C933A3DE38AC2142B91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05DC78E5E678ACABFA4D8775272A6914 /* K3Base.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/K3Base/K3Base-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/K3Base/K3Base-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/K3Base/K3Base.modulemap";
+				PRODUCT_MODULE_NAME = K3Base;
+				PRODUCT_NAME = K3Base;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		52F4179FC51F9EF44FE40B15E1152869 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16DCBC8F28DF0E0EDF7ED151B6AFC551 /* K3Pinyin.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/K3Pinyin/K3Pinyin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/K3Pinyin/K3Pinyin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/K3Pinyin/K3Pinyin.modulemap";
+				PRODUCT_MODULE_NAME = K3Pinyin;
+				PRODUCT_NAME = K3Pinyin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		62F4560B0AF69755FD20A30B5CC2A76B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 629AA9F42F69D95BC7651537877530A0 /* K3Base.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/K3Base/K3Base-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/K3Base/K3Base-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/K3Base/K3Base.modulemap";
+				PRODUCT_MODULE_NAME = K3Base;
+				PRODUCT_NAME = K3Base;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A2548BAD5F3CB46CD844A3B3526B122C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B337B8A6899D40E5AB51F25B6DB2F2F /* Pods-VoiceRecognitionTester.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VoiceRecognitionTester/Pods-VoiceRecognitionTester.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
+				ECB437504DF805BD96CAABF97400B526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48F6B592EFDF15590F70F40705BE657B /* Build configuration list for PBXNativeTarget "K3Base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62F4560B0AF69755FD20A30B5CC2A76B /* Debug */,
+				3931E72BBEF47C933A3DE38AC2142B91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A65F63C9692399774E950D516203D2B /* Build configuration list for PBXNativeTarget "K3Pinyin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A25F729BD9AA3123CAC778F1792275A /* Debug */,
+				52F4179FC51F9EF44FE40B15E1152869 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		707C4B049405F9402BCC8F8CAE489869 /* Build configuration list for PBXNativeTarget "Pods-VoiceRecognitionTester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BE2714FDD817D4607B59F294FFB70CD /* Debug */,
+				A2548BAD5F3CB46CD844A3B3526B122C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

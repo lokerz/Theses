@@ -1,0 +1,6 @@
+framework module K3Pinyin {
+  umbrella header "K3Pinyin-umbrella.h"
+
+  export *
+  module * { export * }
+}
