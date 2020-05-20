@@ -13,6 +13,7 @@ class GameplayUIView: UIView {
     @IBOutlet weak var lblMandarin: UILabel!
     @IBOutlet weak var lblLatin: UILabel!
     @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     var i = 0
     var arrIndex = [Int]()
@@ -21,6 +22,10 @@ class GameplayUIView: UIView {
     let language = "zh-CN"
     let voiceManager = VoiceRecognitionManager.instance
     let wordManager = WordManager.instance
+    
+    let TIME_OUT: Double = 5
+    var timeRemaining = Double()
+    var timer = Timer()
     
     var startAction: () -> Void = {}
     
@@ -47,6 +52,7 @@ class GameplayUIView: UIView {
         self.hideLabel(state: true)
         self.setupVoice()
         self.setupIndex()
+        self.setupProgressBar()
     }
     
     func setupVoice(){
@@ -59,7 +65,12 @@ class GameplayUIView: UIView {
         for i in 0..<self.wordManager.words.count{
             self.arrIndex.append(i)
         }
-        self.arrIndex.shuffle()
+        //        self.arrIndex.shuffle()
+    }
+    
+    func setupProgressBar(){        self.progressBar.layer.masksToBounds = false
+        self.progressBar.layer.cornerRadius = 5
+        self.progressBar.progress = 1
     }
     
     func setupWords(){
@@ -72,6 +83,21 @@ class GameplayUIView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.resetLabel()
             self.setupWords()
+            self.startTimer()
+        }
+    }
+    
+    func startTimer(){
+        self.progressBar.progress = 1
+        self.timeRemaining = self.TIME_OUT
+        self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func runningTimer(){
+        self.timeRemaining -= 0.001
+        self.progressBar.setProgress(Float(self.timeRemaining / self.TIME_OUT), animated: true)
+        if timeRemaining <= 0 {
+            self.lose()
         }
     }
     
@@ -89,14 +115,29 @@ class GameplayUIView: UIView {
         self.lblMandarin.textColor = .white
         self.lblLatin.textColor = .white
     }
-
+    
     @IBAction func actionStart(_ sender: Any) {
         self.startAction()
         self.setupWords()
+        self.startTimer()
         self.hideLabel(state: false)
         self.btnStart.isHidden = true
     }
     
+    func win(){
+        self.timer.invalidate()
+        self.voiceManager.stop()
+        self.i += 1
+        self.setLabel(state: true)
+        self.nextWord()
+    }
+    
+    func lose(){
+        self.timer.invalidate()
+        self.voiceManager.stop()
+        self.i += 1
+        self.nextWord()
+    }
 }
 
 extension GameplayUIView : VoiceRecognitionDelegate{
@@ -106,18 +147,13 @@ extension GameplayUIView : VoiceRecognitionDelegate{
         let tempLatin = text.trimPunctuation().k3.pinyin
         
         if text.contains(skip) || text.contains(skip2) {
-            self.voiceManager.stop()
-            self.i += 1
-            self.nextWord()
+            self.lose()
         } else if tempLatin.contains(self.lblLatin.text!) || tempMandarin.contains(self.lblMandarin.text!){
-            self.voiceManager.stop()
-            self.i += 1
-            self.setLabel(state: true)
-            self.nextWord()
+            self.win()
         } else {
             self.setLabel(state: false)
         }
-
+        
         
         
     }
