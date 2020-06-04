@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BAE55E1C69F289E424EB781 /* Pods_VoiceRecognitionTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */; };
+		4782C5D72488D7CC00522FE4 /* HSK1_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4782C5D62488D7CC00522FE4 /* HSK1_2.json */; };
 		479443D6241E0BD500C52E2E /* HSK1.json in Resources */ = {isa = PBXBuildFile; fileRef = 479443D5241E0BD500C52E2E /* HSK1.json */; };
 		479443D8241E0BF300C52E2E /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D7241E0BF300C52E2E /* WordModel.swift */; };
 		479443DA241E0C5500C52E2E /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D9241E0C5500C52E2E /* WordManager.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoiceRecognitionTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4782C5D62488D7CC00522FE4 /* HSK1_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HSK1_2.json; sourceTree = "<group>"; };
 		479443D5241E0BD500C52E2E /* HSK1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HSK1.json; sourceTree = "<group>"; };
 		479443D7241E0BF300C52E2E /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
 		479443D9241E0C5500C52E2E /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		47A8CAA3240E2186006BD206 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4782C5D62488D7CC00522FE4 /* HSK1_2.json */,
 				479443D5241E0BD500C52E2E /* HSK1.json */,
 				47A8CAA4240E21AC006BD206 /* VoiceRecognitionManager.swift */,
 				479443D7241E0BF300C52E2E /* WordModel.swift */,
@@ -266,6 +269,7 @@
 				47FAADE6247121C000472275 /* 3DAssets.scnassets in Resources */,
 				47A8CA96240E212C006BD206 /* Assets.xcassets in Resources */,
 				479443D6241E0BD500C52E2E /* HSK1.json in Resources */,
+				4782C5D72488D7CC00522FE4 /* HSK1_2.json in Resources */,
 				47E6E7E02442E5E5009D6633 /* GameplayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

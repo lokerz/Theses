@@ -11,8 +11,10 @@ import Foundation
 extension String {
     func trimPunctuation() -> String {
     return self.trimmingCharacters(in: .whitespacesAndNewlines)
-                        .trimmingCharacters(in: .punctuationCharacters)
-                        .trimmingCharacters(in: .whitespacesAndNewlines)
+        .trimmingCharacters(in: .punctuationCharacters)
+        .trimmingCharacters(in: .symbols)
+        .replacingOccurrences(of: ",", with: "")
+        .replacingOccurrences(of: " ", with: "")
     }
     
 }

@@ -53,7 +53,6 @@ class VoiceRecognitionManager {
             if result != nil {
                 if let result = result {
                     let bestString = result.bestTranscription.formattedString
-                    print(bestString)
                     self.delegate?.updateText(text : bestString)
                 } else if let error = error {
                     print(error)

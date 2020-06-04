@@ -18,7 +18,7 @@ class WordManager {
     
     func loadWords(){
         var arr = [WordJSON]()
-        let path = Bundle.main.path(forResource: "HSK1", ofType: "json")!
+        let path = Bundle.main.path(forResource: "HSK1_2", ofType: "json")!
         guard let data = NSData(contentsOfFile: path) else {return}
         
         do{

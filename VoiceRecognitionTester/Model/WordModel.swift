@@ -12,6 +12,7 @@ struct Word {
     var id : Int
     var data : WordJSON
 }
+
 struct WordJSON : Decodable{
     var Chinese : String
     var Pinyin : String
