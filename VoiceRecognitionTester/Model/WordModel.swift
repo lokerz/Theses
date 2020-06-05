@@ -17,4 +17,5 @@ struct WordJSON : Decodable{
     var Chinese : String
     var Pinyin : String
     var English : String
+    var Sentence : Bool = false
 }

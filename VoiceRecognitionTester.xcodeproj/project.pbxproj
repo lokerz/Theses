@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1BAE55E1C69F289E424EB781 /* Pods_VoiceRecognitionTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */; };
 		4782C5D72488D7CC00522FE4 /* HSK1_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4782C5D62488D7CC00522FE4 /* HSK1_2.json */; };
+		4782C5E2248A546D00522FE4 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782C5E1248A546D00522FE4 /* Boss.swift */; };
+		4782C5E4248A55E900522FE4 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782C5E3248A55E900522FE4 /* GameManager.swift */; };
+		4782C5E6248A5DA200522FE4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782C5E5248A5DA200522FE4 /* Player.swift */; };
+		4782C5E8248A603000522FE4 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782C5E7248A603000522FE4 /* Timer.swift */; };
 		479443D6241E0BD500C52E2E /* HSK1.json in Resources */ = {isa = PBXBuildFile; fileRef = 479443D5241E0BD500C52E2E /* HSK1.json */; };
 		479443D8241E0BF300C52E2E /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D7241E0BF300C52E2E /* WordModel.swift */; };
 		479443DA241E0C5500C52E2E /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D9241E0C5500C52E2E /* WordManager.swift */; };
@@ -30,6 +34,10 @@
 /* Begin PBXFileReference section */
 		2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoiceRecognitionTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4782C5D62488D7CC00522FE4 /* HSK1_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HSK1_2.json; sourceTree = "<group>"; };
+		4782C5E1248A546D00522FE4 /* Boss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
+		4782C5E3248A55E900522FE4 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		4782C5E5248A5DA200522FE4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		4782C5E7248A603000522FE4 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		479443D5241E0BD500C52E2E /* HSK1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HSK1.json; sourceTree = "<group>"; };
 		479443D7241E0BF300C52E2E /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
 		479443D9241E0C5500C52E2E /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
@@ -64,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4782C5E0248A545B00522FE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4782C5E1248A546D00522FE4 /* Boss.swift */,
+				4782C5E3248A55E900522FE4 /* GameManager.swift */,
+				4782C5E5248A5DA200522FE4 /* Player.swift */,
+				4782C5E7248A603000522FE4 /* Timer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		479443DB241E13E600C52E2E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +180,7 @@
 		47E6E7DB2442E522009D6633 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				4782C5E0248A545B00522FE4 /* Model */,
 				47FAADE42471218600472275 /* Scene */,
 				47A8CA95240E212C006BD206 /* Assets.xcassets */,
 				47FAADE5247121C000472275 /* 3DAssets.scnassets */,
@@ -324,11 +344,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A8CA8E240E2129006BD206 /* ViewController.swift in Sources */,
+				4782C5E4248A55E900522FE4 /* GameManager.swift in Sources */,
 				47A8CAA5240E21AC006BD206 /* VoiceRecognitionManager.swift in Sources */,
 				47E6E7DF2442E5E5009D6633 /* GameplayViewController.swift in Sources */,
 				479443D8241E0BF300C52E2E /* WordModel.swift in Sources */,
+				4782C5E6248A5DA200522FE4 /* Player.swift in Sources */,
 				47A8CA94240E2129006BD206 /* VoiceRecognitionTester.xcdatamodeld in Sources */,
+				4782C5E2248A546D00522FE4 /* Boss.swift in Sources */,
 				47A8CA8A240E2129006BD206 /* AppDelegate.swift in Sources */,
+				4782C5E8248A603000522FE4 /* Timer.swift in Sources */,
 				47FAADE82471249700472275 /* GameplayUIView.swift in Sources */,
 				479443DA241E0C5500C52E2E /* WordManager.swift in Sources */,
 				479443DD241E13F200C52E2E /* UIString.swift in Sources */,

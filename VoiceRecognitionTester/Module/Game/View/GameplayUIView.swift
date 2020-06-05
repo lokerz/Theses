@@ -9,29 +9,25 @@
 import UIKit
 
 class GameplayUIView: UIView {
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var lblHanze: UILabel!
     @IBOutlet weak var lblPinyin: UILabel!
     @IBOutlet weak var lblEnglish: UILabel!
     @IBOutlet weak var lblHealth: UILabel!
     @IBOutlet weak var btnStart: UIButton!
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var timerBar: UIProgressView!
+    @IBOutlet weak var HPBar: UIProgressView!
     
-    let _HEALTH = 10
-    let TIME_OUT: Double = 5
-    let TIME_OUT_LONG: Double = 20
+    var index           = -1
     
-    var health = 0
-    var i = 0
-    var arrIndex = [Int]()
-    let skip = "99"
-    let skip2 = "QQ"
-    let language = "zh-CN"
-    let voiceManager = VoiceRecognitionManager.instance
-    let wordManager = WordManager.instance
+    let boss            = Boss.shared
+    let player          = Player.shared
+    let gameManager     = GameManager.shared
+    let voiceManager    = VoiceRecognitionManager.instance
+    let wordManager     = WordManager.instance
+    let timeManager     = TimerManager.shared
     
-    var timeRemaining = Double()
-    var timer = Timer()
     
     var startAction: () -> Void = {}
     
@@ -55,78 +51,50 @@ class GameplayUIView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        self.resetGame()
+        self.setupBoss()
+        self.setupPlayer()
+        self.setupTimer()
+        
+        self.setupGameManager()
         self.setupVoice()
-        self.setupIndex()
-        self.setupProgressBar()
+        
+        self.gameManager.reset()
     }
     
     func setupVoice(){
+        let language = "zh-CN"
         voiceManager.delegate = self
         voiceManager.setLocale(language: language)
         voiceManager.supportedLocale()
     }
     
-    func setupIndex(){
-        for i in 0..<self.wordManager.words.count{
-            self.arrIndex.append(i)
+    func nextWord(){
+        self.index += 1
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if self.index < self.wordManager.words.count {
+                self.resetLabel()
+                self.setupWords()
+                self.timeManager.start()
+            } else {
+                self.gameManager.reset()
+            }
         }
-        //        self.arrIndex.shuffle()
-    }
-    
-    func setupProgressBar(){        self.progressBar.layer.masksToBounds = false
-        self.progressBar.layer.cornerRadius = 5
-        self.progressBar.progress = 1
     }
     
     func setupWords(){
-        self.lblHealth.text = "x" + String(health)
-        self.lblHanze.text = self.wordManager.words[self.arrIndex[i]].data.Chinese
-        self.lblPinyin.text = self.wordManager.words[self.arrIndex[i]].data.Pinyin
-        self.lblEnglish.text = self.wordManager.words[self.arrIndex[i]].data.English
+        self.lblHanze.text = self.wordManager.words[index].data.Chinese
+        self.lblPinyin.text = self.wordManager.words[index].data.Pinyin
+        self.lblEnglish.text = self.wordManager.words[index].data.English
         self.voiceManager.recordAndRecognizeSpeech()
     }
     
-    func nextWord(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            guard self.i < self.wordManager.words.count else {
-                self.resetGame()
-                return
-            }
-            self.resetLabel()
-            self.setupWords()
-            self.startTimer()
-        }
-    }
-    
-    func resetGame(){
-        self.i = 0
-        self.health = _HEALTH
-        self.hideLabel(state: true)
-        self.btnStart.isHidden = false
-        self.lblHealth.isHidden = true
-    }
-    
-    func startTimer(){
-        self.progressBar.progress = 1
-        self.timeRemaining = i == self.wordManager.words.count - 1 ? self.TIME_OUT_LONG : self.TIME_OUT
-        self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
-    }
-    
-    @objc func runningTimer(){
-        let time = i == self.wordManager.words.count - 1 ? self.TIME_OUT_LONG : self.TIME_OUT
-        self.timeRemaining -= 0.001
-        self.progressBar.setProgress(Float(self.timeRemaining / time), animated: true)
-        if timeRemaining <= 0 {
-            self.lose()
-        }
-    }
-    
-    func hideLabel(state: Bool){
+    func hideUI(state: Bool){
+        self.btnStart.isHidden = !state
         self.lblHealth.isHidden = state
         self.lblHanze.isHidden = state
         self.lblPinyin.isHidden = state
         self.lblEnglish.isHidden = state
+        self.HPBar.isHidden = state
     }
     
     func setLabel(state: Bool) {
@@ -145,52 +113,107 @@ class GameplayUIView: UIView {
     
     @IBAction func actionStart(_ sender: Any) {
         guard !self.wordManager.words.isEmpty else {return}
-        self.startAction()
-        self.setupWords()
-        self.startTimer()
-        self.hideLabel(state: false)
-        self.btnStart.isHidden = true
+        self.gameManager.start()
     }
     
-    func win(){
-        self.timer.invalidate()
-        self.voiceManager.stop()
-        self.i += 1
-        self.setLabel(state: true)
-        self.nextWord()
-    }
-    
-    func lose(){
-        self.timer.invalidate()
-        self.voiceManager.stop()
-        self.i += 1
-        self.health -= 1
-        self.nextWord()
-    }
 }
 
 extension GameplayUIView : VoiceRecognitionDelegate{
     
     func updateText(text: String) {
-        let tempHanze = text.trimPunctuation()
-        let tempPinyin = text.trimPunctuation().k3.pinyin
-        let textHanze = self.lblHanze.text!.trimPunctuation()
-        let textPinyin = self.lblPinyin.text!.trimPunctuation()
+        let skip        = ["99", "QQ"]
+        let tempHanze   = text.trimPunctuation()
+        let tempPinyin  = text.trimPunctuation().k3.pinyin
+        let textHanze   = self.lblHanze.text!.trimPunctuation()
+        let textPinyin  = self.lblPinyin.text!.trimPunctuation()
         
-        print("index: ", i)
-        print(tempHanze, tempPinyin)
+        print("index: ", index)
+        print("player: ", tempHanze, tempPinyin)
         print(textHanze, textPinyin)
         print()
-
-        if text.contains(skip) || text.contains(skip2) {
-            self.lose()
+        
+        if skip.contains(where: text.contains) {
+            self.gameManager.win()
         } else if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
-            self.win()
+            self.gameManager.win()
         } else {
             self.setLabel(state: false)
         }
         
+    }
+}
+
+extension GameplayUIView {
+    func setupTimer(){
+        self.timerBar.layer.masksToBounds = false
+        self.timerBar.layer.cornerRadius = 5
+        self.timerBar.progress = 1
+
+        timeManager.set_method = { val in
+            self.timerBar.setProgress(val, animated: true)
+        }
         
+        timeManager.done_method = {
+            self.player.attacked()
+            self.gameManager.lose()
+        }
+        
+        timeManager.reset_method = {
+            self.timerBar.progress = 1
+        }
+    }
+    
+    func setupBoss(){
+        boss.update = { val in
+            self.HPBar.setProgress(val, animated: true)
+        }
+        boss.dead = {
+            //PLAYER WIN
+        }
+        boss.revived = {
+            
+        }
+    }
+    
+    func setupPlayer() {
+        player.update = { val in
+            self.lblHealth.text = "x" + String(val)
+        }
+        player.dead = {
+            //PLAYER LOSE
+        }
+    }
+    
+    func setupGameManager(){
+        gameManager.start_method = {
+            self.startAction()
+            self.hideUI(state: false)
+            
+            self.nextWord()
+        }
+        
+        gameManager.reset_method = {
+            self.index = -1
+            self.timeManager.reset()
+            self.boss.revive()
+            self.player.revive()
+            
+            self.hideUI(state: true)
+        }
+        
+        gameManager.lose_method = {
+            self.timeManager.stop()
+            self.voiceManager.stop()
+            self.nextWord()
+        }
+        
+        gameManager.win_method = {
+            self.boss.attacked(critical: self.wordManager.words[self.index].data.Sentence)
+            self.timeManager.stop()
+            self.voiceManager.stop()
+            self.setLabel(state: true)
+            self.nextWord()
+        }
         
     }
 }

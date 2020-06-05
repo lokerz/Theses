@@ -42,12 +42,12 @@ class GameplayViewController: UIViewController {
     }
     
     func setupUI(){
-        let height : CGFloat = 300
-        let frame = self.sceneView.frame
-        let y = frame.height - height
-        let frame_ = CGRect(x: 0, y: y , width: frame.width, height: height)
+//        let height : CGFloat = 300
+//        let frame = self.sceneView.frame
+//        let y = frame.height - height
+//        let frame_ = CGRect(x: 0, y: y , width: frame.width, height: height)
         
-        let gameplayUI = GameplayUIView(frame: frame_)
+        let gameplayUI = GameplayUIView(frame: self.view.frame)
         gameplayUI.startAction = {
             self.spawnMonster()
         }
