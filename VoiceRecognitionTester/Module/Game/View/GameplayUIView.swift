@@ -88,11 +88,11 @@ class GameplayUIView: UIView {
     }
     
     func nextWord(){
-        guard i < self.wordManager.words.count else {
-            self.resetGame()
-            return
-        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            guard self.i < self.wordManager.words.count else {
+                self.resetGame()
+                return
+            }
             self.resetLabel()
             self.setupWords()
             self.startTimer()
