@@ -15,6 +15,10 @@ extension String {
         .trimmingCharacters(in: .symbols)
         .replacingOccurrences(of: ",", with: "")
         .replacingOccurrences(of: " ", with: "")
+        .replacingOccurrences(of: "，", with: "")
+        .replacingOccurrences(of: "？", with: "")
+        .replacingOccurrences(of: "。", with: "")
+
     }
     
 }
