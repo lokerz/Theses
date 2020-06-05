@@ -74,7 +74,7 @@ class GameplayUIView: UIView {
             if self.index < self.wordManager.words.count {
                 self.resetLabel()
                 self.setupWords()
-                self.timeManager.start()
+                self.timeManager.start(critical: self.wordManager.words[self.index].data.Sentence)
             } else {
                 self.gameManager.reset()
             }
