@@ -27,6 +27,7 @@ class GameplayUIView: UIView {
     let voiceManager    = VoiceRecognitionManager.instance
     let wordManager     = WordManager.instance
     let timeManager     = TimerManager.shared
+    let speechManager   = SpeechManager.shared
     
     
     var startAction: () -> Void = {}
@@ -55,26 +56,20 @@ class GameplayUIView: UIView {
         self.setupPlayer()
         self.setupTimer()
         
+        self.setupVoiceManager()
+        self.setupSpeechManager()
         self.setupGameManager()
-        self.setupVoice()
         
         self.gameManager.reset()
     }
-    
-    func setupVoice(){
-        let language = "zh-CN"
-        voiceManager.delegate = self
-        voiceManager.setLocale(language: language)
-        voiceManager.supportedLocale()
-    }
-    
+        
     func nextWord(){
         self.index += 1
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if self.index < self.wordManager.words.count {
+                self.timeManager.reset()
                 self.resetLabel()
                 self.setupWords()
-                self.timeManager.start(critical: self.wordManager.words[self.index].data.Sentence)
             } else {
                 self.gameManager.reset()
             }
@@ -85,7 +80,7 @@ class GameplayUIView: UIView {
         self.lblHanze.text = self.wordManager.words[index].data.Chinese
         self.lblPinyin.text = self.wordManager.words[index].data.Pinyin
         self.lblEnglish.text = self.wordManager.words[index].data.English
-        self.voiceManager.recordAndRecognizeSpeech()
+        self.speechManager.speak(text: self.wordManager.words[index].data.Chinese)
     }
     
     func hideUI(state: Bool){
@@ -109,6 +104,9 @@ class GameplayUIView: UIView {
         self.lblHanze.textColor = color
         self.lblPinyin.textColor = color
         self.lblEnglish.textColor = color
+        self.lblHanze.text = ""
+        self.lblPinyin.text = ""
+        self.lblEnglish.text = ""
     }
     
     @IBAction func actionStart(_ sender: Any) {
@@ -132,18 +130,42 @@ extension GameplayUIView : VoiceRecognitionDelegate{
         print(textHanze, textPinyin)
         print()
         
-        if skip.contains(where: text.contains) {
+        if self.wordManager.words[index].data.Sentence {
+            self.specialCheck(tempHanze, tempPinyin)
+        } else if skip.contains(where: text.contains) {
             self.gameManager.win()
         } else if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
             self.gameManager.win()
         } else {
             self.setLabel(state: false)
         }
+    }
+    
+    func specialCheck(_ hanze : String, _ pinyin : String) {
+        let textHanze   = self.lblHanze.text!.trimPunctuation()
+        let textPinyin  = self.lblPinyin.text!.trimPunctuation()
         
+        
+        
+        
+        if pinyin.contains(textPinyin) || hanze.contains(textHanze){
+            self.gameManager.win()
+        }
     }
 }
 
 extension GameplayUIView {
+    func setupVoiceManager(){
+        voiceManager.delegate = self
+    }
+
+    func setupSpeechManager(){
+        speechManager.done_method = {
+            self.timeManager.start(critical: self.wordManager.words[self.index].data.Sentence)
+            self.voiceManager.recordAndRecognizeSpeech()
+        }
+    }
+    
     func setupTimer(){
         self.timerBar.layer.masksToBounds = false
         self.timerBar.layer.cornerRadius = 5
@@ -199,6 +221,7 @@ extension GameplayUIView {
             self.player.revive()
             
             self.hideUI(state: true)
+            self.resetLabel()
         }
         
         gameManager.lose_method = {

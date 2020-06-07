@@ -17,6 +17,7 @@
 		479443D8241E0BF300C52E2E /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D7241E0BF300C52E2E /* WordModel.swift */; };
 		479443DA241E0C5500C52E2E /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443D9241E0C5500C52E2E /* WordManager.swift */; };
 		479443DD241E13F200C52E2E /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479443DC241E13F200C52E2E /* UIString.swift */; };
+		479B8CC8248CE48900A08560 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479B8CC7248CE48900A08560 /* SpeechManager.swift */; };
 		47A8CA8A240E2129006BD206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CA89240E2129006BD206 /* AppDelegate.swift */; };
 		47A8CA8C240E2129006BD206 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CA8B240E2129006BD206 /* SceneDelegate.swift */; };
 		47A8CA8E240E2129006BD206 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8CA8D240E2129006BD206 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		479443D7241E0BF300C52E2E /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
 		479443D9241E0C5500C52E2E /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		479443DC241E13F200C52E2E /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
+		479B8CC7248CE48900A08560 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
 		47A8CA86240E2129006BD206 /* VoiceRecognitionTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecognitionTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A8CA89240E2129006BD206 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47A8CA8B240E2129006BD206 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				47A8CAA4240E21AC006BD206 /* VoiceRecognitionManager.swift */,
 				479443D7241E0BF300C52E2E /* WordModel.swift */,
 				479443D9241E0C5500C52E2E /* WordManager.swift */,
+				479B8CC7248CE48900A08560 /* SpeechManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A8CA8E240E2129006BD206 /* ViewController.swift in Sources */,
+				479B8CC8248CE48900A08560 /* SpeechManager.swift in Sources */,
 				4782C5E4248A55E900522FE4 /* GameManager.swift in Sources */,
 				47A8CAA5240E21AC006BD206 /* VoiceRecognitionManager.swift in Sources */,
 				47E6E7DF2442E5E5009D6633 /* GameplayViewController.swift in Sources */,

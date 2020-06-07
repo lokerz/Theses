@@ -15,15 +15,22 @@ protocol VoiceRecognitionDelegate {
 }
 class VoiceRecognitionManager {
     static var instance = VoiceRecognitionManager()
+    let language = "zh-CN"
     
     //    speech recognizer variable
     let audioEngine = AVAudioEngine()
     var speechRecognizer = SFSpeechRecognizer()
-    let request = SFSpeechAudioBufferRecognitionRequest()
+    var request : SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask : SFSpeechRecognitionTask?
     var timer = Timer()
     var delegate : VoiceRecognitionDelegate?
     //
+    
+    
+    init() {
+        setLocale(language: language)
+    }
+    
     func setLocale(language : String){
         let locale = Locale(identifier: language)
         guard let speechRecognizer = SFSpeechRecognizer(locale: locale) else {return}
@@ -36,12 +43,16 @@ class VoiceRecognitionManager {
     }
     
     func recordAndRecognizeSpeech(){
+        
+        
+        self.request = SFSpeechAudioBufferRecognitionRequest()
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
-            self.request.append(buffer)
+            self.request?.append(buffer)
         }
         
+        audioEngine.reset()
         audioEngine.prepare()
         do {
             try audioEngine.start()
@@ -49,7 +60,7 @@ class VoiceRecognitionManager {
             return print("error")
         }
         
-        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
+        recognitionTask = speechRecognizer?.recognitionTask(with: request!, resultHandler: { result, error in
             if result != nil {
                 if let result = result {
                     let bestString = result.bestTranscription.formattedString
@@ -63,10 +74,13 @@ class VoiceRecognitionManager {
     
     func stop(){
         recognitionTask?.cancel()
-        
-        request.endAudio()
+        request?.endAudio()
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
+        
+        recognitionTask = nil
+        request = nil
+
     }
     
 }
