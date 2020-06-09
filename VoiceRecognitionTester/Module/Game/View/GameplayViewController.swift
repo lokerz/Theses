@@ -11,7 +11,7 @@ import ARKit
 
 class GameplayViewController: UIViewController {
     
-    @IBOutlet weak var sceneView: ARSCNView!
+    var sceneView : ARSCNView?
     var position = SCNVector3()
     
     override func viewDidLoad() {
@@ -19,17 +19,25 @@ class GameplayViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.setupScene()
+        #if targetEnvironment(simulator)
+          // your simulator code
+        #else
+            self.setupScene()
+        #endif
+
         self.setupUI()
     }
     
     func setupScene(){
+        self.sceneView = ARSCNView(frame: self.view.frame)
+        self.view.addSubview(self.sceneView!)
+        
         let scene = SCNScene()
-        sceneView.scene = scene
-        sceneView.delegate = self
-        sceneView.session.delegate = self
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.autoenablesDefaultLighting = true
+        sceneView?.scene = scene
+        sceneView?.delegate = self
+        sceneView?.session.delegate = self
+        sceneView?.automaticallyUpdatesLighting = true
+        sceneView?.autoenablesDefaultLighting = true
         
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
@@ -38,7 +46,7 @@ class GameplayViewController: UIViewController {
             configuration.frameSemantics.insert(.personSegmentationWithDepth)
         }
         
-        sceneView.session.run(configuration)
+        sceneView?.session.run(configuration)
     }
     
     func setupUI(){
@@ -61,7 +69,7 @@ class GameplayViewController: UIViewController {
         
         monsterNode.position = SCNVector3(x: 0, y: -0.5, z: -1)
         monsterNode.scale = SCNVector3(0.5, 0.5, 0.5)
-        self.sceneView.scene.rootNode.addChildNode(monsterNode)
+        self.sceneView?.scene.rootNode.addChildNode(monsterNode)
     }
     
 }

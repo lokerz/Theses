@@ -130,9 +130,10 @@ extension GameplayUIView : VoiceRecognitionDelegate{
         print(textHanze, textPinyin)
         print()
         
-        if self.wordManager.words[index].data.Sentence {
-            self.specialCheck(tempHanze, tempPinyin)
-        } else if skip.contains(where: text.contains) {
+//        if self.wordManager.words[index].data.Sentence {
+//            self.specialCheck(tempHanze, tempPinyin)
+//        } else
+        if skip.contains(where: text.contains) {
             self.gameManager.win()
         } else if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
             self.gameManager.win()
@@ -141,17 +142,17 @@ extension GameplayUIView : VoiceRecognitionDelegate{
         }
     }
     
-    func specialCheck(_ hanze : String, _ pinyin : String) {
-        let textHanze   = self.lblHanze.text!.trimPunctuation()
-        let textPinyin  = self.lblPinyin.text!.trimPunctuation()
-        
-        
-        
-        
-        if pinyin.contains(textPinyin) || hanze.contains(textHanze){
-            self.gameManager.win()
-        }
-    }
+//    func specialCheck(_ hanze : String, _ pinyin : String) {
+//        let textHanze   = self.lblHanze.text!.trimPunctuation()
+//        let textPinyin  = self.lblPinyin.text!.trimPunctuation()
+//        
+//        
+//        
+//        
+//        if pinyin.contains(textPinyin) || hanze.contains(textHanze){
+//            self.gameManager.win()
+//        }
+//    }
 }
 
 extension GameplayUIView {
