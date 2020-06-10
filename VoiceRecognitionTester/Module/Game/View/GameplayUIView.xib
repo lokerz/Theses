@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="HPBar" destination="W7L-Ib-PPA" id="qGa-2G-Shm"/>
                 <outlet property="btnStart" destination="UQp-R8-TZh" id="FZJ-67-Gs6"/>
+                <outlet property="containerHPBar" destination="d1b-QJ-88f" id="o7g-Po-WHh"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Eyh-wU-7aF"/>
                 <outlet property="lblEnglish" destination="cnb-Xp-pL0" id="FT0-tN-s5I"/>
                 <outlet property="lblHanze" destination="ICQ-Eb-pE7" id="8pj-h5-5WR"/>
@@ -83,33 +84,41 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-Ib-PPA">
-                    <rect key="frame" x="16" y="76" width="382" height="30"/>
+                    <rect key="frame" x="28" y="76" width="354" height="32"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="tYw-Rf-dWh"/>
-                    </constraints>
                 </progressView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="health_bar" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-QJ-88f">
+                    <rect key="frame" x="16" y="68" width="382" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="lpn-B0-AdQ"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="W7L-Ib-PPA" secondAttribute="trailing" constant="16" id="0qE-fs-hja"/>
                 <constraint firstItem="3pL-vu-qhW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="1VA-fa-VYs"/>
                 <constraint firstItem="bgu-H8-ogb" firstAttribute="height" secondItem="iiB-FM-UMz" secondAttribute="height" multiplier="0.6" id="2MG-lW-BNk"/>
-                <constraint firstItem="W7L-Ib-PPA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="DQj-dz-y7X"/>
+                <constraint firstItem="W7L-Ib-PPA" firstAttribute="leading" secondItem="d1b-QJ-88f" secondAttribute="leading" constant="12" id="7Md-Yi-Frd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iiB-FM-UMz" secondAttribute="trailing" id="Hxt-jR-H6d"/>
+                <constraint firstItem="d1b-QJ-88f" firstAttribute="trailing" secondItem="W7L-Ib-PPA" secondAttribute="trailing" constant="16" id="LRX-os-k0F"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="top" secondItem="jx7-2Q-cbF" secondAttribute="bottom" constant="4" id="NpX-bD-oIz"/>
                 <constraint firstItem="jx7-2Q-cbF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="PhV-KX-SO9"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="S2p-RH-laa"/>
-                <constraint firstItem="W7L-Ib-PPA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="32" id="V1e-pf-zfj"/>
+                <constraint firstItem="W7L-Ib-PPA" firstAttribute="top" secondItem="d1b-QJ-88f" secondAttribute="top" constant="8" id="UmF-rB-QOc"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="WTf-8M-qaa"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bgu-H8-ogb" secondAttribute="trailing" constant="32" id="bhp-Iz-NFP"/>
+                <constraint firstItem="d1b-QJ-88f" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="gCE-tG-iOY"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="gbs-Qk-4S4"/>
                 <constraint firstItem="y71-RM-cMd" firstAttribute="leading" secondItem="jx7-2Q-cbF" secondAttribute="trailing" constant="8" id="gkn-Iq-LXI"/>
+                <constraint firstItem="d1b-QJ-88f" firstAttribute="bottom" secondItem="W7L-Ib-PPA" secondAttribute="bottom" constant="8" id="jJg-R5-yN6"/>
                 <constraint firstItem="3pL-vu-qhW" firstAttribute="top" secondItem="iiB-FM-UMz" secondAttribute="top" constant="16" id="o4D-Bk-REW"/>
                 <constraint firstItem="y71-RM-cMd" firstAttribute="centerY" secondItem="jx7-2Q-cbF" secondAttribute="centerY" id="oaB-v5-UhS"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bgu-H8-ogb" secondAttribute="bottom" id="pSA-jk-UNH"/>
+                <constraint firstItem="d1b-QJ-88f" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="uRq-n7-Hhq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="d1b-QJ-88f" secondAttribute="trailing" constant="16" id="wTF-4m-oil"/>
                 <constraint firstItem="bgu-H8-ogb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="wj3-n1-6rJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3pL-vu-qhW" secondAttribute="trailing" constant="32" id="wzQ-i4-xBH"/>
+                <constraint firstItem="d1b-QJ-88f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zv1-57-XXV"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
@@ -117,6 +126,7 @@
     </objects>
     <resources>
         <image name="bamboo" width="375" height="172"/>
+        <image name="health_bar" width="1033" height="132"/>
         <image name="heart" width="36" height="34"/>
     </resources>
 </document>

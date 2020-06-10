@@ -18,6 +18,7 @@ class GameplayUIView: UIView {
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var timerBar: UIProgressView!
     @IBOutlet weak var HPBar: UIProgressView!
+    @IBOutlet weak var containerHPBar: UIImageView!
     
     var index           = -1
     
@@ -90,6 +91,7 @@ class GameplayUIView: UIView {
         self.lblPinyin.isHidden = state
         self.lblEnglish.isHidden = state
         self.HPBar.isHidden = state
+        self.containerHPBar.isHidden = state
     }
     
     func setLabel(state: Bool) {
