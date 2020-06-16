@@ -11,8 +11,14 @@ import ARKit
 
 class GameplayViewController: UIViewController {
     
+    var level = 0
     var sceneView : ARSCNView?
     var position = SCNVector3()
+    
+    convenience init(level : Int) {
+        self.init()
+        self.level = level
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +56,6 @@ class GameplayViewController: UIViewController {
     }
     
     func setupUI(){
-//        let height : CGFloat = 300
-//        let frame = self.sceneView.frame
-//        let y = frame.height - height
-//        let frame_ = CGRect(x: 0, y: y , width: frame.width, height: height)
-        
         let gameplayUI = GameplayUIView(frame: self.view.frame)
         gameplayUI.startAction = {
             self.spawnMonster()
