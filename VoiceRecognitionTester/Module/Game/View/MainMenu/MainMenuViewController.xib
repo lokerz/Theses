@@ -14,9 +14,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainMenuViewController" customModule="SoundBoo" customModuleProvider="target">
             <connections>
-                <outlet property="btnArchive" destination="hZR-Ut-3EV" id="LRd-y1-T3k"/>
-                <outlet property="btnMulti" destination="2j8-7y-1WA" id="21G-G6-3bj"/>
-                <outlet property="btnSingle" destination="Yde-Am-EaX" id="NLY-QO-8HL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

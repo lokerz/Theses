@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Create Room Button 2x.png",
+      "filename" : "Create Button.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Create Room Button 3x.png",
+      "filename" : "Create Button 2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Create Room Button 3x-1.png",
+      "filename" : "Create Button 3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -10,10 +10,6 @@ import UIKit
 
 class MainMenuViewController: BaseViewController {
 
-    @IBOutlet weak var btnSingle: UIButton!
-    @IBOutlet weak var btnMulti: UIButton!
-    @IBOutlet weak var btnArchive: UIButton!
-   
     @IBAction func actionSingle(_ sender: Any) {
         let vc = SinglePlayerViewController()
         self.navigationController?.pushViewController(vc, animated: true)
