@@ -27,6 +27,18 @@ class SpeechManager: NSObject, AVSpeechSynthesizerDelegate {
         synth.speak(utterance)
     }
     
+    func pause(){
+        synth.pauseSpeaking(at: .immediate)
+    }
+    
+    func resume(){
+        synth.continueSpeaking()
+    }
+    
+    func stop(){
+        synth.stopSpeaking(at: .immediate)
+    }
+    
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         setSpeaker(false)
         done_method?()

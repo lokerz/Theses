@@ -1,38 +1,68 @@
 [
-{
-  "Chinese": "先生",
-  "Pinyin": "xiānshēng",
-  "English": "Sir",
-  "Sentence": false
-},
-{
-  "Chinese": "这个",
-  "Pinyin": "zhège",
-  "English": "This",
-  "Sentence": false
-},
-{
-  "Chinese": "苹果",
-  "Pinyin": "píngguǒ",
-  "English": "Apple",
-  "Sentence": false
-},
-{
-  "Chinese": "多少",
-  "Pinyin": "duōshǎo",
-  "English": "How much/many",
-  "Sentence": false
-},
-{
-  "Chinese": "钱",
-  "Pinyin": "qián",
-  "English": "Money",
-  "Sentence": false
-},
-{
-  "Chinese": "先生, 这个苹果多少钱?",
-  "Pinyin": "xiānshēng, zhège píngguǒ duōshǎo qián?",
-  "English": "Sir, how much is this apple?",
-  "Sentence": true
-}
+    {
+        "Level" : 1,
+        "Chinese": "先生, 这个苹果多少钱?",
+        "Pinyin": "xiānshēng, zhège píngguǒ duōshǎo qián?",
+        "English": "Sir, how much is this apple?",
+        "Words" : [
+            {
+                "Chinese": "先生",
+                "Pinyin": "xiānshēng",
+                "English": "Sir",
+            },
+            {
+                "Chinese": "这个",
+                "Pinyin": "zhège",
+                "English": "This",
+            },
+            {
+                "Chinese": "苹果",
+                "Pinyin": "píngguǒ",
+                "English": "Apple",
+            },
+            {
+                "Chinese": "多少",
+                "Pinyin": "duōshǎo",
+                "English": "How much/many",
+            },
+            {
+                "Chinese": "钱",
+                "Pinyin": "qián",
+                "English": "Money",
+            }
+        ]
+    },
+    {
+        "Level" : 2,
+        "Chinese": "先生, 这个苹果多少钱?",
+        "Pinyin": "xiānshēng, zhège píngguǒ duōshǎo qián?",
+        "English": "Sir, how much is this apple?",
+        "Words" : [
+            {
+                "Chinese": "先生",
+                "Pinyin": "xiānshēng",
+                "English": "Sir",
+            },
+            {
+                "Chinese": "这个",
+                "Pinyin": "zhège",
+                "English": "This",
+            },
+            {
+                "Chinese": "苹果",
+                "Pinyin": "píngguǒ",
+                "English": "Apple",
+            },
+            {
+                "Chinese": "多少",
+                "Pinyin": "duōshǎo",
+                "English": "How much/many",
+            },
+            {
+                "Chinese": "钱",
+                "Pinyin": "qián",
+                "English": "Money",
+            }
+        ]
+    }
 ]

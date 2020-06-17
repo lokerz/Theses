@@ -14,6 +14,7 @@ class GameplayUIView: UIView {
     @IBOutlet weak var lblHanze: UILabel!
     @IBOutlet weak var lblPinyin: UILabel!
     @IBOutlet weak var lblEnglish: UILabel!
+    @IBOutlet weak var imgHealth: UIImageView!
     @IBOutlet weak var lblHealth: UILabel!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnPause: UIButton!
@@ -24,15 +25,24 @@ class GameplayUIView: UIView {
     var pauseView : PauseView?
     
     var index           = -1
-    
+    var hints           = 10
+    var level           = 0
+    var sentences       = [Sentence]()
+    var words           = [Word]()
+
     let boss            = Boss.shared
     let player          = Player.shared
+    let hintManager     = HintManager.shared
     let gameManager     = GameManager.shared
     let voiceManager    = VoiceRecognitionManager.instance
     let wordManager     = WordManager.instance
     let timeManager     = TimerManager.shared
     let speechManager   = SpeechManager.shared
     
+    var isSpeaking      = false
+    var isRecording     = false
+    
+    var delay : DispatchTime?
     var startAction: (() -> Void)?
     var stopAction: (()-> Void)?
     
@@ -63,33 +73,44 @@ class GameplayUIView: UIView {
         self.setupVoiceManager()
         self.setupSpeechManager()
         self.setupGameManager()
+        self.setupHintManager()
         self.setupPauseView()
-        
+                
         self.gameManager.reset?()
     }
+      
+    func nextSentence() {
         
-    func nextWord(){
+    }
+    
+    func nextWord(delay: DispatchTime = .now() + 1){
         self.index += 1
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if self.index < self.wordManager.words.count {
+        self.isRecording = false
+        DispatchQueue.main.asyncAfter(deadline: delay) {
+            if self.index < self.words.count {
                 self.timeManager.reset()
                 self.resetLabel()
                 self.setupWords()
             } else {
-                self.gameManager.reset?()
+//                self.gameManager.reset?()
             }
         }
     }
     
     func setupWords(){
-        self.lblHanze.text = self.wordManager.words[index].data.Chinese
-        self.lblPinyin.text = self.wordManager.words[index].data.Pinyin
-        self.lblEnglish.text = self.wordManager.words[index].data.English
-        self.speechManager.speak(text: self.wordManager.words[index].data.Chinese)
+        self.lblHanze.text = self.words[index].Chinese
+        self.lblPinyin.text = self.words[index].Pinyin
+        self.lblEnglish.text = self.words[index].English
+        self.timeManager.start()
+        self.isRecording = true
+        self.voiceManager.record()
     }
     
     func hideUI(state: Bool){
         self.btnStart.isHidden = !state
+        self.imgHealth.isHidden = state
+        self.btnHint.isHidden = state
+        self.timerBar.isHidden = state
         self.lblHealth.isHidden = state
         self.lblHanze.isHidden = state
         self.lblPinyin.isHidden = state
@@ -106,17 +127,17 @@ class GameplayUIView: UIView {
     }
     
     func resetLabel(){
-        let color = UIColor.black
-        self.lblHanze.textColor = color
-        self.lblPinyin.textColor = color
-        self.lblEnglish.textColor = color
+        self.lblHanze.textColor = #colorLiteral(red: 0.4573255777, green: 0.3877093494, blue: 0.1551564038, alpha: 1)
+        self.lblPinyin.textColor = #colorLiteral(red: 0.4329447448, green: 0.5243666172, blue: 0.1861178577, alpha: 1)
+        self.lblEnglish.textColor = #colorLiteral(red: 0.4573255777, green: 0.3877093494, blue: 0.1551564038, alpha: 1)
         self.lblHanze.text = ""
         self.lblPinyin.text = ""
         self.lblEnglish.text = ""
     }
     
     @IBAction func actionStart(_ sender: Any) {
-        guard !self.wordManager.words.isEmpty else {return}
+        self.setupWordsArray()
+        guard !self.words.isEmpty else {return}
         self.gameManager.start?()
     }
     
@@ -125,7 +146,7 @@ class GameplayUIView: UIView {
     }
     
     @IBAction func actionHint(_ sender: Any) {
-        
+        self.hintManager.hint()
     }
 }
 
@@ -143,7 +164,7 @@ extension GameplayUIView : VoiceRecognitionDelegate{
         print(textHanze, textPinyin)
         print()
         
-//        if self.wordManager.words[index].data.Sentence {
+//        if self.words[index].Sentence {
 //            self.specialCheck(tempHanze, tempPinyin)
 //        } else
         if skip.contains(where: text.contains) {
@@ -169,15 +190,15 @@ extension GameplayUIView : VoiceRecognitionDelegate{
 }
 
 extension GameplayUIView {
+    
+    func setupWordsArray(){
+        if let words = self.sentences.first?.Words{
+            self.words = words
+        }
+    }
+    
     func setupVoiceManager(){
         voiceManager.delegate = self
-    }
-
-    func setupSpeechManager(){
-        speechManager.done_method = {
-            self.timeManager.start(critical: self.wordManager.words[self.index].data.Sentence)
-            self.voiceManager.recordAndRecognizeSpeech()
-        }
     }
     
     func setupTimer(){
@@ -224,12 +245,13 @@ extension GameplayUIView {
         gameManager.start = {
             self.startAction?()
             self.hideUI(state: false)
-            
-            self.nextWord()
+            self.hintManager.reset()
+            self.nextWord(delay: .now())
         }
         
         gameManager.reset = {
             self.index = -1
+            self.hints = 10
             self.timeManager.reset()
             self.boss.revive()
             self.player.revive()
@@ -245,7 +267,7 @@ extension GameplayUIView {
         }
         
         gameManager.win = {
-            self.boss.attacked(critical: self.wordManager.words[self.index].data.Sentence)
+            self.boss.attacked()
             self.timeManager.stop()
             self.voiceManager.stop()
             self.setLabel(state: true)
@@ -255,22 +277,62 @@ extension GameplayUIView {
         gameManager.pause = {
             self.btnPause.isHidden = true
             self.pauseView?.isHidden = false
+            self.timeManager.pause()
+            if self.isRecording {
+                self.voiceManager.stop()
+            }
+            if self.isSpeaking {
+                self.speechManager.pause()
+            }
         }
         
         gameManager.resume = {
             self.btnPause.isHidden = false
+            if self.isSpeaking {
+                self.speechManager.resume()
+            } else if self.isRecording {
+                self.voiceManager.record()
+                self.timeManager.resume()
+            }
         }
         
         gameManager.stop = {
+            self.speechManager.stop()
+            self.timeManager.stop()
+            self.voiceManager.stop()
             self.stopAction?()
         }
         
+    }
+    
+    func setupHintManager(){
+        hintManager.hint_method = {
+            self.timeManager.pause()
+            self.voiceManager.stop()
+            self.speechManager.speak(text: self.words[self.index].Chinese)
+            self.isSpeaking = true
+            self.btnHint.isEnabled = false
+        }
+        
+        hintManager.update = { val in
+            self.btnHint.setTitle("x\(val)", for: .normal)
+            self.btnHint.isEnabled = val != 0
+        }
+    }
+    
+    func setupSpeechManager(){
+        speechManager.done_method = {
+            self.isSpeaking = false
+            self.gameManager.resume?()
+            self.hintManager.check()
+        }
     }
     
     func setupPauseView(){
         pauseView = PauseView(frame: self.frame)
         guard let pauseView = pauseView else {return}
         pauseView.yes_method = {
+            self.gameManager.reset?()
             self.gameManager.stop?()
         }
         pauseView.no_method = {

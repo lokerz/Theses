@@ -10,25 +10,31 @@ import Foundation
 
 class WordManager {
     static var instance = WordManager()
+    var sentences = [Sentence]()
     var words = [Word]()
     
     init() {
+        loadSentences()
         loadWords()
     }
     
-    func loadWords(){
-        var arr = [WordJSON]()
+    func loadSentences(){
         let path = Bundle.main.path(forResource: "HSK1_2", ofType: "json")!
         guard let data = NSData(contentsOfFile: path) else {return}
         
         do{
-            arr = try JSONDecoder().decode([WordJSON].self, from: data as Data)
+            self.sentences = try JSONDecoder().decode([Sentence].self, from: data as Data)
+            print(sentences)
         }catch{
             print(error)
         }
-        
-        for i in 0..<arr.count{
-            words.append(Word(id: i, data: arr[i]))
+    }
+    
+    func loadWords(){
+        for sentence in sentences {
+            for word in sentence.Words {
+                self.words.append(word)
+            }
         }
     }
 }

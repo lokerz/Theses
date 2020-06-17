@@ -18,5 +18,4 @@ class GameManager {
     var pause: (()->Void)?
     var resume: (()->Void)?
     var stop: (()->Void)?
-
 }

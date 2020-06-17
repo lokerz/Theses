@@ -50,7 +50,7 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         let level = indexPath.row + 1
         cell.configureView(level: level)
         cell.action = {
-            let vc = GameplayViewController()
+            let vc = GameplayViewController(level: level)
             self.navigationController?.pushViewController(vc, animated: true)
         }
         return cell

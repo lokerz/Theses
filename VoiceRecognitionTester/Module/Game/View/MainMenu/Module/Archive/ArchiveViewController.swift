@@ -36,9 +36,9 @@ extension ArchiveViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as! ArchiveTableViewCell
         let word = WordManager.instance.words[indexPath.row]
-        cell.configureView(word: word.data)
+        cell.configureView(word: word)
         cell.action = {
-            let vc = ArchiveTutorialViewController(word: word.data)
+            let vc = ArchiveTutorialViewController(word: word)
             self.present(vc, animated: true, completion: nil)
         }
         //        cell.progress = word.progress

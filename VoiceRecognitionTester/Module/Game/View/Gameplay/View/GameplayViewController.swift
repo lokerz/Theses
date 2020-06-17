@@ -57,6 +57,7 @@ class GameplayViewController: UIViewController {
     
     func setupUI(){
         let gameplayUI = GameplayUIView(frame: self.view.frame)
+        gameplayUI.sentences = WordManager.instance.sentences.filter{$0.Level == self.level}.shuffled()
         gameplayUI.startAction = {
             self.spawnMonster()
         }

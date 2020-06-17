@@ -15,9 +15,9 @@ class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDe
     @IBOutlet weak var lblEnglish: UILabel!
     
     let voiceManager = VoiceRecognitionManager.instance
-    var word : WordJSON?
+    var word : Word?
     
-    convenience init(word: WordJSON) {
+    convenience init(word: Word) {
         self.init()
         self.word = word
     }
@@ -44,7 +44,7 @@ class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDe
     @IBAction func actionTry(_ sender: Any) {
         self.resetLabel()
         self.voiceManager.stop()
-        self.voiceManager.recordAndRecognizeSpeech()
+        self.voiceManager.record()
     }
     
     func updateText(text: String) {

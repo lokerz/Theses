@@ -42,9 +42,7 @@ class VoiceRecognitionManager {
         print(speechRecognizer?.locale)
     }
     
-    func recordAndRecognizeSpeech(){
-        
-        
+    func record(){
         self.request = SFSpeechAudioBufferRecognitionRequest()
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
@@ -73,10 +71,11 @@ class VoiceRecognitionManager {
     }
     
     func stop(){
-        recognitionTask?.cancel()
-        request?.endAudio()
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
+        
+        recognitionTask?.cancel()
+        request?.endAudio()
         
         recognitionTask = nil
         request = nil

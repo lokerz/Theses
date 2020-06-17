@@ -8,14 +8,16 @@
 
 import Foundation
 
-struct Word {
-    var id : Int
-    var data : WordJSON
-}
-
-struct WordJSON : Decodable{
+struct Sentence : Decodable{
+    var Level : Int
     var Chinese : String
     var Pinyin : String
     var English : String
-    var Sentence : Bool = false
+    var Words : [Word]
+}
+
+struct Word : Decodable{
+    var Chinese : String
+    var Pinyin : String
+    var English : String
 }

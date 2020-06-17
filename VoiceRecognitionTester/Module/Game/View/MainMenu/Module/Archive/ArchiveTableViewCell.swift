@@ -19,7 +19,7 @@ class ArchiveTableViewCell: UITableViewCell {
     var action : (()->Void)?
     var progress = 0
     
-    func configureView(word : WordJSON){
+    func configureView(word : Word){
         self.lblPinyin.text = word.Pinyin
         self.lblEnglish.text = word.English
         self.lblHanzi.text = word.Chinese

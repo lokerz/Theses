@@ -79,12 +79,12 @@ class ViewController: UIViewController {
     @IBAction func button(_ sender: Any) {
         print(i)
         if i < wordManager.words.count {
-            label3.text = wordManager.words[i].data.Chinese
-            label4.text = wordManager.words[i].data.Pinyin
+            label3.text = wordManager.words[i].Chinese
+            label4.text = wordManager.words[i].Pinyin
         
             label.text = ""
             label2.text = ""
-            voiceManager.recordAndRecognizeSpeech()
+            voiceManager.record()
             button.isEnabled = false
         } else {
             label4.text = ""
@@ -97,8 +97,8 @@ class ViewController: UIViewController {
     
     @IBAction func goAction(_ sender: Any) {
         self.i = Int(textField.text!)! - 1
-        label3.text = wordManager.words[i].data.Chinese
-        label4.text = wordManager.words[i].data.Pinyin
+        label3.text = wordManager.words[i].Chinese
+        label4.text = wordManager.words[i].Pinyin
         view.endEditing(true)
     }
 }
