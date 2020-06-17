@@ -1,6 +1,7 @@
 [
+    
     {
-        "Level" : 1,
+        "Level": 1,
         "Chinese": "先生, 这个苹果多少钱?",
         "Pinyin": "xiānshēng, zhège píngguǒ duōshǎo qián?",
         "English": "Sir, how much is this apple?",
@@ -33,36 +34,207 @@
         ]
     },
     {
-        "Level" : 2,
-        "Chinese": "先生, 这个苹果多少钱?",
-        "Pinyin": "xiānshēng, zhège píngguǒ duōshǎo qián?",
-        "English": "Sir, how much is this apple?",
+        "Level": 1,
+        "Chinese": "你有什么爱好?",
+        "Pinyin": "nǐ yǒu shénme àihào?",
+        "English": "what are your hobbies?",
         "Words" : [
             {
-                "Chinese": "先生",
-                "Pinyin": "xiānshēng",
-                "English": "Sir",
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
             },
             {
-                "Chinese": "这个",
-                "Pinyin": "zhège",
-                "English": "This",
+                "Chinese": "有",
+                "Pinyin": "yǒu",
+                "English": "Have",
             },
             {
-                "Chinese": "苹果",
-                "Pinyin": "píngguǒ",
-                "English": "Apple",
+                "Chinese": "什么",
+                "Pinyin": "shénme",
+                "English": "What, Something",
             },
             {
-                "Chinese": "多少",
-                "Pinyin": "duōshǎo",
-                "English": "How much/many",
-            },
-            {
-                "Chinese": "钱",
-                "Pinyin": "qián",
-                "English": "Money",
+                "Chinese": "爱好",
+                "Pinyin": "àihào",
+                "English": "Hobby, Interest",
             }
         ]
-    }
+    },
+    {
+        "Level": 1,
+        "Chinese": "看起来要下雨了",
+        "Pinyin": "kàn qǐlái yào xiàyǔ le",
+        "English": "looks like it's going to rain",
+        "Words" : [
+            {
+                "Chinese": "看",
+                "Pinyin": "kàn",
+                "English": "Look",
+            },
+            {
+                "Chinese": "起来",
+                "Pinyin": "qǐlái",
+                "English": "Get up, Rise",
+            },
+            {
+                "Chinese": "要",
+                "Pinyin": "yào",
+                "English": "Want, Wish",
+            },
+            {
+                "Chinese": "下雨",
+                "Pinyin": "xiàyǔ",
+                "English": "rain",
+            },
+            {
+                "Chinese": "了",
+                "Pinyin": "le",
+                "English": " ",
+            }
+        ]
+    },
+    {
+        "Level": 2,
+        "Chinese": "不好意思，请问你会说英文吗?",
+        "Pinyin": "bùhǎoyìsi, qǐngwèn nǐ huì shuō yīngwén ma",
+        "English": "Excuse me, do you speak English?",
+        "Words" : [
+            {
+                "Chinese": "不好",
+                "Pinyin": "bùhāo",
+                "English": "No good",
+            },
+            {
+                "Chinese": "意思",
+                "Pinyin": "yìsi",
+                "English": "Meaning, Idea",
+            },
+            {
+                "Chinese": "请问",
+                "Pinyin": "qǐngwèn",
+                "English": "May I ask",
+            },
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "会",
+                "Pinyin": "huì",
+                "English": "Can",
+            },
+            {
+                "Chinese": "说",
+                "Pinyin": "shuō",
+                "English": "Speak",
+            },
+            {
+                "Chinese": "英文",
+                "Pinyin": "yīngwén",
+                "English": "English",
+            },
+            {
+                "Chinese": "吗",
+                "Pinyin": "ma",
+                "English": " ",
+            }
+        ]
+    },
+    {
+        "Level": 2,
+        "Chinese": "欢迎光临，请问几位?",
+        "Pinyin": "huānyíngguānglín, qǐngwèn jǐwèi?",
+        "English": "Welcome! How many people?",
+        "Words" : [
+            {
+                "Chinese": "欢迎光临",
+                "Pinyin": "huānyíngguānglín",
+                "English": "Welcome",
+            },
+            {
+                "Chinese": "请问",
+                "Pinyin": "qǐngwèn",
+                "English": "May I ask",
+            },
+            {
+                "Chinese": "几",
+                "Pinyin": "jǐ",
+                "English": "How many",
+            },
+            {
+                "Chinese": "位",
+                "Pinyin": "wèi",
+                "English": "*Measure word for people",
+            }
+        ]
+    },
+    {
+        "Level": 2,
+        "Chinese": "可以少一点儿吗?",
+        "Pinyin": "kěyǐ shǎo yīdiǎn er ma?",
+        "English": "Could you give me a discount please?",
+        "Words" : [
+            {
+                "Chinese": "可以",
+                "Pinyin": "kěyǐ",
+                "English": "Can, May, Possible",
+            },
+            {
+                "Chinese": "少",
+                "Pinyin": "shǎo",
+                "English": "Few, Little",
+            },
+            {
+                "Chinese": "一点儿",
+                "Pinyin": "yīdiǎn er",
+                "English": "A bit, A little",
+            },
+            {
+                "Chinese": "吗",
+                "Pinyin": "ma",
+                "English": " ",
+            }
+        ]
+    },
+    {
+        "Level": 2,
+        "Chinese": "我的生日是四月八号",
+        "Pinyin": "wǒ de shēngrì shì sìyuè bāhào",
+        "English": "My birthday is the 8th of April",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": " ",
+            },
+            {
+                "Chinese": "生日",
+                "Pinyin": "shēngrì",
+                "English": "Birthday",
+            },
+            {
+                "Chinese": "是",
+                "Pinyin": "shì",
+                "English": "Be (am, is, are)",
+            },
+            {
+                "Chinese": "四月",
+                "Pinyin": "sìyuè",
+                "English": "April",
+            },
+            {
+                "Chinese": "八号",
+                "Pinyin": "bāhào",
+                "English": "The 8th",
+            }
+        ]
+    },
+    
 ]
