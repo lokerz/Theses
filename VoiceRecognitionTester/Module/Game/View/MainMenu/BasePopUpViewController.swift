@@ -12,8 +12,12 @@ class BasePopUpViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, touch.view == self.view {
-            self.dismiss(animated: true)
+            self.dismiss()
         }
+    }
+    
+    func dismiss(){
+        self.dismiss(animated: true)
     }
     
 }

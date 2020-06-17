@@ -6,10 +6,17 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Phosphate.ttc">
+            <string>Phosphate-Inline</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameplayUIView" customModule="VoiceRecognitionTester" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameplayUIView" customModule="SoundBoo" customModuleProvider="target">
             <connections>
                 <outlet property="HPBar" destination="W7L-Ib-PPA" id="qGa-2G-Shm"/>
+                <outlet property="btnHint" destination="S0b-I4-GwY" id="kyq-6q-ejp"/>
+                <outlet property="btnPause" destination="f8Q-61-F3t" id="VnO-6m-Zr7"/>
                 <outlet property="btnStart" destination="UQp-R8-TZh" id="FZJ-67-Gs6"/>
                 <outlet property="containerHPBar" destination="d1b-QJ-88f" id="o7g-Po-WHh"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Eyh-wU-7aF"/>
@@ -40,29 +47,29 @@
                     <rect key="frame" x="32" y="700.5" width="350" height="161.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQp-R8-TZh">
-                            <rect key="frame" x="118.5" y="0.0" width="113" height="0.0"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                            <rect key="frame" x="86" y="0.0" width="178" height="161.5"/>
+                            <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="72"/>
                             <state key="normal" title="START">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" red="0.3803921569" green="0.31764705879999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="actionStart:" destination="-1" eventType="touchUpInside" id="jYi-CI-LWJ"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4jK-TX-KkS">
-                            <rect key="frame" x="150" y="8" width="50" height="37.5"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4jK-TX-KkS">
+                            <rect key="frame" x="150" y="0.0" width="50" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ICQ-Eb-pE7">
-                            <rect key="frame" x="150" y="53.5" width="50" height="50"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ICQ-Eb-pE7">
+                            <rect key="frame" x="150" y="0.0" width="50" height="0.0"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cnb-Xp-pL0">
-                            <rect key="frame" x="150" y="111.5" width="50" height="50"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cnb-Xp-pL0">
+                            <rect key="frame" x="150" y="0.0" width="50" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -79,25 +86,48 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y71-RM-cMd">
                     <rect key="frame" x="74" y="598" width="0.0" height="0.0"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="32"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-Ib-PPA">
-                    <rect key="frame" x="28" y="76" width="354" height="32"/>
+                    <rect key="frame" x="28" y="118" width="354" height="32"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </progressView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="health_bar" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-QJ-88f">
-                    <rect key="frame" x="16" y="68" width="382" height="48"/>
+                    <rect key="frame" x="16" y="110" width="382" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="lpn-B0-AdQ"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0b-I4-GwY">
+                    <rect key="frame" x="348" y="571.5" width="50" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53" id="zHT-so-ZWL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="32"/>
+                    <state key="normal" image="button_hint"/>
+                    <connections>
+                        <action selector="actionHint:" destination="-1" eventType="touchUpInside" id="e7i-LP-geb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8Q-61-F3t">
+                    <rect key="frame" x="16" y="52" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ZLo-7S-flo"/>
+                        <constraint firstAttribute="width" constant="50" id="gOb-1w-plB"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="button_pause"/>
+                    <connections>
+                        <action selector="actionPause:" destination="-1" eventType="touchUpInside" id="9UJ-4z-XoH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="3pL-vu-qhW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="1VA-fa-VYs"/>
                 <constraint firstItem="bgu-H8-ogb" firstAttribute="height" secondItem="iiB-FM-UMz" secondAttribute="height" multiplier="0.6" id="2MG-lW-BNk"/>
+                <constraint firstItem="d1b-QJ-88f" firstAttribute="top" secondItem="f8Q-61-F3t" secondAttribute="bottom" constant="8" id="42Z-ba-gIn"/>
                 <constraint firstItem="W7L-Ib-PPA" firstAttribute="leading" secondItem="d1b-QJ-88f" secondAttribute="leading" constant="12" id="7Md-Yi-Frd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iiB-FM-UMz" secondAttribute="trailing" id="Hxt-jR-H6d"/>
                 <constraint firstItem="d1b-QJ-88f" firstAttribute="trailing" secondItem="W7L-Ib-PPA" secondAttribute="trailing" constant="16" id="LRX-os-k0F"/>
@@ -106,14 +136,17 @@
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="S2p-RH-laa"/>
                 <constraint firstItem="W7L-Ib-PPA" firstAttribute="top" secondItem="d1b-QJ-88f" secondAttribute="top" constant="8" id="UmF-rB-QOc"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="WTf-8M-qaa"/>
+                <constraint firstItem="f8Q-61-F3t" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="b7n-cT-1wp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bgu-H8-ogb" secondAttribute="trailing" constant="32" id="bhp-Iz-NFP"/>
-                <constraint firstItem="d1b-QJ-88f" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="gCE-tG-iOY"/>
+                <constraint firstItem="S0b-I4-GwY" firstAttribute="centerY" secondItem="jx7-2Q-cbF" secondAttribute="centerY" id="dR8-h3-vbo"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="gbs-Qk-4S4"/>
                 <constraint firstItem="y71-RM-cMd" firstAttribute="leading" secondItem="jx7-2Q-cbF" secondAttribute="trailing" constant="8" id="gkn-Iq-LXI"/>
                 <constraint firstItem="d1b-QJ-88f" firstAttribute="bottom" secondItem="W7L-Ib-PPA" secondAttribute="bottom" constant="8" id="jJg-R5-yN6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="S0b-I4-GwY" secondAttribute="trailing" constant="16" id="kVr-YQ-0ZW"/>
                 <constraint firstItem="3pL-vu-qhW" firstAttribute="top" secondItem="iiB-FM-UMz" secondAttribute="top" constant="16" id="o4D-Bk-REW"/>
                 <constraint firstItem="y71-RM-cMd" firstAttribute="centerY" secondItem="jx7-2Q-cbF" secondAttribute="centerY" id="oaB-v5-UhS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bgu-H8-ogb" secondAttribute="bottom" id="pSA-jk-UNH"/>
+                <constraint firstAttribute="bottom" secondItem="bgu-H8-ogb" secondAttribute="bottom" constant="34" id="pSA-jk-UNH"/>
+                <constraint firstItem="f8Q-61-F3t" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="rjK-K3-GFR"/>
                 <constraint firstItem="d1b-QJ-88f" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="uRq-n7-Hhq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="d1b-QJ-88f" secondAttribute="trailing" constant="16" id="wTF-4m-oil"/>
                 <constraint firstItem="bgu-H8-ogb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="wj3-n1-6rJ"/>
@@ -126,6 +159,8 @@
     </objects>
     <resources>
         <image name="bamboo" width="375" height="172"/>
+        <image name="button_hint" width="50" height="53"/>
+        <image name="button_pause" width="50" height="50"/>
         <image name="health_bar" width="1033" height="132"/>
         <image name="heart" width="36" height="34"/>
     </resources>

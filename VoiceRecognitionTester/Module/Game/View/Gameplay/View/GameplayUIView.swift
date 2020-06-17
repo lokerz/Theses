@@ -16,9 +16,12 @@ class GameplayUIView: UIView {
     @IBOutlet weak var lblEnglish: UILabel!
     @IBOutlet weak var lblHealth: UILabel!
     @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var btnPause: UIButton!
+    @IBOutlet weak var btnHint: UIButton!
     @IBOutlet weak var timerBar: UIProgressView!
     @IBOutlet weak var HPBar: UIProgressView!
     @IBOutlet weak var containerHPBar: UIImageView!
+    var pauseView : PauseView?
     
     var index           = -1
     
@@ -30,8 +33,8 @@ class GameplayUIView: UIView {
     let timeManager     = TimerManager.shared
     let speechManager   = SpeechManager.shared
     
-    
-    var startAction: () -> Void = {}
+    var startAction: (() -> Void)?
+    var stopAction: (()-> Void)?
     
     override func awakeFromNib() {
         self.initView()
@@ -60,8 +63,9 @@ class GameplayUIView: UIView {
         self.setupVoiceManager()
         self.setupSpeechManager()
         self.setupGameManager()
+        self.setupPauseView()
         
-        self.gameManager.reset()
+        self.gameManager.reset?()
     }
         
     func nextWord(){
@@ -72,7 +76,7 @@ class GameplayUIView: UIView {
                 self.resetLabel()
                 self.setupWords()
             } else {
-                self.gameManager.reset()
+                self.gameManager.reset?()
             }
         }
     }
@@ -113,9 +117,16 @@ class GameplayUIView: UIView {
     
     @IBAction func actionStart(_ sender: Any) {
         guard !self.wordManager.words.isEmpty else {return}
-        self.gameManager.start()
+        self.gameManager.start?()
     }
     
+    @IBAction func actionPause(_ sender: Any) {
+        self.gameManager.pause?()
+    }
+    
+    @IBAction func actionHint(_ sender: Any) {
+        
+    }
 }
 
 extension GameplayUIView : VoiceRecognitionDelegate{
@@ -136,9 +147,9 @@ extension GameplayUIView : VoiceRecognitionDelegate{
 //            self.specialCheck(tempHanze, tempPinyin)
 //        } else
         if skip.contains(where: text.contains) {
-            self.gameManager.win()
+            self.gameManager.win?()
         } else if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
-            self.gameManager.win()
+            self.gameManager.win?()
         } else {
             self.setLabel(state: false)
         }
@@ -180,7 +191,7 @@ extension GameplayUIView {
         
         timeManager.done_method = {
             self.player.attacked()
-            self.gameManager.lose()
+            self.gameManager.lose?()
         }
         
         timeManager.reset_method = {
@@ -210,14 +221,14 @@ extension GameplayUIView {
     }
     
     func setupGameManager(){
-        gameManager.start_method = {
-            self.startAction()
+        gameManager.start = {
+            self.startAction?()
             self.hideUI(state: false)
             
             self.nextWord()
         }
         
-        gameManager.reset_method = {
+        gameManager.reset = {
             self.index = -1
             self.timeManager.reset()
             self.boss.revive()
@@ -227,13 +238,13 @@ extension GameplayUIView {
             self.resetLabel()
         }
         
-        gameManager.lose_method = {
+        gameManager.lose = {
             self.timeManager.stop()
             self.voiceManager.stop()
             self.nextWord()
         }
         
-        gameManager.win_method = {
+        gameManager.win = {
             self.boss.attacked(critical: self.wordManager.words[self.index].data.Sentence)
             self.timeManager.stop()
             self.voiceManager.stop()
@@ -241,5 +252,32 @@ extension GameplayUIView {
             self.nextWord()
         }
         
+        gameManager.pause = {
+            self.btnPause.isHidden = true
+            self.pauseView?.isHidden = false
+        }
+        
+        gameManager.resume = {
+            self.btnPause.isHidden = false
+        }
+        
+        gameManager.stop = {
+            self.stopAction?()
+        }
+        
+    }
+    
+    func setupPauseView(){
+        pauseView = PauseView(frame: self.frame)
+        guard let pauseView = pauseView else {return}
+        pauseView.yes_method = {
+            self.gameManager.stop?()
+        }
+        pauseView.no_method = {
+            self.pauseView?.isHidden = true
+            self.gameManager.resume?()
+        }
+        self.addSubview(pauseView)
+        pauseView.isHidden = true
     }
 }

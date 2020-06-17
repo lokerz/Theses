@@ -60,6 +60,9 @@ class GameplayViewController: UIViewController {
         gameplayUI.startAction = {
             self.spawnMonster()
         }
+        gameplayUI.stopAction = {
+            self.navigationController?.popViewController(animated: true)
+        }
         self.view.addSubview(gameplayUI)
     }
     

@@ -11,24 +11,12 @@ import Foundation
 class GameManager {
     static var shared = GameManager()
     
-    var win_method: (()->Void)?
-    var lose_method: (()->Void)?
-    var start_method: (()->Void)?
-    var reset_method: (()->Void)?
+    var win: (()->Void)?
+    var lose: (()->Void)?
+    var start: (()->Void)?
+    var reset: (()->Void)?
+    var pause: (()->Void)?
+    var resume: (()->Void)?
+    var stop: (()->Void)?
 
-    func win(){
-        win_method?()
-    }
-    
-    func lose(){
-        lose_method?()
-    }
-    
-    func start(){
-        start_method?()
-    }
-    
-    func reset(){
-        reset_method?()
-    }
 }

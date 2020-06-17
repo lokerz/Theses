@@ -29,6 +29,8 @@
 		163A58102498E9FB00144099 /* ArchiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163A580E2498E9FB00144099 /* ArchiveTableViewCell.xib */; };
 		163A58132498FDFF00144099 /* ArchiveTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163A58112498FDFF00144099 /* ArchiveTutorialViewController.swift */; };
 		163A58142498FDFF00144099 /* ArchiveTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163A58122498FDFF00144099 /* ArchiveTutorialViewController.xib */; };
+		16C903B5249A1DF700EA281A /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C903B3249A1DF700EA281A /* PauseView.swift */; };
+		16C903B6249A1DF700EA281A /* PauseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16C903B4249A1DF700EA281A /* PauseView.xib */; };
 		1BAE55E1C69F289E424EB781 /* Pods_VoiceRecognitionTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */; };
 		4782C5D72488D7CC00522FE4 /* HSK1_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4782C5D62488D7CC00522FE4 /* HSK1_2.json */; };
 		4782C5E2248A546D00522FE4 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782C5E1248A546D00522FE4 /* Boss.swift */; };
@@ -77,6 +79,8 @@
 		163A580E2498E9FB00144099 /* ArchiveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveTableViewCell.xib; sourceTree = "<group>"; };
 		163A58112498FDFF00144099 /* ArchiveTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTutorialViewController.swift; sourceTree = "<group>"; };
 		163A58122498FDFF00144099 /* ArchiveTutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveTutorialViewController.xib; sourceTree = "<group>"; };
+		16C903B3249A1DF700EA281A /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
+		16C903B4249A1DF700EA281A /* PauseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PauseView.xib; sourceTree = "<group>"; };
 		2604EC29D480F166CEA1ED4B /* Pods_VoiceRecognitionTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoiceRecognitionTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4782C5D62488D7CC00522FE4 /* HSK1_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HSK1_2.json; sourceTree = "<group>"; };
 		4782C5E1248A546D00522FE4 /* Boss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
@@ -121,12 +125,9 @@
 		162C7CD12497241D00883EB5 /* Gameplay */ = {
 			isa = PBXGroup;
 			children = (
+				16C903B2249A1DDA00EA281A /* View */,
 				4782C5E0248A545B00522FE4 /* Model */,
 				47FAADE42471218600472275 /* Scene */,
-				47E6E7DD2442E5E5009D6633 /* GameplayViewController.swift */,
-				47E6E7DE2442E5E5009D6633 /* GameplayViewController.xib */,
-				47FAADE72471249700472275 /* GameplayUIView.swift */,
-				47FAADE9247124A600472275 /* GameplayUIView.xib */,
 			);
 			path = Gameplay;
 			sourceTree = "<group>";
@@ -188,6 +189,19 @@
 				163A58122498FDFF00144099 /* ArchiveTutorialViewController.xib */,
 			);
 			path = Archive;
+			sourceTree = "<group>";
+		};
+		16C903B2249A1DDA00EA281A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47E6E7DD2442E5E5009D6633 /* GameplayViewController.swift */,
+				47E6E7DE2442E5E5009D6633 /* GameplayViewController.xib */,
+				47FAADE72471249700472275 /* GameplayUIView.swift */,
+				47FAADE9247124A600472275 /* GameplayUIView.xib */,
+				16C903B3249A1DF700EA281A /* PauseView.swift */,
+				16C903B4249A1DF700EA281A /* PauseView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4782C5E0248A545B00522FE4 /* Model */ = {
@@ -413,6 +427,7 @@
 				47A8CA96240E212C006BD206 /* Assets.xcassets in Resources */,
 				163A58092498BC1E00144099 /* MultiPlayerJoinViewController.xib in Resources */,
 				163A57F924989ED800144099 /* ArchiveViewController.xib in Resources */,
+				16C903B6249A1DF700EA281A /* PauseView.xib in Resources */,
 				479443D6241E0BD500C52E2E /* HSK1.json in Resources */,
 				162C7CE12497325300883EB5 /* SinglePlayerViewController.xib in Resources */,
 				163A58142498FDFF00144099 /* ArchiveTutorialViewController.xib in Resources */,
@@ -476,6 +491,7 @@
 				47A8CA8E240E2129006BD206 /* ViewController.swift in Sources */,
 				479B8CC8248CE48900A08560 /* SpeechManager.swift in Sources */,
 				163A580F2498E9FB00144099 /* ArchiveTableViewCell.swift in Sources */,
+				16C903B5249A1DF700EA281A /* PauseView.swift in Sources */,
 				163A57F124989D5100144099 /* MainNavigationViewController.swift in Sources */,
 				163A58132498FDFF00144099 /* ArchiveTutorialViewController.swift in Sources */,
 				4782C5E4248A55E900522FE4 /* GameManager.swift in Sources */,
