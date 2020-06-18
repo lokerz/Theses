@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MultiPlayerCreateViewController" customModule="SoundBoo" customModuleProvider="target">
             <connections>
+                <outlet property="btnCreate" destination="RmB-lg-j6q" id="53C-n5-ydm"/>
                 <outlet property="imgEasy" destination="QU7-9H-r7q" id="ctO-sI-dgT"/>
                 <outlet property="imgHard" destination="SRa-Kv-fGF" id="ESK-c7-bOA"/>
                 <outlet property="imgNormal" destination="D1I-vb-yoT" id="SZG-BP-0K7"/>
