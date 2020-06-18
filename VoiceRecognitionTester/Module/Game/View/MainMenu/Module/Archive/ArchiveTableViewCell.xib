@@ -81,7 +81,8 @@
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wGZ-Pm-syA">
                                 <rect key="frame" x="16" y="25.5" width="68" height="8"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.45882352939999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.36078431370000003" green="0.45882352939999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="F8k-vr-Ek8"/>
                                 </constraints>

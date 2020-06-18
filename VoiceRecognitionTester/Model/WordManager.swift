@@ -43,32 +43,34 @@ class WordManager {
     }
     
     
-    func loadDefaults(){
-//        self.savedWords = defaults.array(forKey: key) as? [ArchivedWords] ?? [ArchivedWords]()
+    func loadDefault(){
+        self.archivedWords = defaults.object([String:Int].self, with: key) ?? [String : Int]()
     }
     
-    func saveDefaults(){
-//        defaults.set(self.savedWords, forKey: key)
+    func saveDefault(){
+        defaults.set(object: archivedWords, forKey: key)
     }
     
     func saveWord(_ word : Word?){
         guard let word = word else {return}
         let val = archivedWords[word.Chinese] ?? 0
-        archivedWords.updateValue(val + 1, forKey: word.Chinese)
-        self.saveDefaults()
-        return
-            
-        
-//        archivedWords.
-//            if archivedWord.Word?.Chinese == word.Chinese {
-//                archivedWord.count! += 1
-//            } else {
-//                let archivedWord = ArchivedWord()
-//                archivedWord.Word = word
-//                archivedWord.count = 1
-//                archivedWords.append(archivedWord)
-            }
+        if val == 0 {
+            archivedWords[word.Chinese] = 1
+        } else {
+            archivedWords.updateValue(val + 1, forKey: word.Chinese)
         }
-        self.saveDefaults()
+        self.saveDefault()
+    }
+}
+
+extension UserDefaults {
+    func object<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
+        guard let data = self.value(forKey: key) as? Data else { return nil }
+        return try? decoder.decode(type.self, from: data)
+    }
+
+    func set<T: Codable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
+        let data = try? encoder.encode(object)
+        self.set(data, forKey: key)
     }
 }

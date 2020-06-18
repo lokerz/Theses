@@ -21,8 +21,3 @@ struct Word : Codable{
     var Pinyin : String
     var English : String
 }
-
-class ArchivedWord : NSObject {
-    var Word : Word?
-    var count : Int?
-}
