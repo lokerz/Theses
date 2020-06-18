@@ -31,7 +31,7 @@ class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDe
         self.voiceManager.delegate = self
         self.configureView()
         
-        self.speechManager.done_method {
+        self.speechManager.done_method = {
             self.btnTry.isEnabled = true
             self.btnPlay.isEnabled = true
         }

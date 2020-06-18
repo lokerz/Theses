@@ -210,30 +210,32 @@ extension GameplayUIView : VoiceRecognitionDelegate{
     }
     
     func specialCheck(text: String){
-        var correct = [String:Bool]()
-        let tempHanze   = text
-        let tempPinyin  = text.k3.pinyin
+        var correctWords = [String:Bool]()
+        let tempHanze    = text
+        let tempPinyin   = text.k3.pinyin
         
         guard let words = self.currentSentence?.Words else {return}
         
         for word in words {
             if tempHanze.contains(word.Chinese) || tempPinyin.contains(word.Pinyin) {
-                correct[word.Chinese] = true
-                changeColor(word: word.Chinese)
+                correctWords[word.Chinese] = true
+                changeColor(words: correctWords)
             }
         }
         
-        if correct.count == words.count {
+        if correctWords.count == words.count {
             self.gameManager.correct?()
         }
     }
     
-    func changeColor(word: String){
+    func changeColor(words: [String : Bool]){
         guard let text = self.lblHanze.text else {return}
         let attributedText = NSMutableAttributedString(string: text)
         let color = #colorLiteral(red: 0.3411764706, green: 0.6235294118, blue: 0.168627451, alpha: 1)
-        if let range = text.range(of: word)?.nsRange {
-            attributedText.addAttribute(.foregroundColor, value: color, range: range)
+        for word in words {
+            if let range = text.range(of: word.key)?.nsRange {
+                attributedText.addAttribute(.foregroundColor, value: color, range: range)
+            }
         }
         
         self.lblHanze.attributedText = attributedText
@@ -317,7 +319,9 @@ extension GameplayUIView {
         }
         
         gameManager.correct = {
-            self.wordManager.saveWord(self.currentWord)
+            if !self.isSentence {
+                self.wordManager.saveWord(self.currentWord)
+            }
             self.boss.attacked(critical: self.isSentence)
             self.timeManager.stop()
             self.voiceManager.stop()
@@ -366,6 +370,7 @@ extension GameplayUIView {
         
         gameManager.lose = {
             self.levelManager.unlockLevel(level: self.level + 1)
+            
             self.retryView?.isHidden = false
             self.speechManager.stop()
             self.timeManager.stop()
