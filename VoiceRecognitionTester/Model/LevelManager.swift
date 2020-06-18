@@ -17,13 +17,14 @@ class LevelManager {
     
     func loadDefault(){
         self.lock_status = defaults.array(forKey: key) as? [Bool] ?? [Bool]()
-        self.checkLevel()
         
         if self.lock_status.isEmpty {
             self.lock_status = Array(repeating: false, count: TOTAL_LEVEL)
             self.lock_status[0] = true
             self.saveDefault()
         }
+        
+        self.checkLevel()
     }
     
     func checkLevel(){
