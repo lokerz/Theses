@@ -10,11 +10,24 @@ import UIKit
 
 class HintManager {
     static var shared = HintManager()
-    let COUNT = 5
     var count = 0
     
     var update : ((Int)->Void)?
     var hint_method  : (()->Void)?
+    
+    var key = "SoundBooHint"
+    let defaults = UserDefaults.standard
+    
+    func loadUserDefault(){
+        if defaults.object(forKey: key) == nil {
+            self.defaults.register(defaults: [key : 5])
+        }
+        self.count = defaults.integer(forKey: key)
+    }
+    
+    func saveUserDefault(){
+        defaults.set(self.count, forKey: key)
+    }
     
     func hint()  {
         count -= 1
@@ -24,14 +37,12 @@ class HintManager {
     func add() {
         count += 1
         update?(count)
+        saveUserDefault()
     }
     
     func check(){
         update?(count)
+        saveUserDefault()
     }
     
-    func reset(){
-        count = COUNT
-        update?(count)
-    }
 }
