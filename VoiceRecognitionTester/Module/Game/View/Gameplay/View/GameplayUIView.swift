@@ -33,6 +33,7 @@ class GameplayUIView: UIView {
     var sentences       = [Sentence]()
     var words           = [Word]()
     var currentWord     : Word?
+    var currentSentence : Sentence?
 
     let boss            = Boss.shared
     let player          = Player.shared
@@ -111,6 +112,7 @@ class GameplayUIView: UIView {
                 self.index += 1
             } else {
                 self.isSentence = true
+                self.currentSentence = self.sentences[self.sentenceIndex]
                 let word = Word(Chinese: self.sentences[self.sentenceIndex].Chinese,
                                 Pinyin: self.sentences[self.sentenceIndex].Pinyin,
                                 English: self.sentences[self.sentenceIndex].English)
@@ -190,29 +192,52 @@ extension GameplayUIView : VoiceRecognitionDelegate{
         print(textHanze, textPinyin)
         print()
         
-//        if self.words[index].Sentence {
-//            self.specialCheck(tempHanze, tempPinyin)
-//        } else
-        if skip.contains(where: text.contains) {
-            self.gameManager.correct?()
-        } else if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
-            self.gameManager.correct?()
+        if !isSentence {
+            if skip.contains(where: text.contains) {
+                self.gameManager.correct?()
+            } else if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
+                self.gameManager.correct?()
+            } else {
+                self.setLabel(state: false)
+            }
         } else {
-            self.setLabel(state: false)
+            if skip.contains(where: text.contains) {
+                self.gameManager.correct?()
+            } else {
+                self.specialCheck(text: text.trimPunctuation())
+            }
         }
     }
     
-//    func specialCheck(_ hanze : String, _ pinyin : String) {
-//        let textHanze   = self.lblHanze.text!.trimPunctuation()
-//        let textPinyin  = self.lblPinyin.text!.trimPunctuation()
-//        
-//        
-//        
-//        
-//        if pinyin.contains(textPinyin) || hanze.contains(textHanze){
-//            self.gameManager.win()
-//        }
-//    }
+    func specialCheck(text: String){
+        var correct = [String:Bool]()
+        let tempHanze   = text
+        let tempPinyin  = text.k3.pinyin
+        
+        guard let words = self.currentSentence?.Words else {return}
+        
+        for word in words {
+            if tempHanze.contains(word.Chinese) || tempPinyin.contains(word.Pinyin) {
+                correct[word.Chinese] = true
+                changeColor(word: word.Chinese)
+            }
+        }
+        
+        if correct.count == words.count {
+            self.gameManager.correct?()
+        }
+    }
+    
+    func changeColor(word: String){
+        guard let text = self.lblHanze.text else {return}
+        let attributedText = NSMutableAttributedString(string: text)
+        let color = #colorLiteral(red: 0.3411764706, green: 0.6235294118, blue: 0.168627451, alpha: 1)
+        if let range = text.range(of: word)?.nsRange {
+            attributedText.addAttribute(.foregroundColor, value: color, range: range)
+        }
+        
+        self.lblHanze.attributedText = attributedText
+    }
 }
 
 extension GameplayUIView {
@@ -419,4 +444,10 @@ extension GameplayUIView {
         view.isHidden = true
     }
     
+}
+
+extension Range where Bound == String.Index {
+    var nsRange:NSRange {
+        return NSRange(location: self.lowerBound.encodedOffset, length: self.upperBound.encodedOffset - self.lowerBound.encodedOffset)
+    }
 }
