@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SceneKit
 
 class Boss {
     static var shared = Boss()
@@ -23,6 +24,15 @@ class Boss {
     init() {
         health = HP
     }
+    
+    func spawnBoss(type: Int) -> SCNNode {
+        let sceneURL = Bundle.main.url(forResource: "Boss", withExtension: "scn", subdirectory: "3DAssets.scnassets")!
+        let referenceNode = SCNReferenceNode(url: sceneURL)!
+        referenceNode.load()
+        
+        return referenceNode
+    }
+    
     
     func attacked(critical: Bool = false){
         health -= critical ? DAMAGE_CRITICAL : DAMAGE

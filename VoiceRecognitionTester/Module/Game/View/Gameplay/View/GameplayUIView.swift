@@ -56,7 +56,7 @@ class GameplayUIView: UIView {
     var level = 0 {
         didSet {
             self.sentences = [Sentence]()
-            self.sentences = wordManager.sentences.filter{$0.Level == self.level}.shuffled()
+            self.sentences = level > 100 ? wordManager.sentences : wordManager.sentences.filter{$0.Level == self.level}.shuffled() 
             self.lblLevel.text = "-LEVEL \(level)-"
         }
     }

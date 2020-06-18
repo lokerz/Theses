@@ -9,7 +9,7 @@
 import UIKit
 import ARKit
 
-class GameplayViewController: UIViewController {
+class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     var level = 0
     var sceneView : ARSCNView?
@@ -21,18 +21,19 @@ class GameplayViewController: UIViewController {
         self.level = level
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
-        #if targetEnvironment(simulator)
-          // your simulator code
-        #else
-            self.setupScene()
+        #if !targetEnvironment(simulator)
+        self.setupScene()
         #endif
 
         self.setupUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Pause the view's AR session.
+        sceneView?.session.pause()
     }
     
     func setupScene(){
@@ -75,9 +76,7 @@ class GameplayViewController: UIViewController {
     }
     
     func spawnMonster(){
-        guard let monster = SCNScene(named: "3DAssets.scnassets/Boss.scn") else {return}
-        self.monsterNode = monster.rootNode.childNode(withName: "Boss", recursively: false)
-        guard let node = self.monsterNode else {return}
+        let node = Boss().spawnBoss(type: 1)
         node.position = SCNVector3(x: 0, y: -0.5, z: -1)
         node.scale = SCNVector3(0.5, 0.5, 0.5)
         self.sceneView?.scene.rootNode.addChildNode(node)
@@ -87,10 +86,7 @@ class GameplayViewController: UIViewController {
         guard let node = self.monsterNode else {return}
         node.removeFromParentNode()
     }
-    
-}
 
-extension GameplayViewController : ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
 //        let meshNode : SCNNode
@@ -119,12 +115,10 @@ extension GameplayViewController : ARSCNViewDelegate {
 //        if let planeGeometry = node.childNode(withName: "MeshNode", recursively: false)!.geometry as? ARSCNPlaneGeometry {
 ////            planeGeometry.update(from: planeAnchor.geometry)
 //        }
-
     }
-}
 
-extension GameplayViewController : ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        
     }
 }

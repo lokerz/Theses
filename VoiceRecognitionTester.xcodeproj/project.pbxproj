@@ -29,6 +29,8 @@
 		163A58102498E9FB00144099 /* ArchiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163A580E2498E9FB00144099 /* ArchiveTableViewCell.xib */; };
 		163A58132498FDFF00144099 /* ArchiveTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163A58112498FDFF00144099 /* ArchiveTutorialViewController.swift */; };
 		163A58142498FDFF00144099 /* ArchiveTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163A58122498FDFF00144099 /* ArchiveTutorialViewController.xib */; };
+		1688D3A8249BBE8300D9B50D /* MultiplayerGameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1688D3A7249BBE8300D9B50D /* MultiplayerGameplayViewController.swift */; };
+		1688D3AA249BE6BA00D9B50D /* MultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1688D3A9249BE6BA00D9B50D /* MultipeerSession.swift */; };
 		16A9CA99249B4F9A00D72556 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9CA98249B4F9A00D72556 /* LevelManager.swift */; };
 		16C903B5249A1DF700EA281A /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C903B3249A1DF700EA281A /* PauseView.swift */; };
 		16C903B6249A1DF700EA281A /* PauseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16C903B4249A1DF700EA281A /* PauseView.xib */; };
@@ -81,6 +83,8 @@
 		163A580E2498E9FB00144099 /* ArchiveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveTableViewCell.xib; sourceTree = "<group>"; };
 		163A58112498FDFF00144099 /* ArchiveTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTutorialViewController.swift; sourceTree = "<group>"; };
 		163A58122498FDFF00144099 /* ArchiveTutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveTutorialViewController.xib; sourceTree = "<group>"; };
+		1688D3A7249BBE8300D9B50D /* MultiplayerGameplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGameplayViewController.swift; sourceTree = "<group>"; };
+		1688D3A9249BE6BA00D9B50D /* MultipeerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipeerSession.swift; sourceTree = "<group>"; };
 		16A9CA98249B4F9A00D72556 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		16C903B3249A1DF700EA281A /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		16C903B4249A1DF700EA281A /* PauseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PauseView.xib; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				47FAADE9247124A600472275 /* GameplayUIView.xib */,
 				16C903B3249A1DF700EA281A /* PauseView.swift */,
 				16C903B4249A1DF700EA281A /* PauseView.xib */,
+				1688D3A7249BBE8300D9B50D /* MultiplayerGameplayViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 		4782C5E0248A545B00522FE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1688D3A9249BE6BA00D9B50D /* MultipeerSession.swift */,
 				4782C5E1248A546D00522FE4 /* Boss.swift */,
 				4782C5E3248A55E900522FE4 /* GameManager.swift */,
 				4782C5E5248A5DA200522FE4 /* Player.swift */,
@@ -380,6 +386,8 @@
 			dependencies = (
 			);
 			name = VoiceRecognitionTester;
+			packageProductDependencies = (
+			);
 			productName = VoiceRecognitionTester;
 			productReference = 47A8CA86240E2129006BD206 /* SoundBoo.app */;
 			productType = "com.apple.product-type.application";
@@ -408,6 +416,8 @@
 				Base,
 			);
 			mainGroup = 47A8CA7D240E2129006BD206;
+			packageReferences = (
+			);
 			productRefGroup = 47A8CA87240E2129006BD206 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -504,6 +514,7 @@
 				47A8CAA5240E21AC006BD206 /* VoiceRecognitionManager.swift in Sources */,
 				162C7CE32497328500883EB5 /* BaseViewController.swift in Sources */,
 				163A58042498BBDC00144099 /* MultiPlayerCreateViewController.swift in Sources */,
+				1688D3AA249BE6BA00D9B50D /* MultipeerSession.swift in Sources */,
 				47E6E7DF2442E5E5009D6633 /* GameplayViewController.swift in Sources */,
 				163A57FF2498ABA200144099 /* SinglePlayerCollectionViewCell.swift in Sources */,
 				16C903B8249A739300EA281A /* HintManager.swift in Sources */,
@@ -521,6 +532,7 @@
 				479443DD241E13F200C52E2E /* UIString.swift in Sources */,
 				163A580B2498BDE100144099 /* BasePopUpViewController.swift in Sources */,
 				16A9CA99249B4F9A00D72556 /* LevelManager.swift in Sources */,
+				1688D3A8249BBE8300D9B50D /* MultiplayerGameplayViewController.swift in Sources */,
 				47A8CA8C240E2129006BD206 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

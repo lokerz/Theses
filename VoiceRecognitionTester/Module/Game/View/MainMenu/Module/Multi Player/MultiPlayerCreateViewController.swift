@@ -13,11 +13,13 @@ class MultiPlayerCreateViewController: BasePopUpViewController {
     @IBOutlet weak var imgNormal: UIImageView!
     @IBOutlet weak var imgHard: UIImageView!
     
-    var level = 1 {
+    var level = 101 {
         didSet {
             self.hideUI()
         }
     }
+    
+    var create_method: ((Int)->Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,35 +27,27 @@ class MultiPlayerCreateViewController: BasePopUpViewController {
     }
     
     func hideUI(){
-        self.imgEasy.isHidden = level == 1 ? false : true
-        self.imgNormal.isHidden = level == 2 ? false : true
-        self.imgHard.isHidden = level == 3 ? false : true
+        self.imgEasy.isHidden = level == 101 ? false : true
+        self.imgNormal.isHidden = level == 102 ? false : true
+        self.imgHard.isHidden = level == 103 ? false : true
     }
     
     
     @IBAction func actionEasy(_ sender: Any) {
-        self.level = 1
+        self.level = 101
     }
     
     @IBAction func actionNormal(_ sender: Any) {
-        self.level = 2
+        self.level = 102
     }
     
     @IBAction func actionHard(_ sender: Any) {
-        self.level = 3
+        self.level = 103
     }
     
     @IBAction func actionCreate(_ sender: Any) {
-        
+        self.dismiss()
+        self.create_method?(self.level)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
