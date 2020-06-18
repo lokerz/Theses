@@ -194,9 +194,9 @@ extension GameplayUIView : VoiceRecognitionDelegate{
 //            self.specialCheck(tempHanze, tempPinyin)
 //        } else
         if skip.contains(where: text.contains) {
-            self.gameManager.win?()
+            self.gameManager.correct?()
         } else if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
-            self.gameManager.win?()
+            self.gameManager.correct?()
         } else {
             self.setLabel(state: false)
         }
@@ -232,7 +232,7 @@ extension GameplayUIView {
         
         timeManager.done_method = {
             self.player.attacked()
-            self.gameManager.lose?()
+            self.gameManager.wrong?()
         }
         
         timeManager.reset_method = {
@@ -245,7 +245,7 @@ extension GameplayUIView {
             self.HPBar.setProgress(val, animated: true)
         }
         boss.dead = {
-            self.gameManager.gameOver(win: true)
+            self.gameManager.gameOver(state: true)
         }
         boss.revived = {
             
@@ -257,7 +257,7 @@ extension GameplayUIView {
             self.lblHealth.text = "x" + String(val)
         }
         player.dead = {
-            self.gameManager.gameOver(win: false)
+            self.gameManager.gameOver(state: false)
         }
     }
     
@@ -265,7 +265,7 @@ extension GameplayUIView {
         gameManager.start = {
             self.startAction?()
             self.hideUI(state: false)
-            self.hintManager.reset()
+            self.hintManager.check()
             self.nextWord(delay: .now())
         }
         
@@ -285,13 +285,14 @@ extension GameplayUIView {
             self.resetLabel()
         }
         
-        gameManager.lose = {
+        gameManager.wrong = {
             self.timeManager.stop()
             self.voiceManager.stop()
             self.nextWord()
         }
         
-        gameManager.win = {
+        gameManager.correct = {
+            self.wordManager.saveWord(self.currentWord)
             self.boss.attacked(critical: self.isSentence)
             self.timeManager.stop()
             self.voiceManager.stop()
@@ -328,15 +329,17 @@ extension GameplayUIView {
             self.stopAction?()
         }
         
-        gameManager.game_over_win = {
+        gameManager.win = {
+            self.hintManager.add()
             self.levelManager.unlockLevel(level: self.level + 1)
+            
             self.winView?.isHidden = false
             self.speechManager.stop()
             self.timeManager.stop()
             self.voiceManager.stop()
         }
         
-        gameManager.game_over_lose = {
+        gameManager.lose = {
             self.levelManager.unlockLevel(level: self.level + 1)
             self.retryView?.isHidden = false
             self.speechManager.stop()

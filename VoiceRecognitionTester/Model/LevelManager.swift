@@ -10,13 +10,14 @@ import Foundation
 
 class LevelManager {
     static var shared = LevelManager()
-    let TOTAL_LEVEL = 8
+    var TOTAL_LEVEL = 8
     var lock_status = [Bool]()
     var key = "SoundBooLevel"
+    let defaults = UserDefaults.standard
     
     func loadDefault(){
-        let defaults = UserDefaults.standard
         self.lock_status = defaults.array(forKey: key) as? [Bool] ?? [Bool]()
+        self.checkLevel()
         
         if self.lock_status.isEmpty {
             self.lock_status = Array(repeating: false, count: TOTAL_LEVEL)
@@ -25,8 +26,17 @@ class LevelManager {
         }
     }
     
+    func checkLevel(){
+        self.TOTAL_LEVEL = WordManager.instance.sentences.last?.Level ?? 8
+        if lock_status.count > self.TOTAL_LEVEL {
+            self.lock_status.removeLast(lock_status.count - TOTAL_LEVEL)
+        } else {
+            self.lock_status.append(contentsOf: Array(repeating: false, count: TOTAL_LEVEL - lock_status.count))
+        }
+        self.saveDefault()
+    }
+    
     func saveDefault(){
-        let defaults = UserDefaults.standard
         defaults.set(self.lock_status, forKey: key)
     }
     

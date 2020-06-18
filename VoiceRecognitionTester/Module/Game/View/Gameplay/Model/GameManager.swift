@@ -11,18 +11,18 @@ import Foundation
 class GameManager {
     static var shared = GameManager()
     
-    var win: (()->Void)?
-    var lose: (()->Void)?
+    var correct: (()->Void)?
+    var wrong: (()->Void)?
     var start: (()->Void)?
     var reset: (()->Void)?
     var pause: (()->Void)?
     var resume: (()->Void)?
     var stop: (()->Void)?
-    var game_over_win: (()->Void)?
-    var game_over_lose: (()->Void)?
+    var win: (()->Void)?
+    var lose: (()->Void)?
 
     
-    func gameOver(win : Bool){
-        _ = win ? game_over_win?() : game_over_lose?()
+    func gameOver(state : Bool){
+        _ = state ? win?() : lose?()
     }
 }

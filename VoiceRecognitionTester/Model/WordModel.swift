@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Sentence : Decodable{
+struct Sentence : Codable{
     var Level : Int
     var Chinese : String
     var Pinyin : String
@@ -16,8 +16,13 @@ struct Sentence : Decodable{
     var Words : [Word]
 }
 
-struct Word : Decodable{
+struct Word : Codable{
     var Chinese : String
     var Pinyin : String
     var English : String
+}
+
+class ArchivedWord : NSObject {
+    var Word : Word?
+    var count : Int?
 }

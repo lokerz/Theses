@@ -10,7 +10,7 @@ import UIKit
 
 class HintManager {
     static var shared = HintManager()
-    let COUNT = 10
+    let COUNT = 5
     var count = 0
     
     var update : ((Int)->Void)?

@@ -12,7 +12,11 @@ class WordManager {
     static var instance = WordManager()
     var sentences = [Sentence]()
     var words = [Word]()
+    var archivedWords = [String : Int]()
     
+    var key = "SoundBooWords"
+    let defaults = UserDefaults.standard
+
     init() {
         loadSentences()
         loadWords()
@@ -36,5 +40,35 @@ class WordManager {
                 self.words.append(word)
             }
         }
+    }
+    
+    
+    func loadDefaults(){
+//        self.savedWords = defaults.array(forKey: key) as? [ArchivedWords] ?? [ArchivedWords]()
+    }
+    
+    func saveDefaults(){
+//        defaults.set(self.savedWords, forKey: key)
+    }
+    
+    func saveWord(_ word : Word?){
+        guard let word = word else {return}
+        let val = archivedWords[word.Chinese] ?? 0
+        archivedWords.updateValue(val + 1, forKey: word.Chinese)
+        self.saveDefaults()
+        return
+            
+        
+//        archivedWords.
+//            if archivedWord.Word?.Chinese == word.Chinese {
+//                archivedWord.count! += 1
+//            } else {
+//                let archivedWord = ArchivedWord()
+//                archivedWord.Word = word
+//                archivedWord.count = 1
+//                archivedWords.append(archivedWord)
+            }
+        }
+        self.saveDefaults()
     }
 }
