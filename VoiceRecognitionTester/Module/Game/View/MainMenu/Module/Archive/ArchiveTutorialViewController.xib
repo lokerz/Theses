@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArchiveTutorialViewController" customModule="SoundBoo" customModuleProvider="target">
             <connections>
+                <outlet property="btnPlay" destination="xCk-eC-6WM" id="0yQ-qS-Rf4"/>
+                <outlet property="btnTry" destination="0Va-qO-khW" id="Y31-nG-Z3d"/>
                 <outlet property="lblEnglish" destination="2Ew-a6-gvO" id="xJh-i6-KUZ"/>
                 <outlet property="lblHanzi" destination="Ea0-z5-DnE" id="fYi-nY-MGu"/>
                 <outlet property="lblPinyin" destination="4yh-M8-x3Q" id="Wox-Qo-BnX"/>

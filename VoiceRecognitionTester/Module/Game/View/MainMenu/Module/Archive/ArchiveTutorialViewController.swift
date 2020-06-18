@@ -10,10 +10,14 @@ import UIKit
 
 class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDelegate {
     
+    @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var btnTry: UIButton!
+    
     @IBOutlet weak var lblPinyin: UILabel!
     @IBOutlet weak var lblHanzi: UILabel!
     @IBOutlet weak var lblEnglish: UILabel!
     
+    let speechManager = SpeechManager.shared
     let voiceManager = VoiceRecognitionManager.instance
     var word : Word?
     
@@ -26,6 +30,11 @@ class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDe
         super.viewDidLoad()
         self.voiceManager.delegate = self
         self.configureView()
+        
+        self.speechManager.done_method {
+            self.btnTry.isEnabled = true
+            self.btnPlay.isEnabled = true
+        }
     }
     
     func configureView(){
@@ -38,12 +47,15 @@ class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDe
         self.resetLabel()
         self.voiceManager.stop()
         guard let word = word else {return}
-        SpeechManager().speak(text: word.Chinese)
+        speechManager.speak(text: word.Chinese)
+        btnTry.isEnabled = false
+        btnPlay.isEnabled = false
     }
     
     @IBAction func actionTry(_ sender: Any) {
         self.resetLabel()
         self.voiceManager.stop()
+        self.speechManager.stop()
         self.voiceManager.record()
     }
     
