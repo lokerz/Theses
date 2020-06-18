@@ -56,7 +56,7 @@
                                 <action selector="actionHard:" destination="-1" eventType="touchUpInside" id="uxh-j2-A7O"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmB-lg-j6q">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmB-lg-j6q">
                             <rect key="frame" x="74.5" y="363.5" width="182" height="59.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="RmB-lg-j6q" secondAttribute="height" multiplier="37:12" id="ORv-ZK-1YU"/>

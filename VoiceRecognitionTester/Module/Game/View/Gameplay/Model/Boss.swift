@@ -14,6 +14,7 @@ class Boss {
     let DAMAGE          = 10
     let DAMAGE_CRITICAL = 25
     
+    var isDead = false
     var health = Int()
     var dead : (()->Void)?
     var revived : (()->Void)?
@@ -30,7 +31,8 @@ class Boss {
     
     func checkHP(){
         update?(Float(health)/Float(HP))
-        if health <= 0 {
+        isDead = health <= 0
+        if isDead {
             dead?()
         }
     }

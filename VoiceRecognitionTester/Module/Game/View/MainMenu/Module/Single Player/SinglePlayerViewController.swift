@@ -10,7 +10,6 @@ import UIKit
 
 class SinglePlayerViewController: BaseViewController {
 
-    let LEVEL = 8
     let cellID = "SinglePlayerCollectionViewCell"
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,6 +19,10 @@ class SinglePlayerViewController: BaseViewController {
         self.setupTitle(title: .Single)
         self.setupBackButton()
         self.setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
     }
     
     func setupCollectionView(){
@@ -36,7 +39,7 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return LEVEL
+        return LevelManager.shared.lock_status.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -49,6 +52,7 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! SinglePlayerCollectionViewCell
         let level = indexPath.row + 1
         cell.configureView(level: level)
+        cell.btnLevel.isEnabled = LevelManager.shared.lock_status[indexPath.row]
         cell.action = {
             let vc = GameplayViewController(level: level)
             self.navigationController?.pushViewController(vc, animated: true)

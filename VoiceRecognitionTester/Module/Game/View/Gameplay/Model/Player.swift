@@ -10,8 +10,10 @@ import UIKit
 
 class Player {
     static var shared = Player()
+    let IS_INVICIBLE = false
     let HP = 10
     
+    var isDead = false
     var health = Int()
     var update : ((Int)->Void)?
     var dead : (()->Void)?
@@ -27,7 +29,8 @@ class Player {
     }
     
     func checkHP(){
-        if health <= 0 {
+        self.isDead = health <= 0 && !IS_INVICIBLE
+        if isDead {
             dead?()
         }
     }
@@ -35,5 +38,6 @@ class Player {
     func revive(){
         health = HP
         update?(health)
+        checkHP()
     }
 }

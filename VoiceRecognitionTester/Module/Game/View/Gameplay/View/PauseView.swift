@@ -15,6 +15,8 @@ class PauseView: UIView {
     var yes_method : (() -> Void)?
     var no_method : (() -> Void)?
     
+    @IBOutlet weak var lblText: UILabel!
+    
     override func awakeFromNib() {
         self.initView()
     }

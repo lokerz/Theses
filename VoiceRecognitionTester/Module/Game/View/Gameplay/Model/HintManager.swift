@@ -10,7 +10,8 @@ import UIKit
 
 class HintManager {
     static var shared = HintManager()
-    var count = 10
+    let COUNT = 10
+    var count = 0
     
     var update : ((Int)->Void)?
     var hint_method  : (()->Void)?
@@ -20,12 +21,17 @@ class HintManager {
         hint_method?()
     }
     
+    func add() {
+        count += 1
+        update?(count)
+    }
+    
     func check(){
         update?(count)
     }
     
     func reset(){
-        count = 10
+        count = COUNT
         update?(count)
     }
 }

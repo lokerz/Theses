@@ -36,10 +36,6 @@ class TimerManager {
         reset_method?()
     }
     
-    func pause(){
-        self.timer.invalidate()
-    }
-    
     func resume(){
         self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
     }

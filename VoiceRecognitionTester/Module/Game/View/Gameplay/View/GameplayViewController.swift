@@ -13,6 +13,7 @@ class GameplayViewController: UIViewController {
     
     var level = 0
     var sceneView : ARSCNView?
+    var monsterNode: SCNNode?
     var position = SCNVector3()
     
     convenience init(level : Int) {
@@ -57,24 +58,34 @@ class GameplayViewController: UIViewController {
     
     func setupUI(){
         let gameplayUI = GameplayUIView(frame: self.view.frame)
-        gameplayUI.sentences = WordManager.instance.sentences.filter{$0.Level == self.level}.shuffled()
+        gameplayUI.level = self.level
         gameplayUI.startAction = {
+            self.killMonster()
             self.spawnMonster()
         }
         gameplayUI.stopAction = {
             self.navigationController?.popViewController(animated: true)
         }
+        gameplayUI.nextLevelAction = {
+            self.level += 1
+            gameplayUI.level = self.level
+        }
+        
         self.view.addSubview(gameplayUI)
     }
     
     func spawnMonster(){
-        guard let monster = SCNScene(named: "3DAssets.scnassets/Boss.scn"),
-            let monsterNode = monster.rootNode.childNode(withName: "Boss", recursively: false)
-            else { return }
-        
-        monsterNode.position = SCNVector3(x: 0, y: -0.5, z: -1)
-        monsterNode.scale = SCNVector3(0.5, 0.5, 0.5)
-        self.sceneView?.scene.rootNode.addChildNode(monsterNode)
+        guard let monster = SCNScene(named: "3DAssets.scnassets/Boss.scn") else {return}
+        self.monsterNode = monster.rootNode.childNode(withName: "Boss", recursively: false)
+        guard let node = self.monsterNode else {return}
+        node.position = SCNVector3(x: 0, y: -0.5, z: -1)
+        node.scale = SCNVector3(0.5, 0.5, 0.5)
+        self.sceneView?.scene.rootNode.addChildNode(node)
+    }
+    
+    func killMonster(){
+        guard let node = self.monsterNode else {return}
+        node.removeFromParentNode()
     }
     
 }

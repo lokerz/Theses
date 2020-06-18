@@ -18,4 +18,11 @@ class GameManager {
     var pause: (()->Void)?
     var resume: (()->Void)?
     var stop: (()->Void)?
+    var game_over_win: (()->Void)?
+    var game_over_lose: (()->Void)?
+
+    
+    func gameOver(win : Bool){
+        _ = win ? game_over_win?() : game_over_lose?()
+    }
 }
