@@ -19,14 +19,14 @@ class MultiplayerViewController: BaseViewController {
     @IBAction func actionCreate(_ sender: Any) {
         let vc = MultiPlayerCreateViewController()
         vc.create_method = { val in
-            let vc = MultiplayerGameplayViewController(level: val)
+            let vc = MultiplayerGameplayViewController(level: val, create: true)
             self.navigationController?.pushViewController(vc, animated: true)
         }
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func actionJoin(_ sender: Any) {
-        let vc = MultiPlayerJoinViewController()
+        let vc = MultiplayerGameplayViewController(level: 1, create: true)
         self.present(vc, animated: true, completion: nil)
     }
 }

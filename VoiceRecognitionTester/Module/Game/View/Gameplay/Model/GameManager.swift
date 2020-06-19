@@ -11,7 +11,7 @@ import Foundation
 class GameManager {
     static var shared = GameManager()
     
-    let IS_MULTIPLAYER = false
+    let IS_MULTIPLAYER = true
     
     var correct: (()->Void)?
     var wrong: (()->Void)?

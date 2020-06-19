@@ -52,6 +52,7 @@ class GameplayUIView: UIView {
     var startAction: (() -> Void)?
     var stopAction: (()-> Void)?
     var nextLevelAction : (()-> Void)?
+    var killBossAction : (()-> Void)?
     
     var level = 0 {
         didSet {
@@ -121,6 +122,7 @@ class GameplayUIView: UIView {
                 self.sentenceIndex = self.sentenceIndex == self.sentences.count - 1 ? 0 : self.sentenceIndex + 1
                 self.index = 0
             }
+            self.btnHint.isEnabled = true
         }
     }
     
@@ -258,8 +260,13 @@ extension GameplayUIView {
         }
         
         timeManager.done_method = {
-            self.player.attacked()
-            self.gameManager.wrong?()
+            self.btnHint.isEnabled = false
+            self.timeManager.stop()
+            self.voiceManager.stop()
+            self.boss.attack() {
+                self.player.attacked()
+                self.gameManager.wrong?()
+            }
         }
         
         timeManager.reset_method = {
@@ -272,6 +279,7 @@ extension GameplayUIView {
             self.HPBar.setProgress(val, animated: true)
         }
         boss.dead = {
+            self.killBossAction?()
             self.gameManager.gameOver(state: true)
         }
         boss.revived = {
@@ -313,8 +321,6 @@ extension GameplayUIView {
         }
         
         gameManager.wrong = {
-            self.timeManager.stop()
-            self.voiceManager.stop()
             self.nextWord()
         }
         
@@ -423,7 +429,7 @@ extension GameplayUIView {
         guard let view = winView else {return}
         view.lblText.text = "YOU WIN! NEXT LEVEL?"
         view.yes_method = {
-            self.retryView?.isHidden = true
+            self.winView?.isHidden = true
             self.nextLevelAction?()
             self.gameManager.reset?()
         }

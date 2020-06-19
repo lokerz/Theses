@@ -13,8 +13,9 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     
     var level = 0
     var sceneView : ARSCNView?
-    var monsterNode: SCNNode?
-    var position = SCNVector3()
+    var bossAnchor : ARAnchor?
+    
+    var bossSpawned = false
     
     convenience init(level : Int) {
         self.init()
@@ -25,10 +26,8 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         #if !targetEnvironment(simulator)
         self.setupScene()
         #endif
-
-        self.setupUI()
     }
-    
+        
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -36,7 +35,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         sceneView?.session.pause()
     }
     
-    func setupScene(){
+    func setupScene(multiplayer : Bool = false){
         self.sceneView = ARSCNView(frame: self.view.frame)
         self.view.addSubview(self.sceneView!)
         
@@ -50,9 +49,8 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         configuration.isLightEstimationEnabled = true
-        if #available(iOS 13.0, *) {
-            configuration.frameSemantics.insert(.personSegmentationWithDepth)
-        }
+        configuration.isCollaborationEnabled = multiplayer
+        configuration.frameSemantics.insert(.personSegmentationWithDepth)
         
         sceneView?.session.run(configuration)
     }
@@ -61,8 +59,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         let gameplayUI = GameplayUIView(frame: self.view.frame)
         gameplayUI.level = self.level
         gameplayUI.startAction = {
-            self.killMonster()
-            self.spawnMonster()
+
         }
         gameplayUI.stopAction = {
             self.navigationController?.popViewController(animated: true)
@@ -70,55 +67,49 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         gameplayUI.nextLevelAction = {
             self.level += 1
             gameplayUI.level = self.level
+            self.bossSpawned = false
+        }
+        gameplayUI.killBossAction = {
+            self.killBoss()
         }
         
         self.view.addSubview(gameplayUI)
     }
     
-    func spawnMonster(){
-        let node = Boss().spawnBoss(type: 1)
-        node.position = SCNVector3(x: 0, y: -0.5, z: -1)
-        node.scale = SCNVector3(0.5, 0.5, 0.5)
-        self.sceneView?.scene.rootNode.addChildNode(node)
-    }
-    
-    func killMonster(){
-        guard let node = self.monsterNode else {return}
-        node.removeFromParentNode()
-    }
+    func spawnBoss(){
+        guard let currentFrame = sceneView?.session.currentFrame else {return}
 
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-//        let meshNode : SCNNode
-//        guard let planeAnchor = anchor as? ARPlaneAnchor else {return}
-//
-//        guard let meshGeometry = ARSCNPlaneGeometry(device: sceneView.device!)
-//            else {
-//                fatalError("Can't create plane geometry")
-//        }
-//        meshGeometry.update(from: planeAnchor.geometry)
-//        meshNode = SCNNode(geometry: meshGeometry)
-//        meshNode.opacity = 0.3
-//        meshNode.name = "MeshNode"
-//        self.position = meshNode.worldPosition
-//
-//        guard let material = meshNode.geometry?.firstMaterial
-//            else { fatalError("ARSCNPlaneGeometry always has one material") }
-//        material.diffuse.contents = UIColor.blue
-//
-//        node.addChildNode(meshNode)
+        let anchor = ARAnchor(name: "Boss", transform: Boss.shared.calculatePosition(frame: currentFrame))
+        self.bossAnchor = anchor
+        sceneView?.session.add(anchor: anchor)
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-//        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-//
-//        if let planeGeometry = node.childNode(withName: "MeshNode", recursively: false)!.geometry as? ARSCNPlaneGeometry {
-////            planeGeometry.update(from: planeAnchor.geometry)
-//        }
+    func killBoss(){
+        guard let anchor = bossAnchor else {return}
+        sceneView?.session.remove(anchor: anchor)
     }
-
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        
+        if !bossSpawned {
+            spawnBoss()
+            bossSpawned = true
+        }
     }
+
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if let name = anchor.name, name.hasPrefix("Boss") {
+            node.addChildNode(Boss.shared.spawnBoss())
+            Boss.shared.spawned {
+                self.setupUI()
+            }
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        if let name = anchor.name, name.hasPrefix("Boss") {
+            node.removeFromParentNode()
+        }
+    }
+    
+    
 }

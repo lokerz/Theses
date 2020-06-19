@@ -24,54 +24,18 @@ class MultiplayerGameplayViewController: GameplayViewController {
     var mapProvider: MCPeerID?
     
     var isCreator = false
-
+    
     convenience init(level : Int, create: Bool) {
         self.init(nibName: "GameplayViewController", bundle: nil)
         self.level = level
         self.isCreator = create
     }
     
-    override func setupScene(){
-        self.sceneView = ARSCNView(frame: self.view.frame)
-        self.view.addSubview(self.sceneView!)
+    override func setupScene(multiplayer: Bool = false){
+        super.setupScene(multiplayer: true)
+            self.spawnBoss()
+            self.multipeerSession = MultipeerSession(receivedDataHandler: self.receivedData)
         
-        let scene = SCNScene()
-        sceneView?.scene = scene
-        sceneView?.delegate = self
-        sceneView?.session.delegate = self
-        sceneView?.automaticallyUpdatesLighting = true
-        sceneView?.autoenablesDefaultLighting = true
-        
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
-        configuration.isLightEstimationEnabled = true
-        configuration.isCollaborationEnabled = true
-        if #available(iOS 13.0, *) {
-            configuration.frameSemantics.insert(.personSegmentationWithDepth)
-        }
-        
-        sceneView?.session.run(configuration)
-        
-        self.multipeerSession = MultipeerSession(receivedDataHandler: receivedData)
-    }
-    
-    override func setupUI(){
-        let gameplayUI = GameplayUIView(frame: self.view.frame)
-        gameplayUI.level = self.level
-        gameplayUI.startAction = {
-            if self.isCreator {self.shareWorld()}
-            self.killMonster()
-            self.spawnMonster()
-        }
-        gameplayUI.stopAction = {
-            self.navigationController?.popViewController(animated: true)
-        }
-        gameplayUI.nextLevelAction = {
-            self.level += 1
-            gameplayUI.level = self.level
-        }
-        
-        self.view.addSubview(gameplayUI)
     }
     
     func shareWorld(){
@@ -84,21 +48,12 @@ class MultiplayerGameplayViewController: GameplayViewController {
         }
     }
     
-    override func spawnMonster() {
-        guard let currentFrame = sceneView?.session.currentFrame else {return}
-        
-        // Create a transform with a translation of 30 cm in front of the camera
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = -1
-        let rotation = matrix_float4x4(SCNMatrix4MakeRotation(Float.pi/2, 0, 0, 1))
-        let transform = simd_mul(currentFrame.camera.transform, simd_mul(translation, rotation))
-
-        // Add a new anchor to the session
-        let anchor = ARAnchor(name: "Boss", transform: transform)
-        sceneView?.session.add(anchor: anchor)
-        
-        // Send the anchor info to peers, so they can place the same content.
-        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: anchor, requiringSecureCoding: true)
+    override func spawnBoss() {
+        super.spawnBoss()
+        if self.isCreator {
+            self.shareWorld()
+        }
+        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: self.bossAnchor, requiringSecureCoding: true)
             else { fatalError("can't encode anchor") }
         self.multipeerSession?.sendToAllPeers(data)
         
@@ -106,11 +61,11 @@ class MultiplayerGameplayViewController: GameplayViewController {
     
     // MARK: - ARSCNViewDelegate
     
-    override func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if let name = anchor.name, name.hasPrefix("Boss") {
-            node.addChildNode(Boss().spawnBoss(type: 1))
-        }
-    }
+    //    override func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+    //        if let name = anchor.name, name.hasPrefix("Boss") {
+    //            node.addChildNode(Boss().spawnBoss(type: 1))
+    //        }
+    //    }
     
     
     // MARK: - ARSessionObserver
