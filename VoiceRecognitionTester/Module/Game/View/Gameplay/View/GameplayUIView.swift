@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameplayUIView: UIView {
+class GameplayUIView: UIView, VoiceRecognitionDelegate {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var lblLevel: UILabel!
@@ -53,12 +53,13 @@ class GameplayUIView: UIView {
     var stopAction: (()-> Void)?
     var nextLevelAction : (()-> Void)?
     var killBossAction : (()-> Void)?
+    var attackBossAction : ((Bool)->Void)?
     
     var level = 0 {
         didSet {
             self.sentences = [Sentence]()
-            self.sentences = level > 100 ? wordManager.sentences : wordManager.sentences.filter{$0.Level == self.level}.shuffled() 
-            self.lblLevel.text = "-LEVEL \(level)-"
+            self.sentences = level >= 10 ? wordManager.sentences.shuffled() : wordManager.sentences.filter{$0.Level == self.level}.shuffled()
+            self.lblLevel.text = level >= 10 ? "Level ENDLESS" : "-LEVEL \(level)-"
         }
     }
     
@@ -76,7 +77,7 @@ class GameplayUIView: UIView {
         self.initView()
     }
     
-    private func initView(){
+    func initView(){
         Bundle.main.loadNibNamed("GameplayUIView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -178,10 +179,8 @@ class GameplayUIView: UIView {
     @IBAction func actionHint(_ sender: Any) {
         self.hintManager.hint()
     }
-}
-
-extension GameplayUIView : VoiceRecognitionDelegate{
     
+    /// tag - VoiceRecognitionDelegate
     func updateText(text: String) {
         let skip        = ["99", "QQ"]
         let tempHanze   = text.trimPunctuation()
@@ -242,9 +241,6 @@ extension GameplayUIView : VoiceRecognitionDelegate{
         
         self.lblHanze.attributedText = attributedText
     }
-}
-
-extension GameplayUIView {
     
     func setupVoiceManager(){
         voiceManager.delegate = self
@@ -276,7 +272,9 @@ extension GameplayUIView {
     
     func setupBoss(){
         boss.update = { val in
-            self.HPBar.setProgress(val, animated: true)
+            DispatchQueue.main.async {
+                self.HPBar.setProgress(val, animated: true)
+            }
         }
         boss.dead = {
             self.killBossAction?()
@@ -329,6 +327,7 @@ extension GameplayUIView {
                 self.wordManager.saveWord(self.currentWord)
             }
             self.boss.attacked(critical: self.isSentence)
+            self.attackBossAction?(self.isSentence)
             self.timeManager.stop()
             self.voiceManager.stop()
             self.setLabel(state: true)

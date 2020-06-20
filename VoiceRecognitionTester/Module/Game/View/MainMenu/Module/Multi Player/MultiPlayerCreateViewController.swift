@@ -15,7 +15,7 @@ class MultiPlayerCreateViewController: BasePopUpViewController {
     
     @IBOutlet weak var btnCreate: UIButton!
     
-    var level = 101 {
+    var level = 10 {
         didSet {
             self.hideUI()
         }
@@ -30,22 +30,22 @@ class MultiPlayerCreateViewController: BasePopUpViewController {
     
     func hideUI(){
         self.btnCreate.isEnabled = GameManager.shared.IS_MULTIPLAYER
-        self.imgEasy.isHidden = level == 101 ? false : true
-        self.imgNormal.isHidden = level == 102 ? false : true
-        self.imgHard.isHidden = level == 103 ? false : true
+        self.imgEasy.isHidden = level == 10 ? false : true
+        self.imgNormal.isHidden = level == 11 ? false : true
+        self.imgHard.isHidden = level == 12 ? false : true
     }
     
     
     @IBAction func actionEasy(_ sender: Any) {
-        self.level = 101
+        self.level = 10
     }
     
     @IBAction func actionNormal(_ sender: Any) {
-        self.level = 102
+        self.level = 11
     }
     
     @IBAction func actionHard(_ sender: Any) {
-        self.level = 103
+        self.level = 12
     }
     
     @IBAction func actionCreate(_ sender: Any) {

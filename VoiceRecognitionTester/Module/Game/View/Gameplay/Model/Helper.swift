@@ -15,6 +15,18 @@ extension SCNNode {
             node.geometry?.firstMaterial?.diffuse.contents = UIColor.random
         }
     }
+    func multiplayerColor() {
+        for node in self.childNodes {
+            guard let material = node.geometry?.firstMaterial else {return}
+            if material.name == "Purple" {
+                material.diffuse.contents = UIColor.black
+            } else if material.name == "Light" {
+                material.diffuse.contents = UIColor.white
+            } else {
+                material.diffuse.contents = UIColor.red
+            }
+        }
+    }
     
     func addAnimation(from node: String){
         guard let url = Bundle.main.url(forResource: node, withExtension: "dae", subdirectory: "3DAssets.scnassets/Animation") else {return}
@@ -32,5 +44,18 @@ extension UIColor {
                        green: .random(in: 0...1),
                        blue: .random(in: 0...1),
                        alpha: 1.0)
+    }
+}
+
+extension Data {
+    init<T>(from value: T) {
+        self = Swift.withUnsafeBytes(of: value) { Data($0) }
+    }
+
+    func to<T>(type: T.Type) -> T? where T: ExpressibleByIntegerLiteral {
+        var value: T = 0
+        guard count >= MemoryLayout.size(ofValue: value) else { return nil }
+        _ = Swift.withUnsafeMutableBytes(of: &value, { copyBytes(to: $0)} )
+        return value
     }
 }

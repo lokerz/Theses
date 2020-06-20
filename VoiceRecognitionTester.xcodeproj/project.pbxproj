@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1614C645249E371900E27D28 /* MultiplayerGameplayUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614C644249E371700E27D28 /* MultiplayerGameplayUIView.swift */; };
 		162C7CDB2497316200883EB5 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C7CD92497316200883EB5 /* MainMenuViewController.swift */; };
 		162C7CDC2497316200883EB5 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162C7CDA2497316200883EB5 /* MainMenuViewController.xib */; };
 		162C7CE02497325300883EB5 /* SinglePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C7CDE2497325300883EB5 /* SinglePlayerViewController.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1614C644249E371700E27D28 /* MultiplayerGameplayUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGameplayUIView.swift; sourceTree = "<group>"; };
 		162C7CD92497316200883EB5 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		162C7CDA2497316200883EB5 /* MainMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
 		162C7CDE2497325300883EB5 /* SinglePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				16C903B3249A1DF700EA281A /* PauseView.swift */,
 				16C903B4249A1DF700EA281A /* PauseView.xib */,
 				1688D3A7249BBE8300D9B50D /* MultiplayerGameplayViewController.swift */,
+				1614C644249E371700E27D28 /* MultiplayerGameplayUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				479443DA241E0C5500C52E2E /* WordManager.swift in Sources */,
 				163A58082498BC1E00144099 /* MultiPlayerJoinViewController.swift in Sources */,
 				479443DD241E13F200C52E2E /* UIString.swift in Sources */,
+				1614C645249E371900E27D28 /* MultiplayerGameplayUIView.swift in Sources */,
 				163A580B2498BDE100144099 /* BasePopUpViewController.swift in Sources */,
 				16A9CA99249B4F9A00D72556 /* LevelManager.swift in Sources */,
 				1688D3A8249BBE8300D9B50D /* MultiplayerGameplayViewController.swift in Sources */,

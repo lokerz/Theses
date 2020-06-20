@@ -10,15 +10,19 @@ import UIKit
 import ARKit
 import SceneKit
 
+
 class Boss {
     static var shared = Boss()
-    let HP              = 100
+    var HP              = 0
     let DAMAGE          = 10
     let DAMAGE_CRITICAL = 25
     let DISTANCE        = 3
-    let SCALE           = 0.5
+    let SCALE           = 0.05
+    let MULTI_SCALE     = 0.1
     
+    var isMultiplayer = false
     var isDead = false
+    
     var health = Int()
     var dead : (()->Void)?
     var revived : (()->Void)?
@@ -32,8 +36,11 @@ class Boss {
     var attacked_key = "light_bulb_damage"
     var dead_key = "light_bulb_lose"
     
-    init() {
-        health = HP
+    var level = 1 {
+        didSet {
+            HP = level * level * 50 / 2
+            revive()
+        }
     }
     
     func checkHP(){
@@ -58,6 +65,11 @@ class Boss {
     }
     
     func attack(completion : @escaping (()->Void)) {
+        guard !isMultiplayer else {
+            completion()
+            return
+        }
+        
         guard let player = self.node?.animationPlayer(forKey: self.attack_key) else {return}
         player.play()
         
@@ -72,7 +84,7 @@ class Boss {
     func attacked(critical: Bool = false){
         health -= critical ? DAMAGE_CRITICAL : DAMAGE
         checkHP()
-        if !isDead {
+        if !isDead && !isMultiplayer{
             guard let player = self.node?.animationPlayer(forKey: self.attacked_key) else {return}
             player.play()
             DispatchQueue.main.asyncAfter(deadline: .now() + player.animation.duration) {
@@ -102,8 +114,13 @@ class Boss {
         guard let referenceNode = SCNReferenceNode(url: sceneURL) else {return SCNNode()}
         
         referenceNode.load()
-        referenceNode.scale = SCNVector3(SCALE, SCALE, SCALE)
-        referenceNode.randomColor()
+        if !isMultiplayer {
+            referenceNode.scale = SCNVector3(SCALE, SCALE, SCALE)
+            referenceNode.randomColor()
+        } else {
+            referenceNode.scale = SCNVector3(MULTI_SCALE, MULTI_SCALE, MULTI_SCALE)
+            referenceNode.multiplayerColor()
+        }
         referenceNode.addAnimation(from: idle_key)
         referenceNode.addAnimation(from: attack_key)
         referenceNode.addAnimation(from: dead_key)

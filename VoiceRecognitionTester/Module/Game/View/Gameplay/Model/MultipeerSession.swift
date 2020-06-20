@@ -18,6 +18,8 @@ class MultipeerSession: NSObject {
     
     private let receivedDataHandler: (Data, MCPeerID) -> Void
     
+    var isCreator = false
+    
     /// - Tag: MultipeerSetup
     init(receivedDataHandler: @escaping (Data, MCPeerID) -> Void ) {
         self.receivedDataHandler = receivedDataHandler
@@ -26,6 +28,7 @@ class MultipeerSession: NSObject {
         
         session = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
         session.delegate = self
+        
         
         serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerID, discoveryInfo: nil, serviceType: MultipeerSession.serviceType)
         serviceAdvertiser.delegate = self
@@ -40,7 +43,7 @@ class MultipeerSession: NSObject {
         do {
             try session.send(data, toPeers: session.connectedPeers, with: .reliable)
         } catch {
-            print("error sending data to peers: \(error.localizedDescription)")
+            print("error sending data to peers \(session.connectedPeers): \(error.localizedDescription)")
         }
     }
     
@@ -52,11 +55,15 @@ class MultipeerSession: NSObject {
 extension MultipeerSession: MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        // not used
+        print(#function, state.self, session.connectedPeers)
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         receivedDataHandler(data, peerID)
+    }
+    
+    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
+        certificateHandler(true)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -78,7 +85,11 @@ extension MultipeerSession: MCNearbyServiceBrowserDelegate {
     /// - Tag: FoundPeer
     public func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
         // Invite the new peer to the session.
-        browser.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
+        if isCreator {
+            guard connectedPeers.filter{$0.displayName == peerID.displayName}.isEmpty else {return}
+//            guard peerID.displayName == self.myPeerID.displayName else {return}
+            browser.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
+        }
     }
 
     public func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
@@ -92,7 +103,9 @@ extension MultipeerSession: MCNearbyServiceAdvertiserDelegate {
     /// - Tag: AcceptInvite
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         // Call handler to accept invitation and join the session.
-        invitationHandler(true, self.session)
+        if !isCreator {
+            invitationHandler(true, self.session)
+        }
     }
 
 }

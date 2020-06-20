@@ -14,9 +14,10 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     var level = 0
     var sceneView : ARSCNView?
     var bossAnchor : ARAnchor?
-    
+    var gameUI : GameplayUIView?
+    var lastHitResult: ARHitTestResult?
     var bossSpawned = false
-    
+        
     convenience init(level : Int) {
         self.init()
         self.level = level
@@ -53,35 +54,46 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         configuration.frameSemantics.insert(.personSegmentationWithDepth)
         
         sceneView?.session.run(configuration)
+        sceneView?.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(spawnBoss(sender:))))
     }
     
     func setupUI(){
-        let gameplayUI = GameplayUIView(frame: self.view.frame)
-        gameplayUI.level = self.level
-        gameplayUI.startAction = {
-
-        }
-        gameplayUI.stopAction = {
+        self.gameUI = GameplayUIView(frame: self.view.frame)
+        guard let gameUI = gameUI else {return}
+        gameUI.level = self.level
+        gameUI.stopAction = {
             self.navigationController?.popViewController(animated: true)
         }
-        gameplayUI.nextLevelAction = {
+        gameUI.nextLevelAction = {
             self.level += 1
-            gameplayUI.level = self.level
-            self.bossSpawned = false
+            gameUI.level = self.level
+            self.respawnBoss()
         }
-        gameplayUI.killBossAction = {
+        gameUI.killBossAction = {
             self.killBoss()
         }
         
-        self.view.addSubview(gameplayUI)
+        self.view.addSubview(gameUI)
     }
     
-    func spawnBoss(){
-        guard let currentFrame = sceneView?.session.currentFrame else {return}
-
-        let anchor = ARAnchor(name: "Boss", transform: Boss.shared.calculatePosition(frame: currentFrame))
+    
+    @objc func spawnBoss(sender: UITapGestureRecognizer){
+        guard !bossSpawned else {return}
+        guard let hitTestResult = sceneView?
+            .hitTest(sender.location(in: sceneView), types: [.existingPlaneUsingGeometry, .estimatedHorizontalPlane])
+            .first
+            else { return }
+        self.lastHitResult = hitTestResult
+        self.respawnBoss()
+    }
+    
+    func respawnBoss(){
+        guard !bossSpawned else {return}
+        guard let lastHit = self.lastHitResult else {return}
+        let anchor = ARAnchor(name: "Boss", transform: lastHit.worldTransform)
         self.bossAnchor = anchor
         sceneView?.session.add(anchor: anchor)
+        bossSpawned = true
     }
     
     func killBoss(){
@@ -89,18 +101,14 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         sceneView?.session.remove(anchor: anchor)
     }
     
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        if !bossSpawned {
-            spawnBoss()
-            bossSpawned = true
-        }
-    }
-
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let name = anchor.name, name.hasPrefix("Boss") {
             node.addChildNode(Boss.shared.spawnBoss())
+            Boss.shared.level = self.level
             Boss.shared.spawned {
-                self.setupUI()
+                DispatchQueue.main.async {
+                    self.setupUI()
+                }
             }
         }
     }
