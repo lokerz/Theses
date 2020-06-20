@@ -107,6 +107,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
             guard let anchor = bossAnchor else {return}
             sceneView?.session.remove(anchor: anchor)
             isKillBoss = false
+            bossSpawned = false
         }
     }
     

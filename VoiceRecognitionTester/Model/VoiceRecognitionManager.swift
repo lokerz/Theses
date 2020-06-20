@@ -44,14 +44,15 @@ class VoiceRecognitionManager {
     
     func record(){
         self.request = SFSpeechAudioBufferRecognitionRequest()
-        audioEngine.inputNode.removeTap(onBus: 0)
         let node = audioEngine.inputNode
+        node.removeTap(onBus: 0)
+        
+        audioEngine.reset()
         let recordingFormat = node.outputFormat(forBus: 0)
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
             self.request?.append(buffer)
         }
         
-        audioEngine.reset()
         audioEngine.prepare()
         do {
             try audioEngine.start()

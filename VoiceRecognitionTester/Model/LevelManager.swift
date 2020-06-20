@@ -42,7 +42,7 @@ class LevelManager {
     }
     
     func unlockLevel(level: Int){
-        guard level < TOTAL_LEVEL else {return}
+        guard level <= TOTAL_LEVEL else {return}
         self.lock_status[level - 1] = true
         self.saveDefault()
     }

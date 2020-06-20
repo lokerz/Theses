@@ -132,7 +132,7 @@ class MultiplayerGameplayViewController: GameplayViewController {
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        print(multipeerSession!.connectedPeers.map({ $0.displayName }).joined(separator: ", "))
+//        print(multipeerSession!.connectedPeers.map({ $0.displayName }).joined(separator: ", "))
         switch frame.worldMappingStatus {
         case .notAvailable:
             self.btnCreate?.isEnabled = false

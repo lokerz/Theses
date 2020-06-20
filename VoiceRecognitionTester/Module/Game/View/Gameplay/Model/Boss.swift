@@ -38,7 +38,7 @@ class Boss {
     
     var level = 1 {
         didSet {
-            HP = level * level * 50 / 2
+            HP = (50 + 25 * ((level * level) - (level - 1)) / 25 * level / 2) / 10 * 10
             revive()
         }
     }
