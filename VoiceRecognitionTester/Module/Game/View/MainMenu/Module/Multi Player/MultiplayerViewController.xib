@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,13 +13,13 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqy-I0-XpT">
-                    <rect key="frame" x="57" y="391.5" width="300" height="123"/>
+                    <rect key="frame" x="312" y="601" width="400" height="164"/>
                     <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="MhN-py-e4u"/>
                         <constraint firstAttribute="width" secondItem="Dqy-I0-XpT" secondAttribute="height" multiplier="100:41" id="ly9-pW-yUt"/>
                     </constraints>
                     <state key="normal" backgroundImage="button_join"/>
@@ -28,7 +28,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STO-gY-jdE">
-                    <rect key="frame" x="57" y="251" width="300" height="123"/>
+                    <rect key="frame" x="312" y="419.5" width="400" height="164"/>
                     <state key="normal" backgroundImage="button_create_2"/>
                     <connections>
                         <action selector="actionCreate:" destination="-1" eventType="touchUpInside" id="WXM-nr-QCM"/>
@@ -37,15 +37,15 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="Dqy-I0-XpT" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.724638" id="2SX-MU-Vl4"/>
+                <constraint firstItem="Dqy-I0-XpT" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.724638" priority="750" id="2SX-MU-Vl4"/>
                 <constraint firstItem="Dqy-I0-XpT" firstAttribute="top" secondItem="STO-gY-jdE" secondAttribute="bottom" constant="17.5" id="7kn-3d-v0F"/>
                 <constraint firstItem="STO-gY-jdE" firstAttribute="height" secondItem="Dqy-I0-XpT" secondAttribute="height" id="8kA-zF-QhM"/>
-                <constraint firstItem="Dqy-I0-XpT" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="C53-bF-11F"/>
+                <constraint firstItem="Dqy-I0-XpT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="C53-bF-11F"/>
                 <constraint firstItem="STO-gY-jdE" firstAttribute="width" secondItem="Dqy-I0-XpT" secondAttribute="width" id="Hsi-jf-cX9"/>
-                <constraint firstItem="STO-gY-jdE" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xuB-rk-vqX"/>
-                <constraint firstItem="Dqy-I0-XpT" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xzV-El-fcL"/>
+                <constraint firstItem="STO-gY-jdE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xuB-rk-vqX"/>
+                <constraint firstItem="Dqy-I0-XpT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xzV-El-fcL"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <viewLayoutGuide key="safeArea" id="Eqp-r8-aUs"/>
             <point key="canvasLocation" x="139" y="137"/>
         </view>
     </objects>
