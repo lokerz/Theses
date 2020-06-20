@@ -26,15 +26,15 @@ class GameplayUIView: UIView {
     var pauseView : PauseView?
     var winView : PauseView?
     var retryView : PauseView?
-
+    
     var index           = 0
     var sentenceIndex   = 0
-
+    
     var sentences       = [Sentence]()
     var words           = [Word]()
     var currentWord     : Word?
     var currentSentence : Sentence?
-
+    
     let boss            = Boss.shared
     let player          = Player.shared
     let hintManager     = HintManager.shared
@@ -94,7 +94,7 @@ class GameplayUIView: UIView {
         self.setupPauseView()
         self.setupWinView()
         self.setupRetryView()
-                
+        
         self.gameManager.reset?()
     }
     
@@ -118,7 +118,7 @@ class GameplayUIView: UIView {
                                 Pinyin: self.sentences[self.sentenceIndex].Pinyin,
                                 English: self.sentences[self.sentenceIndex].English)
                 self.setupWord(word: word)
-
+                
                 self.sentenceIndex = self.sentenceIndex == self.sentences.count - 1 ? 0 : self.sentenceIndex + 1
                 self.index = 0
             }
@@ -254,7 +254,7 @@ extension GameplayUIView {
         self.timerBar.layer.masksToBounds = false
         self.timerBar.layer.cornerRadius = 5
         self.timerBar.progress = 1
-
+        
         timeManager.set_method = { val in
             self.timerBar.setProgress(val, animated: true)
         }
@@ -390,9 +390,10 @@ extension GameplayUIView {
             guard let text = self.currentWord?.Chinese else {return}
             self.timeManager.stop()
             self.voiceManager.stop()
-            self.speechManager.speak(text: text)
-            self.isSpeaking = true
             self.btnHint.isEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){ self.speechManager.speak(text: text)
+                self.isSpeaking = true
+            }
         }
         
         hintManager.update = { val in
@@ -404,8 +405,9 @@ extension GameplayUIView {
     func setupSpeechManager(){
         speechManager.done_method = {
             self.isSpeaking = false
-            self.gameManager.resume?()
-            self.hintManager.check()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){ self.gameManager.resume?()
+                self.hintManager.check()
+            }
         }
     }
     
