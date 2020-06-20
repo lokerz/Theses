@@ -16,7 +16,9 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     var bossAnchor : ARAnchor?
     var gameUI : GameplayUIView?
     var lastHitResult: ARHitTestResult?
+    
     var bossSpawned = false
+    var isKillBoss  = false
         
     convenience init(level : Int) {
         self.init()
@@ -97,8 +99,15 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     func killBoss(){
-        guard let anchor = bossAnchor else {return}
-        sceneView?.session.remove(anchor: anchor)
+        self.isKillBoss = true
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        if isKillBoss {
+            guard let anchor = bossAnchor else {return}
+            sceneView?.session.remove(anchor: anchor)
+            isKillBoss = false
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
