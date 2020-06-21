@@ -66,6 +66,7 @@ class BaseViewController: UIViewController {
     }
     
     @objc func dismissAction(){
+        SoundManager.shared.play()
         self.navigationController?.popViewController(animated: true)
     }
     

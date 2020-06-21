@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1614C645249E371900E27D28 /* MultiplayerGameplayUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614C644249E371700E27D28 /* MultiplayerGameplayUIView.swift */; };
 		1614C647249F1F5D00E27D28 /* HSK1_FINAL.json in Resources */ = {isa = PBXBuildFile; fileRef = 1614C646249F1F5D00E27D28 /* HSK1_FINAL.json */; };
+		1614C649249F677B00E27D28 /* Click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1614C648249F677A00E27D28 /* Click.m4a */; };
+		1614C64B249F678B00E27D28 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614C64A249F678B00E27D28 /* SoundManager.swift */; };
+		1614C64F249F701900E27D28 /* Click 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1614C64E249F701900E27D28 /* Click 2.m4a */; };
 		162C7CDB2497316200883EB5 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C7CD92497316200883EB5 /* MainMenuViewController.swift */; };
 		162C7CDC2497316200883EB5 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162C7CDA2497316200883EB5 /* MainMenuViewController.xib */; };
 		162C7CE02497325300883EB5 /* SinglePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C7CDE2497325300883EB5 /* SinglePlayerViewController.swift */; };
@@ -64,6 +67,9 @@
 /* Begin PBXFileReference section */
 		1614C644249E371700E27D28 /* MultiplayerGameplayUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGameplayUIView.swift; sourceTree = "<group>"; };
 		1614C646249F1F5D00E27D28 /* HSK1_FINAL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = HSK1_FINAL.json; path = ../../../../Downloads/HSK1_FINAL.json; sourceTree = "<group>"; };
+		1614C648249F677A00E27D28 /* Click.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Click.m4a; sourceTree = "<group>"; };
+		1614C64A249F678B00E27D28 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		1614C64E249F701900E27D28 /* Click 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Click 2.m4a"; sourceTree = "<group>"; };
 		162C7CD92497316200883EB5 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		162C7CDA2497316200883EB5 /* MainMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
 		162C7CDE2497325300883EB5 /* SinglePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +310,7 @@
 				479443D9241E0C5500C52E2E /* WordManager.swift */,
 				479B8CC7248CE48900A08560 /* SpeechManager.swift */,
 				16A9CA98249B4F9A00D72556 /* LevelManager.swift */,
+				1614C64A249F678B00E27D28 /* SoundManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +336,8 @@
 		47E6E7DB2442E522009D6633 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1614C64E249F701900E27D28 /* Click 2.m4a */,
+				1614C648249F677A00E27D28 /* Click.m4a */,
 				47A8CA95240E212C006BD206 /* Assets.xcassets */,
 				47E6E7DC2442E52B009D6633 /* View */,
 			);
@@ -442,6 +451,7 @@
 				163A57F524989EC500144099 /* MultiplayerViewController.xib in Resources */,
 				163A58052498BBDC00144099 /* MultiPlayerCreateViewController.xib in Resources */,
 				163A58002498ABA200144099 /* SinglePlayerCollectionViewCell.xib in Resources */,
+				1614C649249F677B00E27D28 /* Click.m4a in Resources */,
 				1614C647249F1F5D00E27D28 /* HSK1_FINAL.json in Resources */,
 				47FAADE6247121C000472275 /* 3DAssets.scnassets in Resources */,
 				47A8CA96240E212C006BD206 /* Assets.xcassets in Resources */,
@@ -449,6 +459,7 @@
 				163A57F924989ED800144099 /* ArchiveViewController.xib in Resources */,
 				16C903B6249A1DF700EA281A /* PauseView.xib in Resources */,
 				162C7CE12497325300883EB5 /* SinglePlayerViewController.xib in Resources */,
+				1614C64F249F701900E27D28 /* Click 2.m4a in Resources */,
 				163A58142498FDFF00144099 /* ArchiveTutorialViewController.xib in Resources */,
 				163A58102498E9FB00144099 /* ArchiveTableViewCell.xib in Resources */,
 				47E6E7E02442E5E5009D6633 /* GameplayViewController.xib in Resources */,
@@ -523,6 +534,7 @@
 				479443D8241E0BF300C52E2E /* WordModel.swift in Sources */,
 				1674BF39249D3A6100725CD9 /* Helper.swift in Sources */,
 				4782C5E6248A5DA200522FE4 /* Player.swift in Sources */,
+				1614C64B249F678B00E27D28 /* SoundManager.swift in Sources */,
 				47A8CA94240E2129006BD206 /* VoiceRecognitionTester.xcdatamodeld in Sources */,
 				4782C5E2248A546D00522FE4 /* Boss.swift in Sources */,
 				163A57F824989ED800144099 /* ArchiveViewController.swift in Sources */,

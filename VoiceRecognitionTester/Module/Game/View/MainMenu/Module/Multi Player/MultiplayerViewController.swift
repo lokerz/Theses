@@ -17,6 +17,7 @@ class MultiplayerViewController: BaseViewController {
     }
     
     @IBAction func actionCreate(_ sender: Any) {
+        SoundManager.shared.play()
         let vc = MultiPlayerCreateViewController()
         vc.create_method = { val in
             let vc = MultiplayerGameplayViewController(level: val, create: true)
@@ -26,6 +27,7 @@ class MultiplayerViewController: BaseViewController {
     }
     
     @IBAction func actionJoin(_ sender: Any) {
+        SoundManager.shared.play()
         let vc = MultiplayerGameplayViewController(level: 1, create: false)
         self.navigationController?.pushViewController(vc, animated: true)
     }

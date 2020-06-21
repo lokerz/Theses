@@ -58,6 +58,7 @@ extension ArchiveViewController : UITableViewDelegate, UITableViewDataSource {
         cell.configureView(word: self.words[indexPath.row])
         cell.updateSize()
         cell.action = {
+            SoundManager.shared.play()
             let vc = ArchiveTutorialViewController(word: self.words[indexPath.row])
             self.present(vc, animated: true, completion: nil)
         }

@@ -11,16 +11,19 @@ import UIKit
 class MainMenuViewController: BaseViewController {
 
     @IBAction func actionSingle(_ sender: Any) {
+        SoundManager.shared.play()
         let vc = SinglePlayerViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func actionMulti(_ sender: Any) {
+        SoundManager.shared.play()
         let vc = MultiplayerViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func actionArchive(_ sender: Any) {
+        SoundManager.shared.play()
         let vc = ArchiveViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

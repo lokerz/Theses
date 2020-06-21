@@ -37,18 +37,22 @@ class MultiPlayerCreateViewController: BasePopUpViewController {
     
     
     @IBAction func actionEasy(_ sender: Any) {
+        SoundManager.shared.play()
         self.level = 11
     }
     
     @IBAction func actionNormal(_ sender: Any) {
+        SoundManager.shared.play()
         self.level = 12
     }
     
     @IBAction func actionHard(_ sender: Any) {
+        SoundManager.shared.play()
         self.level = 13
     }
     
     @IBAction func actionCreate(_ sender: Any) {
+        SoundManager.shared.play()
         self.dismiss()
         self.create_method?(self.level)
     }

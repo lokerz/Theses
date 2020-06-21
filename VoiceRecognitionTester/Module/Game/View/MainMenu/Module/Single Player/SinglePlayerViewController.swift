@@ -42,7 +42,7 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return LevelManager.shared.lock_status.last == false ? LevelManager.shared.TOTAL_LEVEL - 1 : LevelManager.shared.TOTAL_LEVEL 
+        return LevelManager.shared.lock_status.last == false ? LevelManager.shared.TOTAL_LEVEL - 1 : LevelManager.shared.TOTAL_LEVEL
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -58,6 +58,7 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         cell.updateSize()
         cell.btnLevel.isEnabled = LevelManager.shared.lock_status[indexPath.row]
         cell.action = {
+            SoundManager.shared.play()
             let vc = GameplayViewController(level: level)
             self.navigationController?.pushViewController(vc, animated: true)
         }
