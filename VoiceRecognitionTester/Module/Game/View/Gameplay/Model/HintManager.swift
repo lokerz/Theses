@@ -31,6 +31,7 @@ class HintManager {
     
     func hint()  {
         count -= 1
+        count = count < 0 ? 0 : count
         hint_method?()
     }
     

@@ -22,7 +22,7 @@ class MultiplayerGameplayViewController: GameplayViewController {
     
     var multipeerSession: MultipeerSession!
     var isCreator = false
-    var btnCreate : UIButton?
+    var isConnected = false
     var multiGameUI: MultiplayerGameplayUIView?
     
     convenience init(level : Int, create: Bool) {
@@ -32,13 +32,26 @@ class MultiplayerGameplayViewController: GameplayViewController {
         Boss.shared.isMultiplayer = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        multipeerSession.disconnect()
+    }
+    
     override func setupScene(multiplayer: Bool = false){
         super.setupScene(multiplayer: true)
         self.multipeerSession = MultipeerSession(receivedDataHandler: self.receivedData)
         self.multipeerSession.isCreator = isCreator
+        
+        self.btnBack.isHidden = false
+        self.view.bringSubviewToFront(self.lblConnection)
+        self.view.bringSubviewToFront(self.btnBack)
+        if !isCreator {
+            self.coachingView?.removeFromSuperview()
+        }
     }
     
     override func setupUI(){
+        self.btnBack.isHidden = true
         self.multiGameUI = MultiplayerGameplayUIView(frame: self.view.frame)
         guard let gameUI = multiGameUI else {return}
         gameUI.level = self.level
@@ -59,9 +72,9 @@ class MultiplayerGameplayViewController: GameplayViewController {
 
     }
     
-    @objc override func spawnBoss(sender: UITapGestureRecognizer) {
+    override func spawnBoss(transform : simd_float4x4) {
         guard isCreator else {return}
-        super.spawnBoss(sender: sender)
+        super.spawnBoss(transform: transform)
     }
     
     override func respawnBoss() {
@@ -69,24 +82,16 @@ class MultiplayerGameplayViewController: GameplayViewController {
         super.respawnBoss()
     }
     
-    func addConnectButton(){
-        guard isCreator else {return}
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
-        button.center = self.view.center
-        button.setTitle("CONNECT", for: .normal)
-        button.isEnabled = false
-        button.titleLabel?.font = UIFont(name: "Phosphate-Inline", size: 50)
-        self.btnCreate = button
-        button.addTarget(self, action: #selector(connect), for: .touchUpInside)
-        self.view.addSubview(button)
+    func prepareConnect(){
+        guard !(multipeerSession.connectedPeers.isEmpty) else {return}
+        guard isCreator && !isConnected else {return}
+        self.isConnected = true
+        self.setupUI()
+        self.connect()
     }
     
-    @objc func connect(){
-        guard !(multipeerSession.connectedPeers.isEmpty) else {return}
-        self.setupUI()
+    func connect(){
         self.shareLevel()
-        self.btnCreate?.isHidden = true
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.shareWorld()
         }
@@ -119,37 +124,41 @@ class MultiplayerGameplayViewController: GameplayViewController {
         }
     }
     
+    func updateLabel(){
+        var str = String()
+        if isCreator && multipeerSession.connectedPeers.isEmpty {
+            str = "Waiting for Players to join"
+        } else if !isCreator && multipeerSession.connectedPeers.isEmpty {
+            str = "Waiting for Hosts"
+        } else {
+            str = "Connected with : \(multipeerSession.connectedPeers.map({ $0.displayName }).joined(separator: ", "))"
+        }
+        self.lblConnection.text = str
+    }
+    
     override func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if let planeAnchor = anchor as? ARPlaneAnchor {
+            self.spawnBoss(transform: planeAnchor.transform)
+        }
+        
         if let name = anchor.name, name.hasPrefix("Boss") {
             node.addChildNode(Boss.shared.spawnBoss())
             Boss.shared.level = self.level
             Boss.shared.spawned {
-                if self.isCreator {
-                    self.addConnectButton()
-                }
+                
             }
         }
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-//        print(multipeerSession!.connectedPeers.map({ $0.displayName }).joined(separator: ", "))
+        self.updateLabel()
         switch frame.worldMappingStatus {
-        case .notAvailable:
-            self.btnCreate?.isEnabled = false
-        case  .limited:
-            self.btnCreate?.isEnabled = false
-        case .extending:
-            self.btnCreate?.isEnabled = !multipeerSession.connectedPeers.isEmpty
-        case .mapped:
-            self.btnCreate?.isEnabled = !multipeerSession.connectedPeers.isEmpty
-        @unknown default:
-            self.btnCreate?.isEnabled = true
+        case .extending, .mapped : prepareConnect()
+        default: return
         }
     }
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required.
-    }
+    
     
     // MARK: - Multiuser shared session
     
@@ -178,7 +187,7 @@ class MultiplayerGameplayViewController: GameplayViewController {
             return
         }
         if let val = Int(dataString) {
-            if val >= 10 && val <= 12 {
+            if val >= 11 && val <= 13 {
                 self.level = val
                 Boss.shared.level = val
                 DispatchQueue.main.async {

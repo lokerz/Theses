@@ -7,8 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameplayViewController" customModule="VoiceRecognitionTester" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameplayViewController" customModule="SoundBoo" customModuleProvider="target">
             <connections>
+                <outlet property="btnBack" destination="cv9-We-4ku" id="e58-9y-soJ"/>
+                <outlet property="lblConnection" destination="b92-bu-tA0" id="0m4-PV-yaV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,9 +18,37 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b92-bu-tA0">
+                    <rect key="frame" x="394" y="52" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv9-We-4ku">
+                    <rect key="frame" x="20" y="52" width="70" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cv9-We-4ku" secondAttribute="height" multiplier="65:67" id="Vox-vC-qZk"/>
+                        <constraint firstAttribute="width" constant="70" id="rUr-hm-kH2"/>
+                    </constraints>
+                    <state key="normal" image="button_back"/>
+                    <connections>
+                        <action selector="actionDismiss:" destination="-1" eventType="touchUpInside" id="xf3-XT-2sN"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="cv9-We-4ku" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="0p2-yd-8wM"/>
+                <constraint firstItem="b92-bu-tA0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="6Oq-zg-3MU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b92-bu-tA0" secondAttribute="trailing" constant="20" id="8Kw-nt-CkA"/>
+                <constraint firstItem="cv9-We-4ku" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="eA2-GQ-5lJ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="132" y="90"/>
         </view>
     </objects>
+    <resources>
+        <image name="button_back" width="65" height="67"/>
+    </resources>
 </document>

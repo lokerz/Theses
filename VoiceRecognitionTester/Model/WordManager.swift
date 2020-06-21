@@ -23,7 +23,7 @@ class WordManager {
     }
     
     func loadSentences(){
-        let path = Bundle.main.path(forResource: "HSK1_2", ofType: "json")!
+        let path = Bundle.main.path(forResource: "HSK1_FINAL", ofType: "json")!
         guard let data = NSData(contentsOfFile: path) else {return}
         
         do{

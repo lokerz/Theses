@@ -15,7 +15,7 @@ class SinglePlayerCollectionViewCell: UICollectionViewCell {
     var action : (()->Void)?
     
     func configureView(level: Int){
-        btnLevel.setTitle("LEVEL \(level)", for: .normal)
+        btnLevel.setTitle(LevelManager.shared.TOTAL_LEVEL == level ? "BONUS" : "LEVEL \(level)", for: .normal)
     }
     
     func updateSize(){

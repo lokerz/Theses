@@ -60,7 +60,14 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         didSet {
             self.sentences = [Sentence]()
             self.sentences = level >= 10 ? wordManager.sentences.shuffled() : wordManager.sentences.filter{$0.Level == self.level}.shuffled()
-            self.lblLevel.text = level >= 10 ? "Level ENDLESS" : "-LEVEL \(level)-"
+            
+            if level >= 11 {
+                self.lblLevel.text = "Level ENDLESS"
+            } else if level == 8 {
+                self.lblLevel.text = "BONUS"
+            } else {
+                self.lblLevel.text = "-LEVEL \(level)-"
+            }
         }
     }
     
@@ -84,21 +91,38 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        self.setupBoss()
-        self.setupPlayer()
-        self.setupTimer()
+        self.reset()
         
         self.setupVoiceManager()
         self.setupSpeechManager()
         self.setupGameManager()
         self.setupHintManager()
+
+        self.setupBoss()
+        self.setupPlayer()
+        self.setupTimer()
         
         self.setupPauseView()
         self.setupWinView()
         self.setupRetryView()
         self.setupEndView()
         
-        self.gameManager.reset?()
+    }
+    
+    func reset(){
+        self.index = 0
+        self.sentenceIndex = 0
+        
+        self.isSpeaking      = false
+        self.isRecording     = false
+        self.isSentence      = true
+        
+        self.timeManager.stop()
+        self.boss.revive()
+        self.player.revive()
+        
+        self.hideUI(state: true)
+        self.resetLabel()
     }
     
     func nextWord(delay: DispatchTime = .now() + 1){
@@ -125,7 +149,7 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
                 self.sentenceIndex = self.sentenceIndex == self.sentences.count - 1 ? 0 : self.sentenceIndex + 1
                 self.index = 0
             }
-            self.btnHint.isEnabled = true
+            self.btnHint.isEnabled = self.hintManager.count > 0
         }
     }
     
@@ -294,6 +318,7 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         player.dead = {
             self.gameManager.gameOver(state: false)
         }
+        player.update?(player.health)
     }
     
     func setupGameManager(){
@@ -304,22 +329,6 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
             self.nextWord(delay: .now())
         }
         
-        gameManager.reset = {
-            self.index = 0
-            self.sentenceIndex = 0
-            
-            self.isSpeaking      = false
-            self.isRecording     = false
-            self.isSentence      = true
-            
-            self.timeManager.reset()
-            self.boss.revive()
-            self.player.revive()
-            
-            self.hideUI(state: true)
-            self.resetLabel()
-        }
-        
         gameManager.wrong = {
             self.nextWord()
         }
@@ -328,6 +337,7 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
             if !self.isSentence {
                 self.wordManager.saveWord(self.currentWord)
             }
+            self.btnHint.isEnabled = false
             self.boss.attacked(critical: self.isSentence)
             self.attackBossAction?(self.isSentence)
             self.timeManager.stop()
@@ -377,8 +387,6 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         }
         
         gameManager.lose = {
-            self.levelManager.unlockLevel(level: self.level + 1)
-            
             self.retryView?.isHidden = false
             self.speechManager.stop()
             self.timeManager.stop()
@@ -400,14 +408,16 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         
         hintManager.update = { val in
             self.btnHint.setTitle("x\(val)", for: .normal)
-            self.btnHint.isEnabled = val != 0
+            self.btnHint.isEnabled = val > 0
         }
     }
     
     func setupSpeechManager(){
         speechManager.done_method = {
             self.isSpeaking = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1){ self.gameManager.resume?()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.timeManager.reset()
+                self.gameManager.resume?()
                 self.hintManager.check()
             }
         }
@@ -417,8 +427,8 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         pauseView = PauseView(frame: self.frame)
         guard let view = pauseView else {return}
         view.yes_method = {
+            self.reset()
             self.gameManager.stop?()
-            self.gameManager.reset?()
         }
         view.no_method = {
             self.pauseView?.isHidden = true
@@ -434,8 +444,8 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         view.lblText.text = "YOU WIN! NEXT LEVEL?"
         view.yes_method = {
             self.winView?.isHidden = true
+            self.reset()
             self.nextLevelAction?()
-            self.gameManager.reset?()
         }
         view.no_method = {
             self.gameManager.stop?()
@@ -450,7 +460,7 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         view.lblText.text = "YOU LOSE! TRY AGAIN?"
         view.yes_method = {
             self.retryView?.isHidden = true
-            self.gameManager.reset?()
+            self.reset()
         }
         view.no_method = {
             self.gameManager.stop?()

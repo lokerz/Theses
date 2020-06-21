@@ -11,11 +11,15 @@ import ARKit
 
 class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var lblConnection: UILabel!
+    
     var level = 0
     var sceneView : ARSCNView?
+    var coachingView : ARCoachingOverlayView?
     var bossAnchor : ARAnchor?
     var gameUI : GameplayUIView?
-    var lastHitResult: ARHitTestResult?
+    var lastTransform: simd_float4x4?
     
     var bossSpawned = false
     var isKillBoss  = false
@@ -23,6 +27,11 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     convenience init(level : Int) {
         self.init()
         self.level = level
+        Boss.shared.isMultiplayer = false
+    }
+    
+    @IBAction func actionDismiss(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,8 +66,14 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         configuration.isCollaborationEnabled = multiplayer
         configuration.frameSemantics.insert(.personSegmentationWithDepth)
         
-        sceneView?.session.run(configuration)
-        sceneView?.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(spawnBoss(sender:))))
+        sceneView?.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        
+        self.coachingView = ARCoachingOverlayView(frame: self.view.frame)
+        guard let coachingView = self.coachingView else { return }
+        coachingView.session = sceneView?.session
+        coachingView.activatesAutomatically = true
+        coachingView.goal = .horizontalPlane
+        self.view.addSubview(coachingView)
     }
     
     func setupUI(){
@@ -72,6 +87,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
             self.level += 1
             gameUI.level = self.level
             self.respawnBoss()
+            self.gameUI?.removeFromSuperview()
         }
         gameUI.killBossAction = {
             self.killBoss()
@@ -81,30 +97,42 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     
-    @objc func spawnBoss(sender: UITapGestureRecognizer){
+    func spawnBoss(transform: simd_float4x4){
         guard !bossSpawned else {return}
-        guard let hitTestResult = sceneView?
-            .hitTest(sender.location(in: sceneView), types: [.existingPlaneUsingGeometry, .estimatedHorizontalPlane])
-            .first
-            else { return }
-        self.lastHitResult = hitTestResult
+        self.lastTransform = transform
         self.respawnBoss()
     }
     
     func respawnBoss(){
         guard !bossSpawned else {return}
-        guard let lastHit = self.lastHitResult else {return}
-        let anchor = ARAnchor(name: "Boss", transform: lastHit.worldTransform)
+        guard let lastTransform = self.lastTransform else {return}
+        let anchor = ARAnchor(name: "Boss", transform: lastTransform)
         self.bossAnchor = anchor
         sceneView?.session.add(anchor: anchor)
         bossSpawned = true
+        DispatchQueue.main.async {
+            self.coachingView?.removeFromSuperview()
+        }
     }
     
     func killBoss(){
         self.isKillBoss = true
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if !bossSpawned {
+            if let planeAnchor = anchor as? ARPlaneAnchor,
+                let planeNode = node.childNodes.first,
+                let plane = planeNode.geometry as? SCNPlane {
+                    plane.width = CGFloat(planeAnchor.extent.x)
+                plane.height = CGFloat(planeAnchor.extent.z)
+                planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+            }
+        }
+    }
+    
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        print(Player.shared.health)
         if isKillBoss {
             guard let anchor = bossAnchor else {return}
             sceneView?.session.remove(anchor: anchor)
@@ -114,6 +142,10 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if let planeAnchor = anchor as? ARPlaneAnchor, !bossSpawned{
+            self.spawnBoss(transform: planeAnchor.transform)
+        }
+        
         if let name = anchor.name, name.hasPrefix("Boss") {
             node.addChildNode(Boss.shared.spawnBoss())
             Boss.shared.level = self.level

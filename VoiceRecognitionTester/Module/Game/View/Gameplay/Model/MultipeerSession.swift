@@ -47,9 +47,16 @@ class MultipeerSession: NSObject {
         }
     }
     
+    func disconnect(){
+        serviceBrowser.stopBrowsingForPeers()
+        serviceAdvertiser.stopAdvertisingPeer()
+        session.disconnect()
+    }
+    
     var connectedPeers: [MCPeerID] {
         return session.connectedPeers
     }
+    
 }
 
 extension MultipeerSession: MCSessionDelegate {

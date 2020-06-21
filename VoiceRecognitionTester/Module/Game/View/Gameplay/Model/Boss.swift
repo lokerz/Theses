@@ -17,7 +17,7 @@ class Boss {
     let DAMAGE          = 10
     let DAMAGE_CRITICAL = 25
     let DISTANCE        = 3
-    let SCALE           = 0.05
+    let SCALE           = 0.075
     let MULTI_SCALE     = 0.1
     
     var isMultiplayer = false
@@ -121,6 +121,7 @@ class Boss {
             referenceNode.scale = SCNVector3(MULTI_SCALE, MULTI_SCALE, MULTI_SCALE)
             referenceNode.multiplayerColor()
         }
+        referenceNode.position = SCNVector3(0, 0.2, 0)
         referenceNode.addAnimation(from: idle_key)
         referenceNode.addAnimation(from: attack_key)
         referenceNode.addAnimation(from: dead_key)

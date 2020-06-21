@@ -24,8 +24,9 @@ class TimerManager {
     func start(critical: Bool = false){
         self.reset()
         self.isCritical = critical
-        self.timeRemaining = critical ? TIME_OUT_LONG : TIME_OUT
-        self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
+        self.timeRemaining = isCritical ? TIME_OUT_LONG : TIME_OUT
+        print(#function, self.timeRemaining)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
     }
     
     func stop(){
@@ -33,15 +34,16 @@ class TimerManager {
     }
     
     func reset(){
+        self.timeRemaining = isCritical ? TIME_OUT_LONG : TIME_OUT
         reset_method?()
     }
     
     func resume(){
-        self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
     }
     
     @objc func runningTimer(){
-        self.timeRemaining -= 0.001
+        self.timeRemaining -= 0.01
         set_method?(Float(self.timeRemaining / (self.isCritical ? TIME_OUT_LONG : TIME_OUT)))
         if timeRemaining <= 0 {
             done_method?()

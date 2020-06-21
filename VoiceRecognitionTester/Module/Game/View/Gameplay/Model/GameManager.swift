@@ -16,7 +16,6 @@ class GameManager {
     var correct: (()->Void)?
     var wrong: (()->Void)?
     var start: (()->Void)?
-    var reset: (()->Void)?
     var pause: (()->Void)?
     var resume: (()->Void)?
     var stop: (()->Void)?

@@ -34,7 +34,7 @@
                             <color key="textColor" red="0.36078431370000003" green="0.45882352939999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea0-z5-DnE">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ea0-z5-DnE">
                             <rect key="frame" x="64" y="152" width="272" height="60"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                             <color key="textColor" red="0.3803921569" green="0.31764705879999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
