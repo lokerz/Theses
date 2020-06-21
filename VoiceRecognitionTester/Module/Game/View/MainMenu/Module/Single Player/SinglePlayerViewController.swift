@@ -42,7 +42,7 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return LevelManager.shared.lock_status.last == false ? LevelManager.shared.TOTAL_LEVEL - 1 : LevelManager.shared.TOTAL_LEVEL
+        return LevelManager.shared.TOTAL_LEVEL
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

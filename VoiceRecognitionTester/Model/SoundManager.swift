@@ -36,4 +36,3 @@ class SoundManager : NSObject, AVAudioPlayerDelegate {
         VoiceRecognitionManager.instance.stop()
     }
 }
-

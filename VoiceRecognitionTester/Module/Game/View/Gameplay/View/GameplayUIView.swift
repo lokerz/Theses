@@ -63,8 +63,6 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
             
             if level >= 11 {
                 self.lblLevel.text = "Level ENDLESS"
-            } else if level == 8 {
-                self.lblLevel.text = "BONUS"
             } else {
                 self.lblLevel.text = "-LEVEL \(level)-"
             }

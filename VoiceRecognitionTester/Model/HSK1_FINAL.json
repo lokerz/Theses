@@ -1066,46 +1066,5 @@
                 "English": "Return, Come back",
             }
         ]
-    },
-    {
-        "Level": 8,
-        "Chinese": "四是四，十是十，十四是十四",
-        "Pinyin": "sì shì sì，shí shì shí, shí sì shì shí sì",
-        "English": "four is four, ten is ten, fourteen is fourteen",
-        "Words" : [
-            {
-                "Chinese": "四是四",
-                "Pinyin": "sì shì sì",
-                "English": "four is four",
-            },
-            {
-                "Chinese": "十是十",
-                "Pinyin": "shí shì shí",
-                "English": "ten is ten",
-            },
-            {
-                "Chinese": "十四是十四",
-                "Pinyin": "shí sì shì shí sì",
-                "English": "fourteen is fourteen",
-            }
-        ]
-    },
-    {
-        "Level": 8,
-        "Chinese": "四十是四十，四十四只石狮子是死的",
-        "Pinyin": "sì shí shì sì shí, sì shí sì zhī shí shī zi shì sǐ de",
-        "English": "forty is forty, forty four stone lions are dead",
-        "Words" : [
-            {
-                "Chinese": "四十是四十",
-                "Pinyin": "sì shí shì sì shí",
-                "English": "forty is forty",
-            },
-            {
-                "Chinese": "四十四只石狮子是死的",
-                "Pinyin": "sì shí sì zhī shí shī zi shì sǐ de",
-                "English": "forty four stone lions are dead",
-            }
-        ]
     }
 ]
