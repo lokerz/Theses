@@ -132,7 +132,6 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        print(Player.shared.health)
         if isKillBoss {
             guard let anchor = bossAnchor else {return}
             sceneView?.session.remove(anchor: anchor)

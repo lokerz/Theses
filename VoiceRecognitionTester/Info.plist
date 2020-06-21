@@ -21,11 +21,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Use Camera for Augmented Reality</string>
+	<string>This allows us to use the camera to simulates an augmented reality experience for you.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Use Microphone</string>
+	<string>This allows us to listen to your voice and combined with Speech Recognition together to check the correctness of your pronounciation.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Use Speech Recognition</string>
+	<string>This allows us to check the correctness of your pronounciation.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

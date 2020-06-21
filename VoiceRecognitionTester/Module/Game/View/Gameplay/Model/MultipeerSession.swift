@@ -19,6 +19,7 @@ class MultipeerSession: NSObject {
     private let receivedDataHandler: (Data, MCPeerID) -> Void
     
     var isCreator = false
+    var sendData : (()->Void)?
     
     /// - Tag: MultipeerSetup
     init(receivedDataHandler: @escaping (Data, MCPeerID) -> Void ) {
@@ -71,6 +72,9 @@ extension MultipeerSession: MCSessionDelegate {
     
     func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
         certificateHandler(true)
+        if isCreator {
+            sendData?()
+        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -98,6 +102,8 @@ extension MultipeerSession: MCNearbyServiceBrowserDelegate {
             browser.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
         }
     }
+    
+    
 
     public func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         // This app doesn't do anything with non-invited peers, so there's nothing to do here.

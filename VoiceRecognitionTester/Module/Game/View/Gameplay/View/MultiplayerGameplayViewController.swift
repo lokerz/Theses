@@ -41,6 +41,9 @@ class MultiplayerGameplayViewController: GameplayViewController {
         super.setupScene(multiplayer: true)
         self.multipeerSession = MultipeerSession(receivedDataHandler: self.receivedData)
         self.multipeerSession.isCreator = isCreator
+        self.multipeerSession.sendData = {
+            self.connect()
+        }
         
         self.btnBack.isHidden = false
         self.view.bringSubviewToFront(self.lblConnection)

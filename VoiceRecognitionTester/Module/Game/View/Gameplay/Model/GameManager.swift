@@ -21,7 +21,7 @@ class GameManager {
     var stop: (()->Void)?
     var win: (()->Void)?
     var lose: (()->Void)?
-
+    
     
     func gameOver(state : Bool){
         _ = state ? win?() : lose?()
