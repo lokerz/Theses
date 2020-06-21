@@ -28,6 +28,8 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     override func viewDidAppear(_ animated: Bool) {
         #if !targetEnvironment(simulator)
         self.setupScene()
+        #else
+        self.setupUI()
         #endif
     }
         

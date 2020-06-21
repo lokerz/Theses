@@ -16,8 +16,12 @@ struct Sentence : Codable{
     var Words : [Word]
 }
 
-struct Word : Codable{
+struct Word : Codable, Equatable{
     var Chinese : String
     var Pinyin : String
     var English : String
+    
+    static func ==(lhs: Word, rhs: Word) -> Bool {
+        return lhs.Chinese == rhs.Chinese
+    }
 }

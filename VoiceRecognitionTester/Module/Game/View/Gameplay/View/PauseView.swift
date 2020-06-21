@@ -11,6 +11,8 @@ import UIKit
 class PauseView: UIView {
 
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var btnNo: UIButton!
+    @IBOutlet weak var btnYes: UIButton!
     
     var yes_method : (() -> Void)?
     var no_method : (() -> Void)?

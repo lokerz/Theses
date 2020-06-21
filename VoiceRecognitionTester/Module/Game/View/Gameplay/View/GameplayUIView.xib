@@ -39,7 +39,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="3pL-vu-qhW">
-                    <rect key="frame" x="32" y="972" width="960" height="10"/>
+                    <rect key="frame" x="40" y="972" width="944" height="10"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="10" id="oUx-eA-Zc6"/>
@@ -98,13 +98,15 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-Ib-PPA">
-                    <rect key="frame" x="28" y="74" width="964" height="32"/>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-Ib-PPA">
+                    <rect key="frame" x="342.5" y="74" width="335" height="32"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </progressView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="health_bar" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-QJ-88f">
-                    <rect key="frame" x="16" y="66" width="992" height="48"/>
+                    <rect key="frame" x="330.5" y="66" width="363" height="48"/>
                     <constraints>
+                        <constraint firstAttribute="width" secondItem="d1b-QJ-88f" secondAttribute="height" multiplier="121:16" id="Sve-fB-rfh"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="VZd-5G-8dw"/>
                         <constraint firstAttribute="height" constant="48" id="lpn-B0-AdQ"/>
                     </constraints>
                 </imageView>
@@ -133,13 +135,14 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="3pL-vu-qhW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="1VA-fa-VYs"/>
+                <constraint firstItem="3pL-vu-qhW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="1VA-fa-VYs"/>
                 <constraint firstItem="bgu-H8-ogb" firstAttribute="height" secondItem="iiB-FM-UMz" secondAttribute="height" multiplier="0.6" id="2MG-lW-BNk"/>
                 <constraint firstItem="d1b-QJ-88f" firstAttribute="top" secondItem="f8Q-61-F3t" secondAttribute="bottom" constant="8" id="42Z-ba-gIn"/>
                 <constraint firstItem="W7L-Ib-PPA" firstAttribute="leading" secondItem="d1b-QJ-88f" secondAttribute="leading" constant="12" id="7Md-Yi-Frd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iiB-FM-UMz" secondAttribute="trailing" id="Hxt-jR-H6d"/>
                 <constraint firstItem="d1b-QJ-88f" firstAttribute="trailing" secondItem="W7L-Ib-PPA" secondAttribute="trailing" constant="16" id="LRX-os-k0F"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="top" secondItem="jx7-2Q-cbF" secondAttribute="bottom" constant="4" id="NpX-bD-oIz"/>
+                <constraint firstItem="d1b-QJ-88f" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.876812" priority="750" id="OhA-vu-FxK"/>
                 <constraint firstItem="jx7-2Q-cbF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="PhV-KX-SO9"/>
                 <constraint firstItem="iiB-FM-UMz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="S2p-RH-laa"/>
                 <constraint firstItem="W7L-Ib-PPA" firstAttribute="top" secondItem="d1b-QJ-88f" secondAttribute="top" constant="8" id="UmF-rB-QOc"/>
@@ -156,13 +159,11 @@
                 <constraint firstAttribute="bottom" secondItem="bgu-H8-ogb" secondAttribute="bottom" constant="34" id="pSA-jk-UNH"/>
                 <constraint firstItem="f8Q-61-F3t" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="rjK-K3-GFR"/>
                 <constraint firstItem="d1b-QJ-88f" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="uRq-n7-Hhq"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="d1b-QJ-88f" secondAttribute="trailing" constant="16" id="wTF-4m-oil"/>
                 <constraint firstItem="bgu-H8-ogb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="wj3-n1-6rJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3pL-vu-qhW" secondAttribute="trailing" constant="32" id="wzQ-i4-xBH"/>
-                <constraint firstItem="d1b-QJ-88f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zv1-57-XXV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3pL-vu-qhW" secondAttribute="trailing" constant="40" id="wzQ-i4-xBH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
+            <point key="canvasLocation" x="131.8359375" y="93.557833089311856"/>
         </view>
     </objects>
     <resources>
@@ -170,6 +171,6 @@
         <image name="button_hint" width="50" height="53"/>
         <image name="button_pause" width="50" height="50"/>
         <image name="health_bar" width="1033" height="132"/>
-        <image name="heart" width="36" height="34"/>
+        <image name="heart" width="200" height="183"/>
     </resources>
 </document>

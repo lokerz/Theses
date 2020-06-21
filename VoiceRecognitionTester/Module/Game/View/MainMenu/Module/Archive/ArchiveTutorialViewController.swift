@@ -57,6 +57,7 @@ class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDe
         self.voiceManager.stop()
         self.speechManager.stop()
         self.voiceManager.record()
+        btnTry.isEnabled = false
     }
     
     func updateText(text: String) {
@@ -71,6 +72,7 @@ class ArchiveTutorialViewController: BasePopUpViewController, VoiceRecognitionDe
         if tempPinyin.contains(textPinyin) || tempHanze.contains(textHanze){
             self.setLabel(state: true)
             self.voiceManager.stop()
+            btnTry.isEnabled = true
         } else {
             self.setLabel(state: false)
         }

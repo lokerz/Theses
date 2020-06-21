@@ -47,7 +47,7 @@ class MultiplayerGameplayUIView : GameplayUIView {
     override func setupGameManager() {
         super.setupGameManager()
         gameManager.win = {
-            self.winView?.isHidden = false
+            self.endView?.isHidden = false
             self.speechManager.stop()
             self.timeManager.stop()
             self.voiceManager.stop()

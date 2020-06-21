@@ -23,9 +23,10 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
     @IBOutlet weak var timerBar: UIProgressView!
     @IBOutlet weak var HPBar: UIProgressView!
     @IBOutlet weak var containerHPBar: UIImageView!
-    var pauseView : PauseView?
-    var winView : PauseView?
-    var retryView : PauseView?
+    var pauseView       : PauseView?
+    var winView         : PauseView?
+    var retryView       : PauseView?
+    var endView         : PauseView?
     
     var index           = 0
     var sentenceIndex   = 0
@@ -95,6 +96,7 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         self.setupPauseView()
         self.setupWinView()
         self.setupRetryView()
+        self.setupEndView()
         
         self.gameManager.reset?()
     }
@@ -367,7 +369,8 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
             self.hintManager.add()
             self.levelManager.unlockLevel(level: self.level + 1)
             
-            self.winView?.isHidden = false
+            self.winView?.isHidden = self.level == self.levelManager.TOTAL_LEVEL
+            self.endView?.isHidden = !(self.level == self.levelManager.TOTAL_LEVEL)
             self.speechManager.stop()
             self.timeManager.stop()
             self.voiceManager.stop()
@@ -451,6 +454,20 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         }
         view.no_method = {
             self.gameManager.stop?()
+        }
+        self.addSubview(view)
+        view.isHidden = true
+    }
+    
+    func setupEndView(){
+        endView = PauseView(frame: self.frame)
+        guard let view = endView else {return}
+        view.lblText.text = "YOU WIN!"
+        view.btnNo.isHidden = true
+        view.btnYes.setTitle("OK", for: .normal)
+        view.yes_method = {
+            self.gameManager.stop?()
+            self.endView?.isHidden = true
         }
         self.addSubview(view)
         view.isHidden = true

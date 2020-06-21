@@ -21,8 +21,8 @@ class SinglePlayerViewController: BaseViewController {
         self.setupCollectionView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.collectionView.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        self.updateCellSize()
     }
     
     func setupCollectionView(){
@@ -31,6 +31,9 @@ class SinglePlayerViewController: BaseViewController {
         self.collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
     }
 
+    func updateCellSize(){
+        self.collectionView.reloadData()
+    }
 }
 
 extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -52,11 +55,13 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! SinglePlayerCollectionViewCell
         let level = indexPath.row + 1
         cell.configureView(level: level)
+        cell.updateSize()
         cell.btnLevel.isEnabled = LevelManager.shared.lock_status[indexPath.row]
         cell.action = {
             let vc = GameplayViewController(level: level)
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        cell.prepareForReuse()
         return cell
     }
     

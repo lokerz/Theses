@@ -21,6 +21,9 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BkL-zC-3dX">
                     <rect key="frame" x="32" y="140" width="350" height="690"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="wTm-DS-f4i"/>
+                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dZJ-iC-Cxg">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,8 +34,9 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BkL-zC-3dX" secondAttribute="trailing" constant="32" id="Fd9-Nx-efW"/>
-                <constraint firstItem="BkL-zC-3dX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="UwR-aT-lQA"/>
+                <constraint firstItem="BkL-zC-3dX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="9GX-RU-26G"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BkL-zC-3dX" secondAttribute="trailing" priority="750" constant="32" id="Fd9-Nx-efW"/>
+                <constraint firstItem="BkL-zC-3dX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" priority="750" constant="32" id="UwR-aT-lQA"/>
                 <constraint firstItem="BkL-zC-3dX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="96" id="VYW-d3-E9N"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="BkL-zC-3dX" secondAttribute="bottom" constant="32" id="lNm-er-Jgq"/>
             </constraints>

@@ -18,6 +18,11 @@ class SinglePlayerCollectionViewCell: UICollectionViewCell {
         btnLevel.setTitle("LEVEL \(level)", for: .normal)
     }
     
+    func updateSize(){
+        btnLevel.titleLabel?.adjustsFontSizeToFitWidth = true
+        btnLevel.titleLabel?.font = UIFont(name: "Phosphate-Inline", size: btnLevel.frame.height * 0.33)
+    }
+    
     @IBAction func actionButton(_ sender: Any) {
         action?()
     }

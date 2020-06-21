@@ -147,11 +147,11 @@
 		162C7CD22497242900883EB5 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
-				162C7CDD2497316600883EB5 /* Module */,
 				162C7CD92497316200883EB5 /* MainMenuViewController.swift */,
 				162C7CDA2497316200883EB5 /* MainMenuViewController.xib */,
 				162C7CE22497328500883EB5 /* BaseViewController.swift */,
 				163A580A2498BDE100144099 /* BasePopUpViewController.swift */,
+				162C7CDD2497316600883EB5 /* Module */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";

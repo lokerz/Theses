@@ -13,6 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PauseView" customModule="SoundBoo" customModuleProvider="target">
             <connections>
+                <outlet property="btnNo" destination="saB-pU-1Ad" id="nDO-l3-psx"/>
+                <outlet property="btnYes" destination="a5v-Sl-WaQ" id="8Zg-my-6qZ"/>
                 <outlet property="contentView" destination="i5M-Pr-FkT" id="KcG-9z-eyv"/>
                 <outlet property="lblText" destination="cga-8K-h5A" id="NC3-a8-BVd"/>
             </connections>
@@ -31,20 +33,17 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="px0-Yc-klN">
                             <rect key="frame" x="45.5" y="76.5" width="272" height="102"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BACK TO MAIN MENU?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cga-8K-h5A">
-                                    <rect key="frame" x="0.0" y="0.0" width="272" height="24"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BACK TO MAIN MENU?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cga-8K-h5A">
+                                    <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
                                     <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="25"/>
                                     <color key="textColor" red="0.3803921569" green="0.31764705879999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Wlt-HF-kQd">
-                                    <rect key="frame" x="0.0" y="44" width="272" height="58"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Wlt-HF-kQd">
+                                    <rect key="frame" x="0.0" y="50" width="272" height="52"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-Sl-WaQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="130" height="58"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="a5v-Sl-WaQ" secondAttribute="height" multiplier="9:4" id="a84-H9-v04"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="52"/>
                                             <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="32"/>
                                             <state key="normal" title="YES" backgroundImage="button_archive_pop">
                                                 <color key="titleColor" red="0.3803921569" green="0.31764705879999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -54,10 +53,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saB-pU-1Ad">
-                                            <rect key="frame" x="142" y="0.0" width="130" height="58"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="saB-pU-1Ad" secondAttribute="height" multiplier="9:4" id="QWg-HS-HJl"/>
-                                            </constraints>
+                                            <rect key="frame" x="142" y="0.0" width="130" height="52"/>
                                             <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="32"/>
                                             <state key="normal" title="NO" backgroundImage="button_archive_pop">
                                                 <color key="titleColor" red="0.3803921569" green="0.31764705879999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -67,9 +63,6 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="saB-pU-1Ad" firstAttribute="width" secondItem="a5v-Sl-WaQ" secondAttribute="width" id="Pap-53-2cH"/>
-                                    </constraints>
                                 </stackView>
                             </subviews>
                         </stackView>
@@ -84,13 +77,14 @@
                         <constraint firstItem="px0-Yc-klN" firstAttribute="width" secondItem="iOd-4s-DyN" secondAttribute="width" multiplier="0.75" id="Xte-pT-YHP"/>
                         <constraint firstItem="px0-Yc-klN" firstAttribute="centerX" secondItem="iOd-4s-DyN" secondAttribute="centerX" id="f5v-Uz-k4E"/>
                         <constraint firstItem="LfJ-mA-pfX" firstAttribute="leading" secondItem="iOd-4s-DyN" secondAttribute="leading" id="h0l-0i-hu0"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="hT7-qh-3OE"/>
                         <constraint firstAttribute="bottom" secondItem="LfJ-mA-pfX" secondAttribute="bottom" id="t4a-BG-uPf"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="iOd-4s-DyN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="JNq-rV-UGY"/>
+                <constraint firstItem="iOd-4s-DyN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" priority="750" id="JNq-rV-UGY"/>
                 <constraint firstItem="iOd-4s-DyN" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="XJn-FS-wFd"/>
                 <constraint firstItem="iOd-4s-DyN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y6s-Fo-fQI"/>
             </constraints>
