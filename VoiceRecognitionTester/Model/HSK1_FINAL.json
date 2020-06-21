@@ -1,0 +1,1111 @@
+[
+    {
+        "Level": 1,
+        "Chinese": "你叫什么名字?",
+        "Pinyin": "nǐ jiào shénme míngzi?",
+        "English": "What is your name?",
+        "Words" : [
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "叫",
+                "Pinyin": "jiào",
+                "English": "Shout, Call, Order",
+            },
+            {
+                "Chinese": "什么",
+                "Pinyin": "shénme",
+                "English": "What, Something",
+            },
+            {
+                "Chinese": "名字",
+                "Pinyin": "míngzi",
+                "English": "Name",
+            }
+        ]
+    },
+    {
+        "Level": 1,
+        "Chinese": "你有什么爱好?",
+        "Pinyin": "nǐ yǒu shénme àihào?",
+        "English": "what are your hobbies?",
+        "Words" : [
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "有",
+                "Pinyin": "yǒu",
+                "English": "Have",
+            },
+            {
+                "Chinese": "什么",
+                "Pinyin": "shénme",
+                "English": "What, Something",
+            },
+            {
+                "Chinese": "爱好",
+                "Pinyin": "àihào",
+                "English": "Hobby, Interest",
+            }
+        ]
+    },
+    {
+        "Level": 1,
+        "Chinese": "喂，妈妈在家吗?",
+        "Pinyin": "wéi, māma zài jiā ma?",
+        "English": "Hello, is mom at home?",
+        "Words" : [
+            {
+                "Chinese": "喂",
+                "Pinyin": "wéi",
+                "English": "Hello (when answering the phone)",
+            },
+            {
+                "Chinese": "妈妈",
+                "Pinyin": "māma",
+                "English": "Mother",
+            },
+            {
+                "Chinese": "在",
+                "Pinyin": "zài",
+                "English": "In, At",
+            },
+            {
+                "Chinese": "家",
+                "Pinyin": "jiā",
+                "English": "Home, Family",
+            },
+            {
+                "Chinese": "吗",
+                "Pinyin": "ma",
+                "English": "(question particle for \"yes-no\" questions)",
+            }
+        ]
+    },
+    {
+        "Level": 2,
+        "Chinese": "你是哪国人?",
+        "Pinyin": "nǐ shì nǎ guó rén?",
+        "English": "Which country are you from?",
+        "Words" : [
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "是",
+                "Pinyin": "shì",
+                "English": "Be(is, am, are)",
+            },
+            {
+                "Chinese": "哪",
+                "Pinyin": "nǎ",
+                "English": "Which, What, Where",
+            },
+            {
+                "Chinese": "国",
+                "Pinyin": "guó",
+                "English": "Country, Nation, State",
+            },
+            {
+                "Chinese": "人",
+                "Pinyin": "rén",
+                "English": "Person, People",
+            }
+        ]
+    },
+    {
+        "Level": 2,
+        "Chinese": "我想喝一杯茶",
+        "Pinyin": "wǒ xiǎng hē yì bēi chá",
+        "English": "I want to drink a cup of tea",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "想",
+                "Pinyin": "xiǎng",
+                "English": "Want, Wish, Think",
+            },
+            {
+                "Chinese": "喝",
+                "Pinyin": "hē",
+                "English": "Drink",
+            },
+            {
+                "Chinese": "一杯",
+                "Pinyin": "yìbēi",
+                "English": "A glass(of), A cup(of)",
+            },
+            {
+                "Chinese": "茶",
+                "Pinyin": "chá",
+                "English": "Tea",
+            }
+        ]
+    },
+    {
+        "Level": 2,
+        "Chinese": "你爱吃什么水果?",
+        "Pinyin": "nǐ ài chī shénme shuǐguǒ?",
+        "English": "What fruit do you like to eat?",
+        "Words" : [
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "爱",
+                "Pinyin": "ài",
+                "English": "Love, like, Be fond of",
+            },
+            {
+                "Chinese": "吃",
+                "Pinyin": "chī",
+                "English": "Eat",
+            },
+            {
+                "Chinese": "什么",
+                "Pinyin": "shénme",
+                "English": "What, Something",
+            },
+            {
+                "Chinese": "水果",
+                "Pinyin": "shuǐguǒ",
+                "English": "Fruit",
+            }
+        ]
+    },
+    {
+        "Level": 3,
+        "Chinese": "我很喜欢这本书",
+        "Pinyin": "wǒ hěn xǐhuan zhèběnshū",
+        "English": "I like this book so much",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "很喜欢",
+                "Pinyin": "hěn xǐhuan",
+                "English": "Very like",
+            },
+            {
+                "Chinese": "这本书",
+                "Pinyin": "zhèběnshū",
+                "English": "This book",
+            }
+        ]
+    },
+    {
+        "Level": 3,
+        "Chinese": "先生, 这个苹果多少钱?",
+        "Pinyin": "xiānshēng, zhège píngguǒ duōshǎo qián?",
+        "English": "Sir, how much is this apple?",
+        "Words" : [
+            {
+                "Chinese": "先生",
+                "Pinyin": "xiānshēng",
+                "English": "Sir",
+            },
+            {
+                "Chinese": "这个",
+                "Pinyin": "zhège",
+                "English": "This",
+            },
+            {
+                "Chinese": "苹果",
+                "Pinyin": "píngguǒ",
+                "English": "Apple",
+            },
+            {
+                "Chinese": "多少",
+                "Pinyin": "duōshǎo",
+                "English": "How much/many",
+            },
+            {
+                "Chinese": "钱",
+                "Pinyin": "qián",
+                "English": "Money",
+            }
+        ]
+    },
+    {
+        "Level": 3,
+        "Chinese": "你的衣服很漂亮",
+        "Pinyin": "nǐ de yīfu hěn piàoliàng",
+        "English": "Your clothes are so beautiful",
+        "Words" : [
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": "~'s(possessive particle)",
+            },
+            {
+                "Chinese": "衣服",
+                "Pinyin": "yīfu",
+                "English": "Clothes",
+            },
+            {
+                "Chinese": "很漂亮",
+                "Pinyin": "hěn piàoliàng",
+                "English": "Very beautiful",
+            }
+        ]
+    },
+    {
+        "Level": 4,
+        "Chinese": "你看见爸爸的衣服了吗?",
+        "Pinyin": "nǐ kànjiàn bàba de yīfu le ma?",
+        "English": "Did you see Dad's clothes?",
+        "Words" : [
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "看见",
+                "Pinyin": "kànjiàn",
+                "English": "Catch sight of, See",
+            },
+            {
+                "Chinese": "爸爸",
+                "Pinyin": "bàba",
+                "English": "Father",
+            },
+            {
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": "~'s(possessive particle)",
+            },
+            {
+                "Chinese": "衣服",
+                "Pinyin": "yīfu",
+                "English": "Clothes",
+            },
+            {
+                "Chinese": "了",
+                "Pinyin": "le",
+                "English": "(completed action marker)",
+            },
+            {
+                "Chinese": "吗",
+                "Pinyin": "ma",
+                "English": "(question particle for \"yes-no\" questions)",
+            },
+        ]
+    },
+    {
+        "Level": 4,
+        "Chinese": "我朋友是老师",
+        "Pinyin": "wǒ péngyou shì lǎoshī",
+        "English": "My friend is a teacher",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "朋友",
+                "Pinyin": "péngyou",
+                "English": "Friend",
+            },
+            {
+                "Chinese": "是",
+                "Pinyin": "shì",
+                "English": "Be(is, am, are)",
+            },
+            {
+                "Chinese": "老师",
+                "Pinyin": "lǎoshī",
+                "English": "Teacher",
+            }
+        ]
+    },
+    {
+        "Level": 4,
+        "Chinese": "我儿子在大学读书",
+        "Pinyin": "wǒ érzi zài dàxué dúshū",
+        "English": "My son is studying at university",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "儿子",
+                "Pinyin": "érzi",
+                "English": "Son",
+            },
+            {
+                "Chinese": "在",
+                "Pinyin": "zài",
+                "English": "In, At",
+            },
+            {
+                "Chinese": "大学",
+                "Pinyin": "dàxué",
+                "English": "University",
+            },
+            {
+                "Chinese": "读书",
+                "Pinyin": "dúshū",
+                "English": "Read, Study",
+            }
+        ]
+    },
+    {
+        "Level": 4,
+        "Chinese": "看起来要下雨了",
+        "Pinyin": "kàn qǐlái yào xiàyǔ le",
+        "English": "looks like it's going to rain",
+        "Words" : [
+            {
+                "Chinese": "看",
+                "Pinyin": "kàn",
+                "English": "Look",
+            },
+            {
+                "Chinese": "起来",
+                "Pinyin": "qǐlái",
+                "English": "Get up, Rise",
+            },
+            {
+                "Chinese": "要",
+                "Pinyin": "yào",
+                "English": "Want, Wish",
+            },
+            {
+                "Chinese": "下雨",
+                "Pinyin": "xiàyǔ",
+                "English": "rain",
+            },
+            {
+                "Chinese": "了",
+                "Pinyin": "le",
+                "English": "(completed action marker)",
+            }
+        ]
+    },
+    {
+        "Level": 5,
+        "Chinese": "这是我的电影票",
+        "Pinyin": "zhèshì wǒ de diànyǐng piào",
+        "English": "This is my movie ticket",
+        "Words" : [
+            {
+                "Chinese": "这是",
+                "Pinyin": "zhèshì",
+                "English": "This is",
+            },
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": "~'s(possessive particle)",
+            },
+            {
+                "Chinese": "电影",
+                "Pinyin": "diànyǐng",
+                "English": "Movie",
+            },
+            {
+                "Chinese": "票",
+                "Pinyin": "piào",
+                "English": "Ticket",
+            }
+        ]
+    },
+    {
+        "Level": 5,
+        "Chinese": "你好！很高兴认识你",
+        "Pinyin": "nǐhāo! hěn gāoxìng rènshi nǐ",
+        "English": "Hi! So glad to know you",
+        "Words" : [
+            {
+                "Chinese": "你好",
+                "Pinyin": "nǐhǎo",
+                "English": "Hi, Hello, How are you",
+            },
+            {
+                "Chinese": "很高兴",
+                "Pinyin": "hěn gāoxìng",
+                "English": "So glad, So happy",
+            },
+            {
+                "Chinese": "认识你",
+                "Pinyin": "rènshi nǐ",
+                "English": "To know you, To recognize you",
+            }
+        ]
+    },
+    {
+        "Level": 5,
+        "Chinese": "他明天坐火车去学校",
+        "Pinyin": "tā míngtiān zuò huǒchē qù xuéxiào",
+        "English": "Tomorrow he goes to school by train",
+        "Words" : [
+            {
+                "Chinese": "他",
+                "Pinyin": "tā",
+                "English": "He, Him",
+            },
+            {
+                "Chinese": "明天",
+                "Pinyin": "míngtiān",
+                "English": "Tomorrow",
+            },
+            {
+                "Chinese": "坐",
+                "Pinyin": "zuò",
+                "English": "Sit",
+            },
+            {
+                "Chinese": "火车",
+                "Pinyin": "huǒchē",
+                "English": "Train",
+            },
+            {
+                "Chinese": "去",
+                "Pinyin": "qù",
+                "English": "Go, Go to",
+            },
+            {
+                "Chinese": "学校",
+                "Pinyin": "xuéxiào",
+                "English": "School",
+            }
+        ]
+    },
+    {
+        "Level": 5,
+        "Chinese": "他上午在学校学习",
+        "Pinyin": "tā shàngwǔ zài xuéxiào xuéxí",
+        "English": "He studies at school in the morning",
+        "Words" : [
+            {
+                "Chinese": "他",
+                "Pinyin": "tā",
+                "English": "He, Him",
+            },
+            {
+                "Chinese": "上午",
+                "Pinyin": "shàngwǔ",
+                "English": "Morning",
+            },
+            {
+                "Chinese": "在",
+                "Pinyin": "zài",
+                "English": "In, At",
+            },
+            {
+                "Chinese": "学校",
+                "Pinyin": "xuéxiào",
+                "English": "School",
+            },
+            {
+                "Chinese": "学习",
+                "Pinyin": "xuéxí",
+                "English": "Study, Learn",
+            }
+        ]
+    },
+    {
+        "Level": 5,
+        "Chinese": "前天下雨了，很冷",
+        "Pinyin": "qiántiān xiàyǔ le, hěn lěng",
+        "English": "It rained 2 days ago, very cold",
+        "Words" : [
+            
+            {
+                "Chinese": "前天",
+                "Pinyin": "qiántiān",
+                "English": "The day before yesterday",
+            },
+            {
+                "Chinese": "下雨",
+                "Pinyin": "xiàyǔ",
+                "English": "Rain",
+            },
+            {
+                "Chinese": "了",
+                "Pinyin": "le",
+                "English": "(Completed action marker)",
+            },
+            {
+                "Chinese": "很冷",
+                "Pinyin": "hěn lěng",
+                "English": "Very cold",
+            }
+        ]
+    },
+    {
+        "Level": 6,
+        "Chinese": "后天我想吃中国菜",
+        "Pinyin": "hòutiān wǒ xiǎng chī zhōngguócài",
+        "English": "I want to eat Chinese cuisine the day after tomorrow",
+        "Words" : [
+            {
+                "Chinese": "后天",
+                "Pinyin": "hòutiān",
+                "English": "Day after tomorrow",
+            },
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "想",
+                "Pinyin": "xiǎng",
+                "English": "Want, Wish, Think",
+            },
+            {
+                "Chinese": "吃",
+                "Pinyin": "chī",
+                "English": "Eat",
+            },
+            {
+                "Chinese": "中国菜",
+                "Pinyin": "zhōngguócài",
+                "English": "Chinese cuisine",
+            }
+        ]
+    },
+    {
+        "Level": 6,
+        "Chinese": "我会说汉语，我能写一些汉子",
+        "Pinyin": "wǒ huì shuō hànyǔ, wǒ néng xiě yìxiē hànzì",
+        "English": "I can speak Chinese, I can write a little Chinese characters",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "会",
+                "Pinyin": "huì",
+                "English": "Can",
+            },
+            {
+                "Chinese": "说",
+                "Pinyin": "shuō",
+                "English": "Speak",
+            },
+            {
+                "Chinese": "汉语",
+                "Pinyin": "hànyǔ",
+                "English": "Chinese(language)",
+            },
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "能",
+                "Pinyin": "néng",
+                "English": "Can",
+            },
+            {
+                "Chinese": "写",
+                "Pinyin": "xiě",
+                "English": "Write",
+            },
+            {
+                "Chinese": "一些",
+                "Pinyin": "yìxiē",
+                "English": "Some, A few, A number of",
+            },
+            {
+                "Chinese": "汉子",
+                "Pinyin": "hànzì",
+                "English": "Chinese character",
+            }
+            
+        ]
+    },
+    {
+        "Level": 6,
+        "Chinese": "他在医院工作，是个医院",
+        "Pinyin": "tā zài yīyuàn gōngzuò, shì gè yīshēng",
+        "English": "He works at hospital, he is a doctor",
+        "Words" : [
+            {
+                "Chinese": "他",
+                "Pinyin": "tā",
+                "English": "He, Him",
+            },
+            {
+                "Chinese": "在",
+                "Pinyin": "zài",
+                "English": "In, At",
+            },
+            {
+                "Chinese": "医院",
+                "Pinyin": "yīyuàn",
+                "English": "Hospital",
+            },
+            {
+                "Chinese": "工作",
+                "Pinyin": "gōngzuò",
+                "English": "Work, Job",
+            },
+            {
+                "Chinese": "是",
+                "Pinyin": "shì",
+                "English": "Be(am, is, are)",
+            },
+            {
+                "Chinese": "个",
+                "Pinyin": "gè",
+                "English": "One, A, An",
+            },
+            {
+                "Chinese": "医院",
+                "Pinyin": "yīshēng",
+                "English": "Doctor",
+            }
+        ]
+    },
+    {
+        "Level": 6,
+        "Chinese": "下个月，我的同学去北京",
+        "Pinyin": "xià ge yuè, wǒ de tóngxué qù běijīng",
+        "English": "Next month, my classmates will go to Beijing",
+        "Words" : [
+            {
+                "Chinese": "下个月",
+                "Pinyin": "xià ge yuè",
+                "English": "Next month",
+            },
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": "~'s(possessive particle)",
+            },
+            {
+                "Chinese": "同学",
+                "Pinyin": "tóngxué",
+                "English": "Classmate",
+            },
+            {
+                "Chinese": "去",
+                "Pinyin": "qù",
+                "English": "Go, Go to",
+            },
+            {
+                "Chinese": "北京",
+                "Pinyin": "běijīng",
+                "English": "Beijing",
+            }
+        ]
+    },
+    {
+        "Level": 6,
+        "Chinese": "可以少一点儿吗?",
+        "Pinyin": "kěyǐ shǎo yīdiǎn er ma?",
+        "English": "Could you give me a discount please?",
+        "Words" : [
+            {
+                "Chinese": "可以",
+                "Pinyin": "kěyǐ",
+                "English": "Can, May, Possible",
+            },
+            {
+                "Chinese": "少",
+                "Pinyin": "shǎo",
+                "English": "Few, Little",
+            },
+            {
+                "Chinese": "一点儿",
+                "Pinyin": "yīdiǎn er",
+                "English": "A bit, A little",
+            },
+            {
+                "Chinese": "吗",
+                "Pinyin": "ma",
+                "English": "(question particle for \"yes-no\" questions)",
+            }
+        ]
+    },
+    {
+        "Level": 6,
+        "Chinese": "我有一个女儿， 今年四岁了",
+        "Pinyin": "wǒ yǒu yí ge nǚér, jīnnián sì suì le",
+        "English": "I have a daughter, this year she will turn 4 years old",
+        "Words" : [
+            
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "有",
+                "Pinyin": "yǒu",
+                "English": "have",
+            },
+            {
+                "Chinese": "一个",
+                "Pinyin": "yíge",
+                "English": "One, A, An",
+            },
+            {
+                "Chinese": "女儿",
+                "Pinyin": "nǚér",
+                "English": "Daughter",
+            },
+            {
+                "Chinese": "今年",
+                "Pinyin": "jīnnián",
+                "English": "This Year",
+            },
+            {
+                "Chinese": "四岁",
+                "Pinyin": "sìsuì",
+                "English": "4 years old",
+            },
+            {
+                "Chinese": "了",
+                "Pinyin": "le",
+                "English": "(completed action marker)",
+            }
+        ]
+    },
+    {
+        "Level": 7,
+        "Chinese": "欢迎光临，请问几位?",
+        "Pinyin": "huānyíngguānglín, qǐngwèn jǐwèi?",
+        "English": "Welcome! How many people?",
+        "Words" : [
+            {
+                "Chinese": "欢迎光临",
+                "Pinyin": "huānyíngguānglín",
+                "English": "Welcome",
+            },
+            {
+                "Chinese": "请问",
+                "Pinyin": "qǐngwèn",
+                "English": "May I ask",
+            },
+            {
+                "Chinese": "几位",
+                "Pinyin": "jǐwèi",
+                "English": "How many people",
+            }
+        ]
+    },
+    {
+        "Level": 7,
+        "Chinese": "不好意思，请问你会说英文吗?",
+        "Pinyin": "bùhǎoyìsi, qǐngwèn nǐ huì shuō yīngwén ma",
+        "English": "Excuse me, do you speak English?",
+        "Words" : [
+            {
+                "Chinese": "不好",
+                "Pinyin": "bùhāo",
+                "English": "No good",
+            },
+            {
+                "Chinese": "意思",
+                "Pinyin": "yìsi",
+                "English": "Meaning, Idea",
+            },
+            {
+                "Chinese": "请问",
+                "Pinyin": "qǐngwèn",
+                "English": "May I ask",
+            },
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "会",
+                "Pinyin": "huì",
+                "English": "Can",
+            },
+            {
+                "Chinese": "说",
+                "Pinyin": "shuō",
+                "English": "Speak",
+            },
+            {
+                "Chinese": "英文",
+                "Pinyin": "yīngwén",
+                "English": "English",
+            },
+            {
+                "Chinese": "吗",
+                "Pinyin": "ma",
+                "English": "(question particle for \"yes-no\" questions)",
+            }
+        ]
+    },
+    {
+        "Level": 7,
+        "Chinese": "我的生日是四月八号",
+        "Pinyin": "wǒ de shēngrì shì sìyuè bāhào",
+        "English": "My birthday is the 8th of April",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": "~'s(possessive particle)",
+            },
+            {
+                "Chinese": "生日",
+                "Pinyin": "shēngrì",
+                "English": "Birthday",
+            },
+            {
+                "Chinese": "是",
+                "Pinyin": "shì",
+                "English": "Be(am, is, are)",
+            },
+            {
+                "Chinese": "四月",
+                "Pinyin": "sìyuè",
+                "English": "April",
+            },
+            {
+                "Chinese": "八号",
+                "Pinyin": "bāhào",
+                "English": "The 8th",
+            }
+        ]
+    },
+    {
+        "Level": 7,
+        "Chinese": "今天下午我去商店，我想买一些水果",
+        "Pinyin": "jīntiān xiàwǔ wǒ qù shāngdiàn, wǒ xiǎng mǎi yìxiē shuǐguǒ",
+        "English": "This afternoon I will go to the store, I want to buy some fruits",
+        "Words" : [
+            {
+                "Chinese": "今天",
+                "Pinyin": "jīntiān",
+                "English": "Today",
+            },
+            {
+                "Chinese": "下午",
+                "Pinyin": "xiàwǔ",
+                "English": "Afternoon",
+            },
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "去",
+                "Pinyin": "qù",
+                "English": "Go, Go to",
+            },
+            {
+                "Chinese": "商店",
+                "Pinyin": "shāngdiàn",
+                "English": "Shop, Store",
+            },
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "想",
+                "Pinyin": "xiǎng",
+                "English": "Want, Wish, Think",
+            },
+            {
+                "Chinese": "买",
+                "Pinyin": "mǎi",
+                "English": "Buy, Purchase",
+            },
+            {
+                "Chinese": "一些",
+                "Pinyin": "yìxiē",
+                "English": "Some, A few, A number of",
+            },
+            {
+                "Chinese": "水果",
+                "Pinyin": "shuǐgoǔ",
+                "English": "Fruit",
+            }
+        ]
+    },
+    {
+        "Level": 7,
+        "Chinese": "对不起，我今天不能和你去看医生了",
+        "Pinyin": "duìbùqǐ, wǒ jīntiān bùnéng hé nǐ qù kàn yīshēng le",
+        "English": "Sorry, today I cannot go with you to see a doctor",
+        "Words" : [
+            {
+                "Chinese": "对不起",
+                "Pinyin": "duìbùqǐ",
+                "English": "Sorry, Excuse me",
+            },
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "今天",
+                "Pinyin": "jīntiān",
+                "English": "Today",
+            },
+            {
+                "Chinese": "不能",
+                "Pinyin": "bùnéng",
+                "English": "Cannot, Should not",
+            },
+            {
+                "Chinese": "和",
+                "Pinyin": "hé",
+                "English": "And",
+            },
+            {
+                "Chinese": "你",
+                "Pinyin": "nǐ",
+                "English": "You",
+            },
+            {
+                "Chinese": "去",
+                "Pinyin": "qù",
+                "English": "Go, Go to",
+            },
+            {
+                "Chinese": "看医生",
+                "Pinyin": "kàn yīshēng",
+                "English": "see a doctor",
+            },
+            {
+                "Chinese": "了",
+                "Pinyin": "le",
+                "English": "(completed action marker)",
+            }
+        ]
+    },
+    {
+        "Level": 7,
+        "Chinese": "我七点半去火车站，十点前回来",
+        "Pinyin": "wǒ qīdiǎnbàn qù huǒchēzhàn, shídiǎn qián huílái",
+        "English": "I go to the train station at half past seven, I'll be back before ten o'clock",
+        "Words" : [
+            {
+                "Chinese": "我",
+                "Pinyin": "wǒ",
+                "English": "I, Me",
+            },
+            {
+                "Chinese": "七点半",
+                "Pinyin": "qīdiǎnbàn",
+                "English": "7:30",
+            },
+            {
+                "Chinese": "去",
+                "Pinyin": "qù",
+                "English": "Go, Go to",
+            },
+            {
+                "Chinese": "火车站",
+                "Pinyin": "huǒchēzhàn",
+                "English": "Train Station",
+            },
+            {
+                "Chinese": "十点",
+                "Pinyin": "shídiǎn",
+                "English": "10:00",
+            },
+            {
+                "Chinese": "前",
+                "Pinyin": "qián",
+                "English": "Front, Before",
+            },
+            {
+                "Chinese": "回来",
+                "Pinyin": "huílái",
+                "English": "Return, Come back",
+            }
+        ]
+    },
+    {
+        "Level": 8,
+        "Chinese": "四是四，十是十，十四是十四",
+        "Pinyin": "sì shì sì，shí shì shí, shí sì shì shí sì",
+        "English": "four is four, ten is ten, fourteen is fourteen",
+        "Words" : [
+            {
+                "Chinese": "四是四",
+                "Pinyin": "sì shì sì",
+                "English": "four is four",
+            },
+            {
+                "Chinese": "十是十",
+                "Pinyin": "shí shì shí",
+                "English": "ten is ten",
+            },
+            {
+                "Chinese": "十四是十四",
+                "Pinyin": "shí sì shì shí sì",
+                "English": "fourteen is fourteen",
+            }
+        ]
+    },
+    {
+        "Level": 8,
+        "Chinese": "四十是四十，四十四只石狮子是死的",
+        "Pinyin": "sì shí shì sì shí, sì shí sì zhī shí shī zi shì sǐ de",
+        "English": "forty is forty, forty four stone lions are dead",
+        "Words" : [
+            {
+                "Chinese": "四十是四十",
+                "Pinyin": "sì shí shì sì shí",
+                "English": "forty is forty",
+            },
+            {
+                "Chinese": "四十四只石狮子是死的",
+                "Pinyin": "sì shí sì zhī shí shī zi shì sǐ de",
+                "English": "forty four stone lions are dead",
+            }
+        ]
+    }
+]
