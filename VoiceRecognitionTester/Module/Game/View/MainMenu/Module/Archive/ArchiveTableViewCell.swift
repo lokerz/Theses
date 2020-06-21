@@ -30,7 +30,7 @@ class ArchiveTableViewCell: UITableViewCell {
         self.lblEnglish.text = word.English
         self.lblHanzi.text = word.Chinese
         
-        self.progress = WordManager.instance.archivedWords[word.Chinese] ?? 10
+        self.progress = WordManager.instance.archivedWords[word.Chinese] ?? 0
         self.progress = self.progress > 25 ? 25 : self.progress
         self.progressLabel.text = "\(progress)/25"
         self.progressBar.progress = Float(progress) / 25
