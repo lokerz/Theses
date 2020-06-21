@@ -966,7 +966,7 @@
             },
             {
                 "Chinese": "水果",
-                "Pinyin": "shuǐgoǔ",
+                "Pinyin": "shuǐguǒ",
                 "English": "Fruit",
             }
         ]
@@ -1023,47 +1023,46 @@
                 "English": "(completed action marker)",
             }
         ]
-    },
-    {
+    }, {
         "Level": 7,
-        "Chinese": "我七点半去火车站，十点前回来",
-        "Pinyin": "wǒ qīdiǎnbàn qù huǒchēzhàn, shídiǎn qián huílái",
-        "English": "I go to the train station at half past seven, I'll be back before ten o'clock",
+        "Chinese": "北京的出租车很贵，我们坐火车去吧",
+        "Pinyin": "běijīng de chūzūchē hěn guì, wǒmen zuò huǒchē qù ba",
+        "English": "Taxis in Beijing are expensive, let's take the train",
         "Words" : [
             {
-                "Chinese": "我",
-                "Pinyin": "wǒ",
-                "English": "I, Me",
+                "Chinese": "北京",
+                "Pinyin": "běijīng",
+                "English": "Beijing",
             },
             {
-                "Chinese": "七点半",
-                "Pinyin": "qīdiǎnbàn",
-                "English": "7:30",
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": "~'s(possessive particle)",
             },
             {
-                "Chinese": "去",
-                "Pinyin": "qù",
-                "English": "Go, Go to",
+                "Chinese": "出租车",
+                "Pinyin": "chūzūchē",
+                "English": "Taxi",
             },
             {
-                "Chinese": "火车站",
-                "Pinyin": "huǒchēzhàn",
-                "English": "Train Station",
+                "Chinese": "很贵",
+                "Pinyin": "hěnguì",
+                "English": "Very expensive",
             },
             {
-                "Chinese": "十点",
-                "Pinyin": "shídiǎn",
-                "English": "10:00",
+                "Chinese": "我们",
+                "Pinyin": "wǒmen",
+                "English": "We, Us",
             },
             {
-                "Chinese": "前",
-                "Pinyin": "qián",
-                "English": "Front, Before",
+                "Chinese": "坐火车",
+                "Pinyin": "zuò huǒchē qù",
+                "English": "Go by train",
             },
             {
-                "Chinese": "回来",
-                "Pinyin": "huílái",
-                "English": "Return, Come back",
+                "Chinese": "吧",
+                "Pinyin": "ba",
+                "English": "(indicating a suggestion)",
             }
         ]
     }

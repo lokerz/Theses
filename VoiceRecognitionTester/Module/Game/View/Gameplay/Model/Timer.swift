@@ -10,7 +10,7 @@ import UIKit
 
 class TimerManager {
     static var shared = TimerManager()
-    let TIME_OUT        = 5.0
+    let TIME_OUT        = 8.0
     let TIME_OUT_LONG   = 20.0
     
     var set_method : ((Float) -> Void)?
