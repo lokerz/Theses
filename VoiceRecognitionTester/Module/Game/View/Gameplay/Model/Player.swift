@@ -23,6 +23,7 @@ class Player {
     }
     
     func attacked(){
+        guard !isDead else {return}
         health -= 1
         update?(health)
         checkHP()
