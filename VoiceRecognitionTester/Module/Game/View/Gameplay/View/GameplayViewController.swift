@@ -23,7 +23,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     
     var bossSpawned = false
     var isKillBoss  = false
-        
+    
     convenience init(level : Int) {
         self.init()
         self.level = level
@@ -37,7 +37,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     override func viewDidAppear(_ animated: Bool) {
         self.askCameraPermission()
     }
-        
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -47,24 +47,24 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     
     func askCameraPermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
-            case .authorized: // The user has previously granted access to the camera.
-                self.setupScene()
+        case .authorized: // The user has previously granted access to the camera.
+            self.setupScene()
             
-            case .notDetermined: // The user has not yet been asked for camera access.
-                AVCaptureDevice.requestAccess(for: .video) { granted in
-                    if granted {
-                        self.setupScene()
-                    }
+        case .notDetermined: // The user has not yet been asked for camera access.
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
+                    self.setupScene()
                 }
-
-            case .denied: // The user has previously denied access.
-                return
-
-            case .restricted: // The user can't grant access due to restrictions.
-                return
+            }
             
-            @unknown default :
-                return
+        case .denied: // The user has previously denied access.
+            return
+            
+        case .restricted: // The user can't grant access due to restrictions.
+            return
+            
+        @unknown default :
+            return
         }
     }
     
@@ -84,9 +84,6 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         configuration.planeDetection = .horizontal
         configuration.isLightEstimationEnabled = true
         configuration.isCollaborationEnabled = multiplayer
-        if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
-            configuration.frameSemantics.insert(.personSegmentationWithDepth)
-        }
         
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
@@ -130,9 +127,9 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         guard let lastTransform = self.lastTransform else {return}
         let anchor = ARAnchor(name: "Boss", transform: lastTransform)
         self.bossAnchor = anchor
-        self.sceneView?.session.add(anchor: anchor)
-        self.bossSpawned = true
         DispatchQueue.main.async {
+            self.sceneView?.session.add(anchor: anchor)
+            self.bossSpawned = true
             self.coachingView?.removeFromSuperview()
         }
     }
@@ -146,7 +143,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
             if let planeAnchor = anchor as? ARPlaneAnchor,
                 let planeNode = node.childNodes.first,
                 let plane = planeNode.geometry as? SCNPlane {
-                    plane.width = CGFloat(planeAnchor.extent.x)
+                plane.width = CGFloat(planeAnchor.extent.x)
                 plane.height = CGFloat(planeAnchor.extent.z)
                 planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
             }
@@ -168,10 +165,10 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         }
         
         if let name = anchor.name, name.hasPrefix("Boss") {
-            node.addChildNode(Boss.shared.spawnBoss())
-            Boss.shared.level = self.level
-            Boss.shared.spawned {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                node.addChildNode(Boss.shared.spawnBoss())
+                Boss.shared.level = self.level
+                Boss.shared.spawned {
                     self.setupUI()
                 }
             }
