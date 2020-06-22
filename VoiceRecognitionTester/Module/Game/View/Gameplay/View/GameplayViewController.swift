@@ -84,7 +84,9 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         configuration.planeDetection = .horizontal
         configuration.isLightEstimationEnabled = true
         configuration.isCollaborationEnabled = multiplayer
-        configuration.frameSemantics.insert(.personSegmentationWithDepth)
+        if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
+            configuration.frameSemantics.insert(.personSegmentationWithDepth)
+        }
         
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         

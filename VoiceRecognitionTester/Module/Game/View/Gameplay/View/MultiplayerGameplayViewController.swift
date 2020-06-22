@@ -173,7 +173,7 @@ class MultiplayerGameplayViewController: GameplayViewController {
                 let configuration = ARWorldTrackingConfiguration()
                 configuration.planeDetection = .horizontal
                 configuration.initialWorldMap = worldMap
-                if #available(iOS 13.0, *) {
+                if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
                     configuration.frameSemantics.insert(.personSegmentationWithDepth)
                 }
                 sceneView?.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
