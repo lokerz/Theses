@@ -34,7 +34,7 @@ class TimerManager {
     }
     
     func reset(){
-        self.timeRemaining = isCritical ? TIME_OUT_LONG : TIME_OUT
+        self.timer.invalidate()
         reset_method?()
     }
     

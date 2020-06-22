@@ -280,6 +280,7 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         }
         
         timeManager.done_method = {
+            guard !self.isSpeaking else {return}
             self.btnHint.isEnabled = false
             self.timeManager.stop()
             self.voiceManager.stop()
@@ -399,8 +400,8 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
             self.timeManager.stop()
             self.voiceManager.stop()
             self.btnHint.isEnabled = false
+            self.isSpeaking = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){ self.speechManager.speak(text: text)
-                self.isSpeaking = true
             }
         }
         
@@ -414,8 +415,8 @@ class GameplayUIView: UIView, VoiceRecognitionDelegate {
         speechManager.done_method = {
             self.isSpeaking = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                self.timeManager.reset()
-                self.gameManager.resume?()
+                self.timeManager.start(critical: self.isSentence)
+                self.voiceManager.record()
                 self.hintManager.check()
             }
         }
