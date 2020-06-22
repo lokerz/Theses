@@ -35,11 +35,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        #if !targetEnvironment(simulator)
-        self.setupScene()
-        #else
-        self.setupUI()
-        #endif
+        self.askCameraPermission()
     }
         
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,16 +45,40 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         sceneView?.session.pause()
     }
     
+    func askCameraPermission() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .authorized: // The user has previously granted access to the camera.
+                self.setupScene()
+            
+            case .notDetermined: // The user has not yet been asked for camera access.
+                AVCaptureDevice.requestAccess(for: .video) { granted in
+                    if granted {
+                        self.setupScene()
+                    }
+                }
+
+            case .denied: // The user has previously denied access.
+                return
+
+            case .restricted: // The user can't grant access due to restrictions.
+                return
+            
+            @unknown default :
+                return
+        }
+    }
+    
     func setupScene(multiplayer : Bool = false){
         self.sceneView = ARSCNView(frame: self.view.frame)
-        self.view.addSubview(self.sceneView!)
+        guard let sceneView = sceneView else {return}
+        self.view.addSubview(sceneView)
         
         let scene = SCNScene()
-        sceneView?.scene = scene
-        sceneView?.delegate = self
-        sceneView?.session.delegate = self
-        sceneView?.automaticallyUpdatesLighting = true
-        sceneView?.autoenablesDefaultLighting = true
+        sceneView.scene = scene
+        sceneView.delegate = self
+        sceneView.session.delegate = self
+        sceneView.automaticallyUpdatesLighting = true
+        sceneView.autoenablesDefaultLighting = true
         
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
@@ -66,11 +86,11 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         configuration.isCollaborationEnabled = multiplayer
         configuration.frameSemantics.insert(.personSegmentationWithDepth)
         
-        sceneView?.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
         self.coachingView = ARCoachingOverlayView(frame: self.view.frame)
         guard let coachingView = self.coachingView else { return }
-        coachingView.session = sceneView?.session
+        coachingView.session = sceneView.session
         coachingView.activatesAutomatically = true
         coachingView.goal = .horizontalPlane
         self.view.addSubview(coachingView)
@@ -108,8 +128,8 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         guard let lastTransform = self.lastTransform else {return}
         let anchor = ARAnchor(name: "Boss", transform: lastTransform)
         self.bossAnchor = anchor
-        sceneView?.session.add(anchor: anchor)
-        bossSpawned = true
+        self.sceneView?.session.add(anchor: anchor)
+        self.bossSpawned = true
         DispatchQueue.main.async {
             self.coachingView?.removeFromSuperview()
         }
