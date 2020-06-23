@@ -49,7 +49,16 @@ class SpeechManager: NSObject, AVSpeechSynthesizerDelegate {
         let category : AVAudioSession.Category = state ? .playback : .record
         do {
             try audioSession.setCategory(category)
-//            try audioSession.setActive(!state , options: .notifyOthersOnDeactivation)
+            //            try audioSession.setActive(!state , options: .notifyOthersOnDeactivation)
+        } catch (let error){
+            print("audiosession error", error)
+        }
+    }
+    
+    func setAudioOff(){
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(false , options: .notifyOthersOnDeactivation)
         } catch (let error){
             print("audiosession error", error)
         }
