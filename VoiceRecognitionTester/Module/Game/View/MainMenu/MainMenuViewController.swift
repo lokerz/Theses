@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import ARKit
 
 class MainMenuViewController: BaseViewController {
-
+    @IBOutlet weak var btnMulti: UIButton!
+    
+    override func viewDidLoad() {
+        self.btnMulti.isEnabled = ARConfiguration.isSupported
+    }
+    
     @IBAction func actionSingle(_ sender: Any) {
         SoundManager.shared.play()
         let vc = SinglePlayerViewController()

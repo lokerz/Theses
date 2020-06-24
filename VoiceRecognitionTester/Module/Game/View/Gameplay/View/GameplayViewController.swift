@@ -38,7 +38,11 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.askCameraPermission()
+        if ARConfiguration.isSupported {
+            self.askCameraPermission()
+        } else {
+            self.setupRestrictedScene()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,14 +66,27 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
                 }
             }
             
-        case .denied: // The user has previously denied access.
-            return
-            
-        case .restricted: // The user can't grant access due to restrictions.
+        case .denied, .restricted: // The user has previously denied access.
+            self.setupRestrictedScene()
             return
             
         @unknown default :
+            self.setupRestrictedScene()
             return
+        }
+    }
+    
+    func setupRestrictedScene(){
+        let sceneView = SCNView(frame: self.view.frame)
+        let scene = SCNScene(named: "3DAssets.scnassets/World.scn")
+        sceneView.scene = scene
+        sceneView.delegate = self
+        sceneView.allowsCameraControl = true
+        scene?.rootNode.addChildNode(Boss.shared.spawnBoss())
+        self.view.addSubview(sceneView)
+        Boss.shared.level = self.level
+        Boss.shared.spawned {
+            self.setupUI()
         }
     }
     
