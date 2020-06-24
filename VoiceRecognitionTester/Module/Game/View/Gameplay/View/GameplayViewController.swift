@@ -31,6 +31,9 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     @IBAction func actionDismiss(_ sender: Any) {
+        VoiceRecognitionManager.instance.stop()
+        SpeechManager.shared.stop()
+        SpeechManager.shared.setAudioOff()
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -53,7 +56,9 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         case .notDetermined: // The user has not yet been asked for camera access.
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
-                    self.setupScene()
+                    DispatchQueue.main.async {
+                        self.setupScene()
+                    }
                 }
             }
             
@@ -100,7 +105,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         guard let gameUI = gameUI else {return}
         gameUI.level = self.level
         gameUI.stopAction = {
-            self.navigationController?.popViewController(animated: true)
+            self.actionDismiss(self)
         }
         gameUI.nextLevelAction = {
             self.level += 1

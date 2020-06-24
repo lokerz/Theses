@@ -13,7 +13,7 @@
             {
                 "Chinese": "叫",
                 "Pinyin": "jiào",
-                "English": "Shout, Call, Order",
+                "English": "Shout/Call/Order",
             },
             {
                 "Chinese": "什么",
@@ -58,12 +58,12 @@
     {
         "Level": 1,
         "Chinese": "喂，妈妈在家吗?",
-        "Pinyin": "wéi, māma zài jiā ma?",
+        "Pinyin": "wèi, māma zài jiā ma?",
         "English": "Hello, is mom at home?",
         "Words" : [
             {
                 "Chinese": "喂",
-                "Pinyin": "wéi",
+                "Pinyin": "wèi",
                 "English": "Hello (when answering the phone)",
             },
             {
@@ -91,7 +91,7 @@
     {
         "Level": 2,
         "Chinese": "你是哪国人?",
-        "Pinyin": "nǐ shì nǎ guó rén?",
+        "Pinyin": "nǐ shì nǎ guórén?",
         "English": "Which country are you from?",
         "Words" : [
             {
@@ -213,12 +213,12 @@
     {
         "Level": 3,
         "Chinese": "先生, 这个苹果多少钱?",
-        "Pinyin": "xiānshēng, zhège píngguǒ duōshǎo qián?",
+        "Pinyin": "xiānsheng, zhège píngguǒ duōshao qián?",
         "English": "Sir, how much is this apple?",
         "Words" : [
             {
                 "Chinese": "先生",
-                "Pinyin": "xiānshēng",
+                "Pinyin": "xiānsheng",
                 "English": "Sir",
             },
             {
@@ -233,7 +233,7 @@
             },
             {
                 "Chinese": "多少",
-                "Pinyin": "duōshǎo",
+                "Pinyin": "duōshao",
                 "English": "How much/many",
             },
             {
@@ -316,8 +316,8 @@
     },
     {
         "Level": 4,
-        "Chinese": "我朋友是老师",
-        "Pinyin": "wǒ péngyou shì lǎoshī",
+        "Chinese": "我的朋友是老师",
+        "Pinyin": "wǒ de péngyou shì lǎoshī",
         "English": "My friend is a teacher",
         "Words" : [
             {
@@ -325,6 +325,12 @@
                 "Pinyin": "wǒ",
                 "English": "I, Me",
             },
+            {
+                "Chinese": "的",
+                "Pinyin": "de",
+                "English": "~'s(possessive particle",
+            },
+
             {
                 "Chinese": "朋友",
                 "Pinyin": "péngyou",
@@ -389,7 +395,7 @@
             {
                 "Chinese": "起来",
                 "Pinyin": "qǐlái",
-                "English": "Get up, Rise",
+                "English": "(Grammar complement)",
             },
             {
                 "Chinese": "要",
@@ -537,15 +543,15 @@
     },
     {
         "Level": 5,
-        "Chinese": "前天下雨了，很冷",
-        "Pinyin": "qiántiān xiàyǔ le, hěn lěng",
-        "English": "It rained 2 days ago, very cold",
+        "Chinese": "昨天下雨了，现在天气有点儿冷",
+        "Pinyin": "zuótiān xiàyǔ le, xiànzài tiānqì yǒu diǎn er lěng",
+        "English": "It rained yesterday, it’s a bit cold now",
         "Words" : [
             
             {
-                "Chinese": "前天",
-                "Pinyin": "qiántiān",
-                "English": "The day before yesterday",
+                "Chinese": "昨天",
+                "Pinyin": "zuótiān",
+                "English": "Yesterday",
             },
             {
                 "Chinese": "下雨",
@@ -558,9 +564,24 @@
                 "English": "(Completed action marker)",
             },
             {
-                "Chinese": "很冷",
-                "Pinyin": "hěn lěng",
-                "English": "Very cold",
+                "Chinese": "现在",
+                "Pinyin": "xiànzài",
+                "English": "Now",
+            },
+            {
+                "Chinese": "天气",
+                "Pinyin": "tiānqì",
+                "English": "Weather",
+            },
+            {
+                "Chinese": "有点儿",
+                "Pinyin": "yǒu diǎn er",
+                "English": "Somewhat, Rather",
+            },
+            {
+                "Chinese": "冷",
+                "Pinyin": "lěng",
+                "English": "Cold",
             }
         ]
     },
@@ -599,9 +620,9 @@
     },
     {
         "Level": 6,
-        "Chinese": "我会说汉语，我能写一些汉子",
+        "Chinese": "我会说汉语，也能写一些汉字",
         "Pinyin": "wǒ huì shuō hànyǔ, wǒ néng xiě yìxiē hànzì",
-        "English": "I can speak Chinese, I can write a little Chinese characters",
+        "English": "I can speak Chinese, I can also write a little Chinese characters",
         "Words" : [
             {
                 "Chinese": "我",
@@ -624,9 +645,9 @@
                 "English": "Chinese(language)",
             },
             {
-                "Chinese": "我",
-                "Pinyin": "wǒ",
-                "English": "I, Me",
+                "Chinese": "也",
+                "Pinyin": "yě",
+                "English": "Too",
             },
             {
                 "Chinese": "能",
@@ -644,19 +665,34 @@
                 "English": "Some, A few, A number of",
             },
             {
-                "Chinese": "汉子",
+                "Chinese": "汉字",
                 "Pinyin": "hànzì",
                 "English": "Chinese character",
             }
-            
+
         ]
     },
     {
         "Level": 6,
-        "Chinese": "他在医院工作，是个医院",
-        "Pinyin": "tā zài yīyuàn gōngzuò, shì gè yīshēng",
-        "English": "He works at hospital, he is a doctor",
+        "Chinese": "他是医生，他在医院工作",
+        "Pinyin": "tā shì yīshēng, tā zài yīyuàn gōngzùo",
+        "English": "He is a doctor, he works at hospital",
         "Words" : [
+            {
+                "Chinese": "他",
+                "Pinyin": "tā",
+                "English": "He, Him",
+            },
+            {
+                "Chinese": "是",
+                "Pinyin": "shì",
+                "English": "Be(am, is, are)",
+            },
+            {
+                "Chinese": "医院",
+                "Pinyin": "yīshēng",
+                "English": "Doctor",
+            },
             {
                 "Chinese": "他",
                 "Pinyin": "tā",
@@ -676,21 +712,6 @@
                 "Chinese": "工作",
                 "Pinyin": "gōngzuò",
                 "English": "Work, Job",
-            },
-            {
-                "Chinese": "是",
-                "Pinyin": "shì",
-                "English": "Be(am, is, are)",
-            },
-            {
-                "Chinese": "个",
-                "Pinyin": "gè",
-                "English": "One, A, An",
-            },
-            {
-                "Chinese": "医院",
-                "Pinyin": "yīshēng",
-                "English": "Doctor",
             }
         ]
     },
@@ -734,8 +755,8 @@
     },
     {
         "Level": 6,
-        "Chinese": "可以少一点儿吗?",
-        "Pinyin": "kěyǐ shǎo yīdiǎn er ma?",
+        "Chinese": "可以便宜一点儿吗?",
+        "Pinyin": "kěyǐ píanyi yīdiǎn er ma?",
         "English": "Could you give me a discount please?",
         "Words" : [
             {
@@ -744,9 +765,9 @@
                 "English": "Can, May, Possible",
             },
             {
-                "Chinese": "少",
-                "Pinyin": "shǎo",
-                "English": "Few, Little",
+                "Chinese": "便宜",
+                "Pinyin": "píanyi",
+                "English": "Cheap",
             },
             {
                 "Chinese": "一点儿",
@@ -806,8 +827,8 @@
     },
     {
         "Level": 7,
-        "Chinese": "欢迎光临，请问几位?",
-        "Pinyin": "huānyíngguānglín, qǐngwèn jǐwèi?",
+        "Chinese": "欢迎光临，请问一共几位?",
+        "Pinyin": "huānyíngguānglín, qǐngwèn yīgòng jǐwèi?",
         "English": "Welcome! How many people?",
         "Words" : [
             {
@@ -819,6 +840,11 @@
                 "Chinese": "请问",
                 "Pinyin": "qǐngwèn",
                 "English": "May I ask",
+            },
+            {
+                "Chinese": "一共",
+                "Pinyin": "yīgòng",
+                "English": "Altogether",
             },
             {
                 "Chinese": "几位",
@@ -966,7 +992,7 @@
             },
             {
                 "Chinese": "水果",
-                "Pinyin": "shuǐguǒ",
+                "Pinyin": "shuǐgoǔ",
                 "English": "Fruit",
             }
         ]
@@ -1023,7 +1049,8 @@
                 "English": "(completed action marker)",
             }
         ]
-    }, {
+    },
+    {
         "Level": 7,
         "Chinese": "北京的出租车很贵，我们坐火车去吧",
         "Pinyin": "běijīng de chūzūchē hěn guì, wǒmen zuò huǒchē qù ba",
