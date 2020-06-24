@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ARKit
 
 class SinglePlayerViewController: BaseViewController {
 
@@ -29,10 +30,12 @@ class SinglePlayerViewController: BaseViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
+        self.collectionView.isHidden = true
     }
 
     func updateCellSize(){
         self.collectionView.reloadData()
+        self.collectionView.isHidden = false
     }
 }
 
@@ -58,12 +61,43 @@ extension SinglePlayerViewController : UICollectionViewDelegate, UICollectionVie
         cell.updateSize()
         cell.btnLevel.isEnabled = LevelManager.shared.lock_status[indexPath.row]
         cell.action = {
-            SoundManager.shared.play()
-            let vc = GameplayViewController(level: level)
-            self.navigationController?.pushViewController(vc, animated: true)
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .authorized: // The user has previously granted access to the camera.
+                self.openLevel(authorized: true, level: level)
+            case .notDetermined: // The user has not yet been asked for camera access.
+                AVCaptureDevice.requestAccess(for: .video) { granted in
+                    if granted {
+                        self.openLevel(authorized: true, level: level)
+                    } else {
+                        self.openLevel(authorized: false, level: level)
+                    }
+                }
+                
+            case .denied, .restricted: // The user has previously denied access.
+                self.openLevel(authorized: false, level: level)
+                return
+                
+            @unknown default :
+                self.openLevel(authorized: false, level: level)
+                return
+            }
         }
+        
         cell.prepareForReuse()
         return cell
+    }
+    
+    func openLevel(authorized: Bool, level: Int){
+        SoundManager.shared.play()
+        DispatchQueue.main.async {
+            if ARConfiguration.isSupported && authorized{
+                let vc = GameplayViewController(level: level)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                let vc = NonARGameplayViewController(level: level)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     

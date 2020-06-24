@@ -38,11 +38,7 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if ARConfiguration.isSupported {
-            self.askCameraPermission()
-        } else {
-            self.setupRestrictedScene()
-        }
+        self.setupScene()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,44 +46,6 @@ class GameplayViewController: UIViewController, ARSCNViewDelegate, ARSessionDele
         
         // Pause the view's AR session.
         sceneView?.session.pause()
-    }
-    
-    func askCameraPermission() {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized: // The user has previously granted access to the camera.
-            self.setupScene()
-            
-        case .notDetermined: // The user has not yet been asked for camera access.
-            AVCaptureDevice.requestAccess(for: .video) { granted in
-                if granted {
-                    DispatchQueue.main.async {
-                        self.setupScene()
-                    }
-                }
-            }
-            
-        case .denied, .restricted: // The user has previously denied access.
-            self.setupRestrictedScene()
-            return
-            
-        @unknown default :
-            self.setupRestrictedScene()
-            return
-        }
-    }
-    
-    func setupRestrictedScene(){
-        let sceneView = SCNView(frame: self.view.frame)
-        let scene = SCNScene(named: "3DAssets.scnassets/World.scn")
-        sceneView.scene = scene
-        sceneView.delegate = self
-        sceneView.allowsCameraControl = true
-        scene?.rootNode.addChildNode(Boss.shared.spawnBoss())
-        self.view.addSubview(sceneView)
-        Boss.shared.level = self.level
-        Boss.shared.spawned {
-            self.setupUI()
-        }
     }
     
     func setupScene(multiplayer : Bool = false){
