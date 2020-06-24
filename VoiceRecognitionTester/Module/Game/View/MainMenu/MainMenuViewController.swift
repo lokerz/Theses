@@ -13,6 +13,7 @@ class MainMenuViewController: BaseViewController {
     @IBOutlet weak var btnMulti: UIButton!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.btnMulti.isEnabled = ARConfiguration.isSupported
     }
     
